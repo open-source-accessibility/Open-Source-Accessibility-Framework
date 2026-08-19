@@ -50,13 +50,13 @@ jobs:
             const badgeMarkdown = '${{ steps.project.outputs.badge_markdown }}';
 
             const comment = `
-Your project is officially registered with the Open Source Accessibility Framework. We’re so happy you joined us.
+              Your project is officially registered with the Open Source Accessibility Framework. We're so happy you joined us.
 
-This issue will be used to track your progress and public accountability commitments. Please feel free to add this badge in your project repo to let others know about your progress:
+              This issue will be used to track your progress and public accountability commitments. Please feel free to add this badge in your project repo to let others know about your progress:
 
-${badgeMarkdown}
+              ${badgeMarkdown}
 
-You can also share this issue with your community to show your accessibility roadmap and updates.
+              You can also share this issue with your community to show your accessibility roadmap and updates.
             `.trim();
 
             await github.rest.issues.createComment({
