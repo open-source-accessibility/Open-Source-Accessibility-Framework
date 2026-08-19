@@ -13,12 +13,11 @@ on:
 permissions:
   contents: read
   issues: read
-  projects: write
 
 jobs:
   sync-project-fields:
     runs-on: ubuntu-latest
-    if: startsWith(github.event.issue.title, '[Open Source Accessibility Framework]')
+    if: ${{ github.event_name == 'workflow_dispatch' || startsWith(github.event.issue.title, '[Open Source Accessibility Framework]') }}
     steps:
       - name: Map issue form answers to project fields
         uses: actions/github-script@v7
@@ -27,7 +26,7 @@ jobs:
           script: |
             let issue;
             if (context.eventName === 'workflow_dispatch') {
-              const issueNumber = Number(core.getInput('issue_number') || '${{ github.event.inputs.issue_number }}' || '1');
+              const issueNumber = Number(core.getInput('issue_number') || '1');
               const repo = context.repo.repo;
               const owner = context.repo.owner;
               const response = await github.rest.issues.get({ owner, repo, issue_number: issueNumber });
