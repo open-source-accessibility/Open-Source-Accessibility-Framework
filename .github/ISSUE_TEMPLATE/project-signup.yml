@@ -1,0 +1,67 @@
+---
+name: "Open Source Accessibility Framework project signup"
+description: Sign up a project to participate in the Open Source Accessibility Framework.
+# IMPORTANT: Do not add or change labels when creating an issue from this form.
+# Adding your own labels can break the workflow action trigger that runs follow-up automation.
+title: "[Open Source Accessibility Framework] <project name>"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for your interest in the Open Source Accessibility Framework.
+
+        This framework uses a public accountability model, not private certification. Your project's tracking issue and accessibility progress will be publicly visible.
+
+  - type: input
+    id: project-name
+    attributes:
+      label: "Project name"
+      description: "What is the name of the project signing up for the framework?"
+      placeholder: "Example: Accessible component library"
+    validations:
+      required: true
+
+  - type: input
+    id: project-repository
+    attributes:
+      label: "Project repository"
+      description: "Provide the URL of the project's source code repository."
+      placeholder: "https://github.com/organization/repository"
+    validations:
+      required: true
+
+  - type: input
+    id: project-url
+    attributes:
+      label: "Project URL"
+      description: "If applicable, provide the URL of the live product or project website."
+      placeholder: "https://example.com"
+    validations:
+      required: false
+
+  - type: input
+    id: maintainer-poc
+    attributes:
+      label: "Maintainer point of contact"
+      description: "Provide the GitHub handle of the maintainer who will be the primary point of contact."
+      placeholder: "@username"
+    validations:
+      required: true
+
+  - type: textarea
+    id: goals
+    attributes:
+      label: "Accessibility goals"
+      description: "What does the project hope to accomplish by participating in the Open Source Accessibility Framework?"
+      placeholder: "Describe the accessibility outcomes, improvements, or practices your project plans to pursue."
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: public-accountability-confirmation
+    attributes:
+      label: "Public accountability confirmation"
+      description: "Participation requires public tracking so that the project's accessibility work and progress are visible to the community."
+      options:
+        - label: "I confirm that the project maintainers agree to a public tracking issue and publicly visible progress as part of this accountability model."
+          required: true
