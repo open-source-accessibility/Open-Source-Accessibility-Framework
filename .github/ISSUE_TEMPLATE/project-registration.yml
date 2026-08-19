@@ -1,9 +1,11 @@
 ---
-name: "Open Source Accessibility Framework project signup"
+name: "Open Source Accessibility Framework project registration"
 description: Sign up a project to participate in the Open Source Accessibility Framework.
 # IMPORTANT: Do not add or change labels when creating an issue from this form.
 # Adding your own labels can break the workflow action trigger that runs follow-up automation.
 title: "[Open Source Accessibility Framework] <project name>"
+labels:
+  - registered
 body:
   - type: markdown
     attributes:
