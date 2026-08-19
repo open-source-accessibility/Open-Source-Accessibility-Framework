@@ -77,6 +77,7 @@ jobs:
                     id
                     fields(first: 100) {
                       nodes {
+                        __typename
                         ... on ProjectV2FieldCommon {
                           id
                           name
@@ -95,7 +96,9 @@ jobs:
             }
 
             const fieldIds = Object.fromEntries(
-              (project.fields.nodes || []).map(field => [field.name, field.id])
+              (project.fields.nodes || [])
+                .filter(field => field.__typename !== 'ProjectV2RepositoryField')
+                .map(field => [field.name, field.id])
             );
 
             const itemQuery = await github.graphql(`
