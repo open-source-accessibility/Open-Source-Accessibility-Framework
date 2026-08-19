@@ -39,7 +39,7 @@ jobs:
 
             const fieldMap = {
               'Project name': 'project-name',
-              'Repository': 'project-repository',
+              'Repository URL': 'project-repository',
               'Project URL': 'project-url',
               'Maintainer POC': 'maintainer-poc',
               'Accessibility goals': 'goals',
