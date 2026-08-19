@@ -1,0 +1,171 @@
+name: Sync project registration to GitHub Project
+
+on:
+  issues:
+    types: [opened, edited, reopened]
+  workflow_dispatch:
+    inputs:
+      issue_number:
+        description: 'Issue number to sync to the project (for testing existing issues)'
+        required: true
+        default: '1'
+
+permissions:
+  contents: read
+  issues: read
+
+jobs:
+  sync-project-fields:
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'workflow_dispatch' || startsWith(github.event.issue.title, '[Open Source Accessibility Framework]') }}
+    steps:
+      - name: Map issue form answers to project fields
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.PROJECTS_TOKEN || secrets.GITHUB_TOKEN }}
+          script: |
+            let issue;
+            if (context.eventName === 'workflow_dispatch') {
+              const issueNumber = Number(core.getInput('issue_number') || '1');
+              const repo = context.repo.repo;
+              const owner = context.repo.owner;
+              const response = await github.rest.issues.get({ owner, repo, issue_number: issueNumber });
+              issue = response.data;
+            } else {
+              issue = context.payload.issue;
+            }
+
+            const body = issue.body || '';
+
+            const fieldMap = {
+              'Project name': 'project-name',
+              'Repository': 'project-repository',
+              'Project URL': 'project-url',
+              'Maintainer POC': 'maintainer-poc',
+              'Accessibility goals': 'goals',
+              'Public accountability confirmed': 'public-accountability-confirmation'
+            };
+
+            function parseMarkdownField(bodyText, label) {
+              const match = bodyText.match(new RegExp(`###\\s*${label}\\s*\\n+([\\s\\S]*?)(?=\\n###\\s*|\\n*$)`, 'i'));
+              if (!match) return '';
+              return match[1].trim().replace(/^\s*[-*]\s*/, '').replace(/\n+/g, ' ').replace(/\s+/g, ' ').trim();
+            }
+
+            function parseCheckbox(bodyText, label) {
+              const match = bodyText.match(new RegExp(`-\\s*\\[(x|X| )\\]\\s*${label}.*`, 'i'));
+              if (!match) return '';
+              return match[1].toLowerCase() === 'x' ? 'Yes' : 'No';
+            }
+
+            const values = {
+              'project-name': parseMarkdownField(body, 'Project name'),
+              'project-repository': parseMarkdownField(body, 'Project repository'),
+              'project-url': parseMarkdownField(body, 'Project URL'),
+              'maintainer-poc': parseMarkdownField(body, 'Maintainer point of contact'),
+              'goals': parseMarkdownField(body, 'Accessibility goals'),
+              'public-accountability-confirmation': parseCheckbox(body, 'I confirm that the project maintainers agree to a public tracking issue and publicly visible progress as part of this accountability model.')
+            };
+
+            const projectOwner = 'open-source-accessibility';
+            const projectNumber = 1;
+
+            const projectData = await github.graphql(`
+              query($owner: String!, $number: Int!) {
+                organization(login: $owner) {
+                  projectV2(number: $number) {
+                    id
+                    fields(first: 100) {
+                      nodes {
+                        ... on ProjectV2FieldCommon {
+                          id
+                          name
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            `, { owner: projectOwner, number: projectNumber });
+
+            const project = projectData.organization?.projectV2;
+            if (!project) {
+              core.setFailed(`Project ${projectOwner}/${projectNumber} was not found.`);
+              return;
+            }
+
+            const fieldIds = Object.fromEntries(
+              (project.fields.nodes || []).map(field => [field.name, field.id])
+            );
+
+            const itemQuery = await github.graphql(`
+              query($projectId: ID!) {
+                node(id: $projectId) {
+                  ... on ProjectV2 {
+                    items(first: 100) {
+                      nodes {
+                        id
+                        content {
+                          ... on Issue {
+                            id
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            `, { projectId: project.id });
+
+            let itemId = (itemQuery.node?.items?.nodes || []).find(
+              node => node.content && node.content.id === issue.node_id
+            )?.id;
+
+            if (!itemId) {
+              const createResult = await github.graphql(`
+                mutation($projectId: ID!, $contentId: ID!) {
+                  addProjectV2ItemById(input: {projectId: $projectId, contentId: $contentId}) {
+                    item {
+                      id
+                    }
+                  }
+                }
+              `, {
+                projectId: project.id,
+                contentId: issue.node_id
+              });
+
+              itemId = createResult.addProjectV2ItemById.item.id;
+            }
+
+            const entries = Object.entries(fieldMap)
+              .filter(([projectFieldName]) => fieldIds[projectFieldName])
+              .map(([projectFieldName, issueKey]) => ({
+                fieldId: fieldIds[projectFieldName],
+                value: values[issueKey]
+              }))
+              .filter(entry => entry.value && entry.value.trim() !== '');
+
+            for (const entry of entries) {
+              await github.graphql(`
+                mutation($projectId: ID!, $itemId: ID!, $fieldId: ID!, $value: ProjectV2FieldValue!) {
+                  updateProjectV2ItemFieldValue(input: {
+                    projectId: $projectId,
+                    itemId: $itemId,
+                    fieldId: $fieldId,
+                    value: $value
+                  }) {
+                    projectV2Item {
+                      id
+                    }
+                  }
+                }
+              `, {
+                projectId: project.id,
+                itemId,
+                fieldId: entry.fieldId,
+                value: { text: entry.value }
+              });
+            }
+
+            core.info(`Synced issue #${issue.number} to project ${projectOwner}/${projectNumber}`);
