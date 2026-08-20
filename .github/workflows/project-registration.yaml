@@ -17,7 +17,7 @@ permissions:
 jobs:
   welcome-comment:
     runs-on: ubuntu-latest
-    if: startsWith(github.event.issue.title, '[Open Source Accessibility Framework]')
+    if: ${{ github.event_name == 'workflow_dispatch' || startsWith(github.event.issue.title, '[Open Source Accessibility Framework]') }}
     steps:
       - name: Get project name and build badge
         id: project
@@ -25,7 +25,19 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const issue = context.payload.issue;
+            let issue;
+            if (context.eventName === 'workflow_dispatch') {
+              const issueNumber = Number(core.getInput('issue_number') || '1');
+              const response = await github.rest.issues.get({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issueNumber
+              });
+              issue = response.data;
+            } else {
+              issue = context.payload.issue;
+            }
+
             const body = issue.body || '';
 
             function getFieldValue(label) {
