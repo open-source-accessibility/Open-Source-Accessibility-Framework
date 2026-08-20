@@ -42,15 +42,16 @@ Accessibility is an ongoing practice. Projects should start with achievable impr
 
 The program can be organized as a set of implementation phases: 
 
-* **Foundational actions**: make accessibility visible and create a clear reporting path 
-* **Workflow actions**: integrate accessibility into issues, pull requests, and contribution practices 
-* **Testing actions**: add automated and manual checks practices
-* **Community actions**: improve responsiveness, documentation, and contributor participation 
+* **[Foundational phase](/framework/phases/foundational-phase.md)**: make accessibility visible and create a clear reporting path 
+* **[Workflow phase](/framework/phases/workflow-phase.md)**: integrate accessibility into issues, pull requests, and contribution practices 
+* **[Testing phase](/framework/phases/testing-phase.md)**: add automated and manual checks practices
+* **[Community phase](/framework/phases/community-phase.md)**: improve responsiveness, documentation, and contributor participation 
 
 This keeps the focus on action and progress, not hierarchy. 
 
 This phased approach prioritizes progress over perfection without lowering accessibility expectations. Each phase should produce meaningful, trackable improvements, document remaining barriers, and maintain accountability for addressing them.
 
+You can track yoour progress in the [Open Source Accessibility Framework registered projects board](https://github.com/orgs/open-source-accessibility/projects/1)
 
 ## How we would track progress 
 
