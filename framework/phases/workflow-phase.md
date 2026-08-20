@@ -23,7 +23,6 @@ Makes project information usable for everyone.
 - Images, diagrams, and videos have appropriate alternatives or supporting text.
 - Tables and code blocks are presented accessibly.
 
-
 ### 2. Design accessible interfaces
 
 #### Why it matters
@@ -35,7 +34,6 @@ Helps prevent common accessibility issues from being introduced in the first pla
 1. Review the [accessible interface design practices](https://opensource.guide/accessibility-best-practices-for-your-project/#design-accessible-interfaces).
 2. Ensure the [contributor requirements](https://github.com/open-source-accessibility/accessibility-toolkit/blob/main/ACCESSIBILITY.md#contributor-requirements) include checks for keyboard and screen reader support, such as visible focus states, clear labels, and other project-relevant requirements.
 3. Apply the checks when creating or updating interfaces.
-
 
 #### Definition of done
 
@@ -131,7 +129,6 @@ Helps teams identify and address accessibility issues more efficiently while ens
 1. Review the [guidance on leveraging GitHub Copilot for accessibility](https://opensource.guide/accessibility-best-practices-for-your-project/#leverage-github-copilot).
 2. If applicable, add accessibility custom instructions.
 3. If applicable, create specialized AI agents or prompts for appropriate accessibility tasks.
-
 
 #### Definition of done
 

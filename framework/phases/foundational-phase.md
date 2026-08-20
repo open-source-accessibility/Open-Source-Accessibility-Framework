@@ -20,7 +20,6 @@ Creates lightweight public accountability and gives the community a place to fol
 4. Submit the issue.
 5. Add the [framework participation message](framework/framework-participation-message.md) to your project's `README.md` and include a link to the public tracking issue.
 
-
 #### Definition of done
 
 - The registration issue is submitted for your project.
@@ -40,7 +39,6 @@ Gives users and contributors a clear place to find accessibility information and
 3. Document the project’s accessibility commitment statement, goals, contributor requirements, and supported environments.
 4. Commit the file and make it available in the default branch.
 
-
 #### Definition of done
 
 - `ACCESSIBILITY.md` exists in the repository.
@@ -51,7 +49,6 @@ Gives users and contributors a clear place to find accessibility information and
 #### Why it matters
 
 Makes accessibility information easy to find.
-
 
 #### Steps
 
@@ -67,7 +64,6 @@ Makes accessibility information easy to find.
 #### Why it matters
 
 Makes accessibility work visible, searchable, and trackable.
-
 
 #### Steps
 
@@ -85,7 +81,6 @@ Makes accessibility work visible, searchable, and trackable.
 #### Why it matters
 
 Improves report quality and supports consistent triage.
-
 
 #### Steps
 
