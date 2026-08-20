@@ -62,7 +62,19 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const issue = context.payload.issue;
+            let issue;
+            if (context.eventName === 'workflow_dispatch') {
+              const issueNumber = Number(core.getInput('issue_number') || '1');
+              const response = await github.rest.issues.get({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issueNumber
+              });
+              issue = response.data;
+            } else {
+              issue = context.payload.issue;
+            }
+
             const projectName = '${{ steps.project.outputs.project_name }}';
             const issueUrl = '${{ steps.project.outputs.issue_url }}';
             const badgeMarkdown = '${{ steps.project.outputs.badge_markdown }}';
