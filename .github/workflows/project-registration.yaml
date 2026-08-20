@@ -50,7 +50,7 @@ jobs:
             const issueUrl = issue.html_url;
 
             const safeName = encodeURIComponent(projectName).replace(/%20/g, '%20');
-            const badgeUrl = `https://img.shields.io/badge/Open%20Source%20Accessibility%20Framework-${safeName}-C20F7B?logo=github`;
+            const badgeUrl = `https://img.shields.io/badge/Open%20Source%20Accessibility%20Framework-${safeName}-F143AB?logo=github&logoColor=000000`;
 
             core.setOutput('project_name', projectName);
             core.setOutput('issue_url', issueUrl);
