@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
     inputs:
       issue_number:
-        description: 'Issue number to sync to the project (for testing existing issues)'
+        description: 'Issue number to sync to the project'
         required: true
         default: '1'
 

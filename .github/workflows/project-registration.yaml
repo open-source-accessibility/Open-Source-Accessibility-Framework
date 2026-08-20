@@ -3,6 +3,12 @@ name: Welcome new project registration
 on:
   issues:
     types: [opened, reopened]
+  workflow_dispatch:
+    inputs:
+      issue_number:
+        description: 'Issue number to comment on.'
+        required: true
+        default: '1'
 
 permissions:
   issues: write
