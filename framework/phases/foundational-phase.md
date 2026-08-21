@@ -37,7 +37,7 @@ This action creates lightweight public accountability and gives the community a 
 2. Provide the project name, repository URL, project URL, maintainer point of contact, and accessibility goals.
 3. Confirm that the project agrees to public tracking.
 4. Submit the issue.
-5. Include a link to the public tracking issue in your project by adding the [framework participation message](framework/framework-participation-message.md) and/or the accessibility framework pill badge to your `README.md`.
+5. Include a link to the public tracking issue in your project by adding the [framework participation message](/framework/supporting/framework-participation-message.md) and/or the accessibility framework pill badge to your `README.md`.
 
 ### 2. Document the project’s accessibility commitment
 
