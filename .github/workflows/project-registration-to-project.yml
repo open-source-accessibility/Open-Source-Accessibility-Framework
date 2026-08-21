@@ -50,7 +50,13 @@ jobs:
             };
 
             function parseMarkdownField(bodyText, label) {
-              const match = bodyText.match(new RegExp(`###\\s*${label}\\s*\\n+([\\s\\S]*?)(?=\\n###\\s*|\\n*$)`, 'i'));
+              const escapedLabel = label.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+              const match = bodyText.match(
+                new RegExp(
+                  `^###[ \\t]+${escapedLabel}[ \\t]*\\r?\\n([\\s\\S]*?)(?=^###[ \\t]+|(?![\\s\\S]))`,
+                  'im'
+                )
+              );
               if (!match) return '';
               return match[1].trim().replace(/^\s*[-*]\s*/, '').replace(/\n+/g, ' ').replace(/\s+/g, ' ').trim();
             }
