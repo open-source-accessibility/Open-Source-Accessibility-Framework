@@ -71,6 +71,10 @@ jobs:
             };
 
             function parseGitHubHandles(value) {
+              if (!value.trim()) {
+                return [];
+              }
+
               const handles = value
                 .split(/[\s,]+/)
                 .map(handle => handle
@@ -82,18 +86,15 @@ jobs:
                 )
                 .filter(Boolean);
 
-              if (
-                handles.length === 0 ||
-                handles.some(handle => !/^[a-z\d](?:[a-z\d-]{0,37}[a-z\d])?$/i.test(handle))
-              ) {
-                return [];
+              if (handles.some(handle => !/^[a-z\d](?:[a-z\d-]{0,37}[a-z\d])?$/i.test(handle))) {
+                return null;
               }
 
               return [...new Set(handles)];
             }
 
             const maintainerLogins = parseGitHubHandles(values['maintainer-poc']);
-            if (maintainerLogins.length === 0) {
+            if (maintainerLogins === null) {
               core.setFailed('The Maintainer point of contact must contain one or more valid GitHub usernames.');
               return;
             }
@@ -101,7 +102,7 @@ jobs:
             const previousBody = context.payload.changes?.body?.from || '';
             const previousMaintainerLogins = parseGitHubHandles(
               parseMarkdownField(previousBody, 'Maintainer point of contact')
-            );
+            ) || [];
             const currentAssignees = new Set(
               (issue.assignees || []).map(assignee => assignee.login.toLowerCase())
             );
@@ -117,6 +118,9 @@ jobs:
                 assignees: removedMaintainers
               });
               removedMaintainers.forEach(login => currentAssignees.delete(login));
+              core.info(
+                `Removed former maintainer ${removedMaintainers.map(login => `@${login}`).join(', ')} from issue #${issue.number}.`
+              );
             }
 
             const newMaintainers = maintainerLogins.filter(login => !currentAssignees.has(login));
