@@ -8,11 +8,10 @@ on:
       issue_number:
         description: 'Issue number to sync to the project'
         required: true
-        default: '1'
 
 permissions:
   contents: read
-  issues: read
+  issues: write
 
 jobs:
   sync-project-fields:
@@ -26,7 +25,11 @@ jobs:
           script: |
             let issue;
             if (context.eventName === 'workflow_dispatch') {
-              const issueNumber = Number(core.getInput('issue_number') || '1');
+              const issueNumber = Number(context.payload.inputs?.issue_number);
+              if (!Number.isInteger(issueNumber) || issueNumber < 1) {
+                core.setFailed('Issue number must be a positive integer.');
+                return;
+              }
               const repo = context.repo.repo;
               const owner = context.repo.owner;
               const response = await github.rest.issues.get({ owner, repo, issue_number: issueNumber });
@@ -47,7 +50,13 @@ jobs:
             };
 
             function parseMarkdownField(bodyText, label) {
-              const match = bodyText.match(new RegExp(`###\\s*${label}\\s*\\n+([\\s\\S]*?)(?=\\n###\\s*|\\n*$)`, 'i'));
+              const escapedLabel = label.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+              const match = bodyText.match(
+                new RegExp(
+                  `^###[ \\t]+${escapedLabel}[ \\t]*\\r?\\n([\\s\\S]*?)(?=^###[ \\t]+|(?![\\s\\S]))`,
+                  'im'
+                )
+              );
               if (!match) return '';
               return match[1].trim().replace(/^\s*[-*]\s*/, '').replace(/\n+/g, ' ').replace(/\s+/g, ' ').trim();
             }
@@ -66,6 +75,84 @@ jobs:
               'goals': parseMarkdownField(body, 'Accessibility goals'),
               'public-accountability-confirmation': parseCheckbox(body, 'I confirm that the project maintainers agree to a public tracking issue and publicly visible progress as part of this accountability model.')
             };
+
+            function parseGitHubHandles(value) {
+              if (!value.trim()) {
+                return [];
+              }
+
+              const handles = value
+                .split(/[\s,]+/)
+                .map(handle => handle
+                  .trim()
+                  .replace(/^https?:\/\/github\.com\//i, '')
+                  .replace(/^@/, '')
+                  .replace(/\/$/, '')
+                  .toLowerCase()
+                )
+                .filter(Boolean);
+
+              if (handles.some(handle => !/^[a-z\d](?:[a-z\d-]{0,37}[a-z\d])?$/i.test(handle))) {
+                return null;
+              }
+
+              return [...new Set(handles)];
+            }
+
+            const maintainerLogins = parseGitHubHandles(values['maintainer-poc']);
+            if (maintainerLogins === null) {
+              core.setFailed('The Maintainer POC must contain one or more valid GitHub usernames.');
+              return;
+            }
+
+            const previousBody = context.payload.changes?.body?.from || '';
+            const previousMaintainerLogins = parseGitHubHandles(
+              parseMarkdownField(previousBody, 'Maintainer point of contact')
+            ) || [];
+            const currentAssignees = new Set(
+              (issue.assignees || []).map(assignee => assignee.login.toLowerCase())
+            );
+            const removedAssignees = maintainerLogins.length === 0
+              ? [...currentAssignees]
+              : previousMaintainerLogins.filter(
+                  login => !maintainerLogins.includes(login) && currentAssignees.has(login)
+                );
+
+            if (removedAssignees.length > 0) {
+              await github.rest.issues.removeAssignees({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                assignees: removedAssignees
+              });
+              removedAssignees.forEach(login => currentAssignees.delete(login));
+              core.info(
+                `Unassigned ${removedAssignees.map(login => `@${login}`).join(', ')} from issue #${issue.number}.`
+              );
+            }
+
+            const newMaintainers = maintainerLogins.filter(login => !currentAssignees.has(login));
+            if (newMaintainers.length > 0) {
+              const assignment = await github.rest.issues.addAssignees({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                assignees: newMaintainers
+              });
+              const assignedLogins = new Set(
+                (assignment.data.assignees || []).map(assignee => assignee.login.toLowerCase())
+              );
+              const unassignedMaintainers = maintainerLogins.filter(
+                login => !assignedLogins.has(login)
+              );
+
+              if (unassignedMaintainers.length > 0) {
+                core.setFailed(
+                  `Unable to assign ${unassignedMaintainers.map(login => `@${login}`).join(', ')} to issue #${issue.number}.`
+                );
+                return;
+              }
+            }
 
             const projectOwner = 'open-source-accessibility';
             const projectNumber = 1;
@@ -168,6 +255,27 @@ jobs:
                 itemId,
                 fieldId: entry.fieldId,
                 value: { text: entry.value }
+              });
+            }
+
+            const maintainerFieldId = fieldIds['Maintainer POC'];
+            if (maintainerLogins.length === 0 && maintainerFieldId) {
+              await github.graphql(`
+                mutation($projectId: ID!, $itemId: ID!, $fieldId: ID!) {
+                  clearProjectV2ItemFieldValue(input: {
+                    projectId: $projectId,
+                    itemId: $itemId,
+                    fieldId: $fieldId
+                  }) {
+                    projectV2Item {
+                      id
+                    }
+                  }
+                }
+              `, {
+                projectId: project.id,
+                itemId,
+                fieldId: maintainerFieldId
               });
             }
 
