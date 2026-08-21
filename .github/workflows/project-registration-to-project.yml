@@ -12,7 +12,7 @@ on:
 
 permissions:
   contents: read
-  issues: read
+  issues: write
 
 jobs:
   sync-project-fields:
@@ -66,6 +66,62 @@ jobs:
               'goals': parseMarkdownField(body, 'Accessibility goals'),
               'public-accountability-confirmation': parseCheckbox(body, 'I confirm that the project maintainers agree to a public tracking issue and publicly visible progress as part of this accountability model.')
             };
+
+            function normalizeGitHubHandle(value) {
+              const handle = value
+                .trim()
+                .replace(/^https?:\/\/github\.com\//i, '')
+                .replace(/^@/, '')
+                .replace(/\/$/, '')
+                .toLowerCase();
+
+              return /^[a-z\d](?:[a-z\d-]{0,37}[a-z\d])?$/i.test(handle) ? handle : '';
+            }
+
+            const maintainerLogin = normalizeGitHubHandle(values['maintainer-poc']);
+            if (!maintainerLogin) {
+              core.setFailed('The Maintainer point of contact must contain one valid GitHub username.');
+              return;
+            }
+
+            const previousBody = context.payload.changes?.body?.from || '';
+            const previousMaintainerLogin = normalizeGitHubHandle(
+              parseMarkdownField(previousBody, 'Maintainer point of contact')
+            );
+            const currentAssignees = new Set(
+              (issue.assignees || []).map(assignee => assignee.login.toLowerCase())
+            );
+
+            if (
+              previousMaintainerLogin &&
+              previousMaintainerLogin !== maintainerLogin &&
+              currentAssignees.has(previousMaintainerLogin)
+            ) {
+              await github.rest.issues.removeAssignees({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                assignees: [previousMaintainerLogin]
+              });
+              currentAssignees.delete(previousMaintainerLogin);
+            }
+
+            if (!currentAssignees.has(maintainerLogin)) {
+              const assignment = await github.rest.issues.addAssignees({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                assignees: [maintainerLogin]
+              });
+              const assignedLogins = new Set(
+                (assignment.data.assignees || []).map(assignee => assignee.login.toLowerCase())
+              );
+
+              if (!assignedLogins.has(maintainerLogin)) {
+                core.setFailed(`Unable to assign @${maintainerLogin} to issue #${issue.number}.`);
+                return;
+              }
+            }
 
             const projectOwner = 'open-source-accessibility';
             const projectNumber = 1;
