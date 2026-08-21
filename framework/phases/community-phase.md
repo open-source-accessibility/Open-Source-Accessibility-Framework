@@ -7,14 +7,16 @@ In this phase, projects build trust and shared ownership by responding construct
 ### Phase overview
 This phase has **6 total actions** with **20 total tasks** to complete.
 
-| Action | Number of tasks |
-| :--- | ---: |
-| [Action 1](#1-respond-respectfully-to-accessibility-issues): Respond respectfully to accessibility issues | 4 |
-| [Action 2](#2-publish-accessibility-progress-updates): Publish accessibility progress updates | 3 |
-| [Action 3](#3-invite-community-help-on-accessibility-work): Invite community help on accessibility work | 4 |
-| [Action 4](#4-use-accessible-collaboration-tools): Use accessible collaboration tools | 3 |
-| [Action 5](#5-share-reusable-accessibility-resources): Share reusable accessibility resources | 3 |
-| [Action 6](#6-recognize-accessibility-contributions-publicly): Recognize accessibility contributions publicly | 3 |
+| Action | Number of tasks | Typical initial effort |
+| :--- | ---: | :--- |
+| [Action 1](#1-respond-respectfully-to-accessibility-issues): Respond respectfully to accessibility issues | 4 | Moderate |
+| [Action 2](#2-publish-accessibility-progress-updates): Publish accessibility progress updates | 3 | Moderate |
+| [Action 3](#3-invite-community-help-on-accessibility-work): Invite community help on accessibility work | 4 | Extended |
+| [Action 4](#4-use-accessible-collaboration-tools): Use accessible collaboration tools | 3 | Extended |
+| [Action 5](#5-share-reusable-accessibility-resources): Share reusable accessibility resources | 3 | Extended |
+| [Action 6](#6-recognize-accessibility-contributions-publicly): Recognize accessibility contributions publicly | 3 | Moderate |
+
+Effort varies by project size and maturity. Complete these actions incrementally and adapt them to your project's needs. Typical initial effort is categorized as **Quick** (less than 1 hour), **Moderate** (1-3 hours), or **Extended** (more than 3 hours); ongoing practices should be repeated as part of normal project work.
 
 ## Community actions
 
@@ -22,7 +24,7 @@ This phase has **6 total actions** with **20 total tasks** to complete.
 
 #### Why it matters
 
-Builds trust with users and contributors.
+This action builds trust with users and contributors.
 
 #### Definition of done
 
@@ -43,7 +45,7 @@ Builds trust with users and contributors.
 
 #### Why it matters
 
-Reinforces accountability and momentum.
+This action reinforces accountability and momentum.
 
 #### Definition of done
 
@@ -62,7 +64,7 @@ Reinforces accountability and momentum.
 
 #### Why it matters
 
-Makes progress more scalable.
+This action makes progress more scalable.
 
 #### Definition of done
 
@@ -84,7 +86,7 @@ Makes progress more scalable.
 
 #### Why it matters
 
-Helps ensure community participation itself is accessible, not just the project output.
+This action helps ensure community participation itself is accessible, not just the project output.
 
 #### Definition of done
 
@@ -103,7 +105,7 @@ Helps ensure community participation itself is accessible, not just the project 
 
 #### Why it matters
 
-Helps other projects improve faster.
+This action helps other projects improve faster.
 
 #### Definition of done
 
@@ -123,7 +125,7 @@ Helps other projects improve faster.
 
 #### Why it matters
 
-Signals that accessibility work is valued.
+This action signals that accessibility work is valued.
 
 #### Definition of done
 

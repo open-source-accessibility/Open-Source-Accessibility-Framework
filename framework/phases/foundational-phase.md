@@ -7,13 +7,15 @@ This phase is intentionally practical. Projects do not need to solve every acces
 ### Phase overview
 This phase has **5 total actions** with **10 total tasks** to complete.
 
-| Action | Number of tasks |
-| :--- | ---: |
-| [Action 1](#1-register-your-project-in-the-open-source-accessibility-framework): Register your project in the Open Source Accessibility Framework | 3 |
-| [Action 2](#2-document-the-projects-accessibility-commitment): Document the project’s accessibility commitment | 2 |
-| [Action 3](#3-add-a-link-to-accessibilitymd-in-your-readmemd): Add a link to `ACCESSIBILITY.md` in your `README.md` | 1 |
-| [Action 4](#4-use-an-accessibility-label-to-track-relevant-work): Use an accessibility label to track relevant work | 2 |
-| [Action 5](#5-add-an-issue-template-for-reporting-accessibility-bugs): Add an issue template for reporting accessibility bugs | 2 |
+| Action | Number of tasks | Typical initial effort |
+| :--- | ---: | :--- |
+| [Action 1](#1-register-your-project-in-the-open-source-accessibility-framework): Register your project in the Open Source Accessibility Framework | 3 | Quick |
+| [Action 2](#2-document-the-projects-accessibility-commitment): Document the project’s accessibility commitment | 2 | Moderate |
+| [Action 3](#3-add-a-link-to-accessibilitymd-in-your-readmemd): Add a link to `ACCESSIBILITY.md` in your `README.md` | 1 | Quick |
+| [Action 4](#4-use-an-accessibility-label-to-track-relevant-work): Use an accessibility label to track relevant work | 2 | Quick |
+| [Action 5](#5-add-an-issue-template-for-reporting-accessibility-bugs): Add an issue template for reporting accessibility bugs | 2 | Moderate |
+
+Effort varies by project size and maturity. Complete these actions incrementally and adapt them to your project's needs. Typical initial effort is categorized as **Quick** (less than 1 hour), **Moderate** (1-3 hours), or **Extended** (more than 3 hours); ongoing practices should be repeated as part of normal project work.
 
 ## Foundational actions
 
@@ -21,7 +23,7 @@ This phase has **5 total actions** with **10 total tasks** to complete.
 
 #### Why it matters
 
-Creates lightweight public accountability and gives the community a place to follow progress.
+This action creates lightweight public accountability and gives the community a place to follow progress.
 
 #### Definition of done
 
@@ -41,7 +43,7 @@ Creates lightweight public accountability and gives the community a place to fol
 
 #### Why it matters
 
-Gives users and contributors a clear place to find accessibility information and report barriers.
+This action gives users and contributors a clear place to find accessibility information and report barriers.
 
 #### Definition of done
 
@@ -59,7 +61,7 @@ Gives users and contributors a clear place to find accessibility information and
 
 #### Why it matters
 
-Makes accessibility information easy to find.
+This action makes accessibility information about a project easy to find.
 
 #### Definition of done
 
@@ -74,7 +76,7 @@ Makes accessibility information easy to find.
 
 #### Why it matters
 
-Makes accessibility work visible, searchable, and trackable.
+This action makes accessibility work visible, searchable, and trackable.
 
 #### Definition of done
 
@@ -91,7 +93,7 @@ Makes accessibility work visible, searchable, and trackable.
 
 #### Why it matters
 
-Improves report quality and supports consistent triage.
+This action improves report quality and supports consistent triage.
 
 #### Definition of done
 

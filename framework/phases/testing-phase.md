@@ -7,13 +7,15 @@ The goal is not to test every possible interaction at once. Projects begin with 
 ### Phase overview
 This phase has **5 total actions** with **15 total tasks** to complete.
 
-| Action | Number of tasks |
-| :--- | ---: |
-| [Action 1](#1-add-at-least-one-automated-accessibility-check): Add at least one automated accessibility check | 3 |
-| [Action 2](#2-perform-a-keyboard-only-smoke-test-for-core-flows): Perform a keyboard-only smoke test for core flows | 3 |
-| [Action 3](#3-perform-a-screen-reader-spot-check-for-core-flows): Perform a screen reader spot check for core flows | 3 |
-| [Action 4](#4-perform-manual-accessibility-checks): Perform manual accessibility checks | 3 |
-| [Action 5](#5-perform-accessibility-checks-for-documentation): Perform accessibility checks for documentation | 3 |
+| Action | Number of tasks | Typical initial effort |
+| :--- | ---: | :--- |
+| [Action 1](#1-add-at-least-one-automated-accessibility-check): Add at least one automated accessibility check | 3 | Extended |
+| [Action 2](#2-perform-a-keyboard-only-smoke-test-for-core-flows): Perform a keyboard-only smoke test for core flows | 3 | Moderate |
+| [Action 3](#3-perform-a-screen-reader-spot-check-for-core-flows): Perform a screen reader spot check for core flows | 3 | Extended |
+| [Action 4](#4-perform-manual-accessibility-checks): Perform manual accessibility checks | 3 | Extended |
+| [Action 5](#5-perform-accessibility-checks-for-documentation): Perform accessibility checks for documentation | 3 | Moderate |
+
+Effort varies by project size and maturity. Complete these actions incrementally and adapt them to your project's needs. Typical initial effort is categorized as **Quick** (less than 1 hour), **Moderate** (1-3 hours), or **Extended** (more than 3 hours); ongoing practices should be repeated as part of normal project work.
 
 ## Testing actions
 
@@ -21,7 +23,7 @@ This phase has **5 total actions** with **15 total tasks** to complete.
 
 #### Why it matters
 
-Helps catch common regressions.
+This action helps catch common regressions.
 
 #### Definition of done
 
@@ -42,7 +44,7 @@ Helps catch common regressions.
 
 #### Why it matters
 
-Covers a high-impact baseline.
+This action covers a high-impact baseline.
 
 #### Definition of done
 
@@ -61,7 +63,7 @@ Covers a high-impact baseline.
 
 #### Why it matters
 
-Validates real usability beyond automation.
+This action validates real usability beyond automation.
 
 #### Definition of done
 
@@ -80,7 +82,7 @@ Validates real usability beyond automation.
 
 #### Why it matters
 
-Addresses common visual access barriers.
+This action addresses common visual access barriers.
 
 #### Definition of done
 
@@ -100,7 +102,7 @@ Addresses common visual access barriers.
 
 #### Why it matters
 
-Improves the first experience many users have.
+This action improves the first experience many users have.
 
 #### Definition of done
 

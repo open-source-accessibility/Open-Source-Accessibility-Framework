@@ -5,19 +5,21 @@ The workflow phase integrates accessibility into the everyday practices that sha
 The goal is to make accessible practice repeatable across the project, even as contributors, dependencies, and priorities change. Projects establish clear expectations, assign ownership, identify risks, and create lightweight review and triage processes that help prevent new barriers while making existing barriers easier to prioritize and resolve. These practices create the operational foundation for sustained accessibility improvement.
 
 ### Phase overview
-This phase has **9 total actions** with **30 total tasks** to complete.
+This phase has **9 total actions** with **25 total tasks** to complete.
 
-| Action | Number of tasks |
-| :--- | ---: |
-| [Action 1](#1-make-docs-accessible-by-default): Make docs accessible by default | 3 |
-| [Action 2](#2-design-accessible-interfaces): Design accessible interfaces | 3 |
-| [Action 3](#3-surface-accessibility-expectations-for-contributors): Surface accessibility expectations for contributors | 2 |
-| [Action 4](#4-establish-a-simple-accessibility-triage-approach): Establish a simple accessibility triage approach | 3 |
-| [Action 5](#5-tag-beginner-friendly-accessibility-issues): Tag beginner-friendly accessibility issues | 2 |
-| [Action 6](#6-add-an-accessibility-section-to-the-pull-request-template): Add an accessibility section to the pull request template | 3 |
-| [Action 7](#7-leverage-ai-for-accessibility): Leverage AI for Accessibility | 2 |
-| [Action 8](#8-assign-accessibility-ownership): Assign accessibility ownership | 3 |
-| [Action 9](#9-evaluate-key-dependencies-and-upstream-blockers): Evaluate key dependencies and upstream blockers | 3 |
+| Action | Number of tasks | Typical initial effort |
+| :--- | ---: | :--- |
+| [Action 1](#1-make-docs-accessible-by-default): Make docs accessible by default | 3 | Extended |
+| [Action 2](#2-design-accessible-interfaces): Design accessible interfaces | 3 | Extended |
+| [Action 3](#3-surface-accessibility-expectations-for-contributors): Surface accessibility expectations for contributors | 2 | Quick |
+| [Action 4](#4-establish-a-simple-accessibility-triage-approach): Establish a simple accessibility triage approach | 3 | Moderate |
+| [Action 5](#5-tag-beginner-friendly-accessibility-issues): Tag beginner-friendly accessibility issues | 2 | Moderate |
+| [Action 6](#6-add-an-accessibility-section-to-the-pull-request-template): Add an accessibility section to the pull request template | 3 | Quick |
+| [Action 7](#7-leverage-ai-for-accessibility): Leverage AI for Accessibility | 2 | Moderate |
+| [Action 8](#8-assign-accessibility-ownership): Assign accessibility ownership | 3 | Moderate |
+| [Action 9](#9-evaluate-key-dependencies-and-upstream-blockers): Evaluate key dependencies and upstream blockers | 4 | Extended |
+
+Effort varies by project size and maturity. Complete these actions incrementally and adapt them to your project's needs. Typical initial effort is categorized as **Quick** (less than 1 hour), **Moderate** (1-3 hours), or **Extended** (more than 3 hours); ongoing practices should be repeated as part of normal project work.
 
 ## Workflow actions
 
@@ -25,7 +27,7 @@ This phase has **9 total actions** with **30 total tasks** to complete.
 
 #### Why it matters
 
-Makes project information usable for everyone.
+This action makes project information usable for everyone.
 
 #### Definition of done
 
@@ -43,7 +45,7 @@ Makes project information usable for everyone.
 
 #### Why it matters
 
-Helps prevent common accessibility issues from being introduced in the first place, reducing rework and improving usability for everyone.
+This action helps prevent common accessibility issues from being introduced in the first place, reducing rework and improving usability for everyone.
 
 #### Definition of done
 
@@ -61,7 +63,7 @@ Helps prevent common accessibility issues from being introduced in the first pla
 
 #### Why it matters
 
-Sets norms early so they are not missed.
+This action sets norms early so they are not missed.
 
 #### Definition of done
 
@@ -77,7 +79,7 @@ Sets norms early so they are not missed.
 
 #### Why it matters
 
-Helps maintainers prioritize work.
+This action helps maintainers prioritize work.
 
 #### Definition of done
 
@@ -98,7 +100,7 @@ Helps maintainers prioritize work.
 
 #### Why it matters
 
-Makes contribution easier to start.
+This action makes contribution easier to start.
 
 #### Definition of done
 
@@ -115,7 +117,7 @@ Makes contribution easier to start.
 
 #### Why it matters
 
-Integrates accessibility into review.
+This action makes accessibility a consistent part of the review process.
 
 #### Definition of done
 
@@ -133,7 +135,7 @@ Integrates accessibility into review.
 
 #### Why it matters
 
-Helps teams identify and address accessibility issues more efficiently while ensuring AI-generated recommendations align with project requirements and real user needs.
+This action helps teams identify and address accessibility issues more efficiently while ensuring AI-generated recommendations align with project requirements and real user needs.
 
 #### Definition of done
 
@@ -150,7 +152,7 @@ Helps teams identify and address accessibility issues more efficiently while ens
 
 #### Why it matters
 
-Prevents drift.
+This action prevents drift.
 
 #### Definition of done
 
@@ -168,17 +170,19 @@ Prevents drift.
 
 #### Why it matters
 
-Helps projects manage accessibility risks they do not fully control.
+This action helps projects manage accessibility risks they do not fully control.
 
 #### Definition of done
 
 1. Accessibility-relevant dependencies are documented.
-2. Known upstream blockers are linked and tracked.
-3. Workarounds or mitigation plans are recorded where applicable.
+2. The accessibility of new dependencies is reviewed before they are adopted.
+3. Known upstream blockers are linked and tracked.
+4. Workarounds or mitigation plans are recorded where applicable.
 
 #### Recommended Steps
 
 1. Identify major third-party components, frameworks, or tools that affect accessibility.
-2. Review and document accessibility-relevant upstream issues.
-3. Document workarounds, risks, and project actions where the issue is outside the project’s direct control.
-4. Revisit the list as dependencies change.
+2. Review the accessibility of a dependency, including known barriers and upstream issues, before adopting it.
+3. Review and document accessibility-relevant upstream issues for existing dependencies.
+4. Document workarounds, risks, and project actions where the issue is outside the project’s direct control.
+5. Revisit the list as dependencies change.
