@@ -101,7 +101,7 @@ jobs:
 
             const maintainerLogins = parseGitHubHandles(values['maintainer-poc']);
             if (maintainerLogins === null) {
-              core.setFailed('The Maintainer point of contact must contain one or more valid GitHub usernames.');
+              core.setFailed('The Maintainer POC must contain one or more valid GitHub usernames.');
               return;
             }
 
