@@ -1,74 +1,50 @@
-# Open Source Accessibility Framework 
+# Open Source Accessibility Framework
 
+**Make accessibility part of how your project works, one practical step at a time.**
 
-## Overview 
+The Open Source Accessibility Framework helps open source projects turn accessibility goals into public, trackable progress. It provides phased actions for improving documentation, workflows, testing, and community practices without requiring projects to solve everything at once.
 
-The Open Source Accessibility Framework is a lightweight program that helps open source projects adopt accessibility best practices through public, concrete, trackable actions. 
+This is an improvement framework, not a certification, score, or ranking. The goal is sustained progress and accountability.
 
-The goal is to make accessibility adoption easier for maintainers, more visible to contributors, and more measurable for the broader open source community. 
+## Why adopt the framework?
 
-This program would give projects a practical starting point instead of asking them to solve accessibility all at once. 
+- Start with clear, achievable accessibility actions.
+- Build accessibility into existing project practices.
+- Give contributors well-defined ways to help.
+- Make progress and remaining barriers visible to users.
+- Adopt improvements incrementally at a pace that works for your project.
 
+## Get started
 
-## Problem 
+1. [Register your project](https://github.com/open-source-accessibility/Open-Source-Accessibility-Framework/issues/new?template=project-registration.yml). Your registration issue becomes the public place where your project tracks progress.
+2. Begin with the [Foundational phase](framework/phases/foundational-phase.md).
+3. Show your project’s participation in its `README.md` using either option:
+   - Add the [framework participation message](framework/supporting/framework-participation-message.md) and link it to your tracking issue.
+   - Add the smaller registration badge provided in the welcome comment on your tracking issue once registered.
+4. Continue through the remaining phases and update your tracking issue as you complete actions.
 
-Many open source projects want to improve accessibility, but they often lack: 
+Projects can work incrementally and adapt the actions to their size, maturity, and community needs.
 
-* a clear starting point 
-* time and staff for manual onboarding 
-* simple ways to track progress 
-* contributor-friendly workflows for accessibility work 
-* public accountability mechanisms that do not require formal certification 
+## Framework phases
 
-Without structure, accessibility remains aspirational instead of an ongoing practice. 
+| Phase | Outcome |
+| :--- | :--- |
+| **[Foundational](framework/phases/foundational-phase.md)** | Make the project’s accessibility commitment visible and establish clear reporting and tracking paths. |
+| **[Workflow](framework/phases/workflow-phase.md)** | Integrate accessibility into documentation, design, triage, pull requests, ownership, and dependency decisions. |
+| **[Testing](framework/phases/testing-phase.md)** | Add repeatable automated and manual accessibility checks for core experiences and documentation. |
+| **[Community](framework/phases/community-phase.md)** | Respond to accessibility feedback, share progress, invite participation, and support accessible collaboration. |
 
+## Follow progress
 
-## Proposed solution 
+Explore participating projects and their public tracking issues on the [Open Source Accessibility Framework registered projects board](https://github.com/orgs/open-source-accessibility/projects/1).
 
-Implement the Open Source Accessibility Framework: a public, GitHub-native framework that helps open source projects adopt meaningful accessibility practices in phases. 
+## Contribute
 
-The framework should be: 
-* practical for maintainers with limited time 
-* public so users and contributors can see progress 
-* scalable without funding or dedicated onboarding staff 
-* measurable through simple repository artifacts and workflows 
+Want to help a participating project improve?
 
-Rather than acting as a certification or ranking system, the framework should function as a public improvement model that helps projects build accessibility into their documentation, workflows, testing, and community practices. 
+- Look for issues labeled `accessibility` and `good first issue` for beginner-friendly work.
+- Look for issues labeled `accessibility` and `help wanted` where projects are actively seeking support.
 
+To improve the framework itself, open an issue or pull request in this repository.
 
-## Program structure 
-
-Accessibility is an ongoing practice. Projects should start with achievable improvements, share their progress, learn from feedback, and continue building on their work. Waiting for a perfect plan can delay changes that would remove barriers now.
-
-The program can be organized as a set of implementation phases: 
-
-* **[Foundational phase](/framework/phases/foundational-phase.md)**: make accessibility visible and create a clear reporting path 
-* **[Workflow phase](/framework/phases/workflow-phase.md)**: integrate accessibility into issues, pull requests, and contribution practices 
-* **[Testing phase](/framework/phases/testing-phase.md)**: add automated and manual checks practices
-* **[Community phase](/framework/phases/community-phase.md)**: improve responsiveness, documentation, and contributor participation 
-
-This keeps the focus on action and progress, not hierarchy. 
-
-This phased approach prioritizes progress over perfection without lowering accessibility expectations. Each phase should produce meaningful, trackable improvements, document remaining barriers, and maintain accountability for addressing them.
-
-You can track yoour progress in the [Open Source Accessibility Framework registered projects board](https://github.com/orgs/open-source-accessibility/projects/1)
-
-## How we would track progress 
-
-Use **GitHub-native workflows only**: 
-
-* a central repository for the initiative 
-* an enrollment issue form 
-* public tracking issues in participating repositories 
-* labels for implementation phases 
-* GitHub Projects for visibility 
-* optional GitHub Actions to verify baseline files and templates 
-* reusable starter templates for participating maintainers 
-* messaging template to add to their repo (leads back to their enrollment issue) 
-
-This approach avoids custom infrastructure and keeps operations lightweight. 
-
-
-## Why this matters 
-
-This program would help turn accessibility from a broad goal into a repeatable open source practice. It creates a lightweight on-ramp for maintainers, gives contributors meaningful work, and provides the community with a shared framework for visible, measurable improvement. 
+Framework maintainers can find operational guidance in [Framework maintenance](framework/maintainers/framework-maintenance.md).
