@@ -45,8 +45,8 @@ body:
     id: maintainer-poc
     attributes:
       label: "Maintainer point of contact"
-      description: "Provide the GitHub handle of the maintainer who will be the primary point of contact."
-      placeholder: "@username"
+      description: "Provide the GitHub handle of each maintainer who will be a point of contact."
+      placeholder: "@username or @username1 @username2"
     validations:
       required: true
 

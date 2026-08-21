@@ -8,7 +8,6 @@ on:
       issue_number:
         description: 'Issue number to sync to the project'
         required: true
-        default: '1'
 
 permissions:
   contents: read
@@ -26,7 +25,11 @@ jobs:
           script: |
             let issue;
             if (context.eventName === 'workflow_dispatch') {
-              const issueNumber = Number(core.getInput('issue_number') || '1');
+              const issueNumber = Number(context.payload.inputs?.issue_number);
+              if (!Number.isInteger(issueNumber) || issueNumber < 1) {
+                core.setFailed('Issue number must be a positive integer.');
+                return;
+              }
               const repo = context.repo.repo;
               const owner = context.repo.owner;
               const response = await github.rest.issues.get({ owner, repo, issue_number: issueNumber });
@@ -67,58 +70,74 @@ jobs:
               'public-accountability-confirmation': parseCheckbox(body, 'I confirm that the project maintainers agree to a public tracking issue and publicly visible progress as part of this accountability model.')
             };
 
-            function normalizeGitHubHandle(value) {
-              const handle = value
-                .trim()
-                .replace(/^https?:\/\/github\.com\//i, '')
-                .replace(/^@/, '')
-                .replace(/\/$/, '')
-                .toLowerCase();
+            function parseGitHubHandles(value) {
+              const handles = value
+                .split(/[\s,]+/)
+                .map(handle => handle
+                  .trim()
+                  .replace(/^https?:\/\/github\.com\//i, '')
+                  .replace(/^@/, '')
+                  .replace(/\/$/, '')
+                  .toLowerCase()
+                )
+                .filter(Boolean);
 
-              return /^[a-z\d](?:[a-z\d-]{0,37}[a-z\d])?$/i.test(handle) ? handle : '';
+              if (
+                handles.length === 0 ||
+                handles.some(handle => !/^[a-z\d](?:[a-z\d-]{0,37}[a-z\d])?$/i.test(handle))
+              ) {
+                return [];
+              }
+
+              return [...new Set(handles)];
             }
 
-            const maintainerLogin = normalizeGitHubHandle(values['maintainer-poc']);
-            if (!maintainerLogin) {
-              core.setFailed('The Maintainer point of contact must contain one valid GitHub username.');
+            const maintainerLogins = parseGitHubHandles(values['maintainer-poc']);
+            if (maintainerLogins.length === 0) {
+              core.setFailed('The Maintainer point of contact must contain one or more valid GitHub usernames.');
               return;
             }
 
             const previousBody = context.payload.changes?.body?.from || '';
-            const previousMaintainerLogin = normalizeGitHubHandle(
+            const previousMaintainerLogins = parseGitHubHandles(
               parseMarkdownField(previousBody, 'Maintainer point of contact')
             );
             const currentAssignees = new Set(
               (issue.assignees || []).map(assignee => assignee.login.toLowerCase())
             );
+            const removedMaintainers = previousMaintainerLogins.filter(
+              login => !maintainerLogins.includes(login) && currentAssignees.has(login)
+            );
 
-            if (
-              previousMaintainerLogin &&
-              previousMaintainerLogin !== maintainerLogin &&
-              currentAssignees.has(previousMaintainerLogin)
-            ) {
+            if (removedMaintainers.length > 0) {
               await github.rest.issues.removeAssignees({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 issue_number: issue.number,
-                assignees: [previousMaintainerLogin]
+                assignees: removedMaintainers
               });
-              currentAssignees.delete(previousMaintainerLogin);
+              removedMaintainers.forEach(login => currentAssignees.delete(login));
             }
 
-            if (!currentAssignees.has(maintainerLogin)) {
+            const newMaintainers = maintainerLogins.filter(login => !currentAssignees.has(login));
+            if (newMaintainers.length > 0) {
               const assignment = await github.rest.issues.addAssignees({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 issue_number: issue.number,
-                assignees: [maintainerLogin]
+                assignees: newMaintainers
               });
               const assignedLogins = new Set(
                 (assignment.data.assignees || []).map(assignee => assignee.login.toLowerCase())
               );
+              const unassignedMaintainers = maintainerLogins.filter(
+                login => !assignedLogins.has(login)
+              );
 
-              if (!assignedLogins.has(maintainerLogin)) {
-                core.setFailed(`Unable to assign @${maintainerLogin} to issue #${issue.number}.`);
+              if (unassignedMaintainers.length > 0) {
+                core.setFailed(
+                  `Unable to assign ${unassignedMaintainers.map(login => `@${login}`).join(', ')} to issue #${issue.number}.`
+                );
                 return;
               }
             }
