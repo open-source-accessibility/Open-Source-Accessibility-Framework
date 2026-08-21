@@ -112,20 +112,22 @@ jobs:
             const currentAssignees = new Set(
               (issue.assignees || []).map(assignee => assignee.login.toLowerCase())
             );
-            const removedMaintainers = previousMaintainerLogins.filter(
-              login => !maintainerLogins.includes(login) && currentAssignees.has(login)
-            );
+            const removedAssignees = maintainerLogins.length === 0
+              ? [...currentAssignees]
+              : previousMaintainerLogins.filter(
+                  login => !maintainerLogins.includes(login) && currentAssignees.has(login)
+                );
 
-            if (removedMaintainers.length > 0) {
+            if (removedAssignees.length > 0) {
               await github.rest.issues.removeAssignees({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 issue_number: issue.number,
-                assignees: removedMaintainers
+                assignees: removedAssignees
               });
-              removedMaintainers.forEach(login => currentAssignees.delete(login));
+              removedAssignees.forEach(login => currentAssignees.delete(login));
               core.info(
-                `Removed former maintainer ${removedMaintainers.map(login => `@${login}`).join(', ')} from issue #${issue.number}.`
+                `Unassigned ${removedAssignees.map(login => `@${login}`).join(', ')} from issue #${issue.number}.`
               );
             }
 
@@ -253,6 +255,27 @@ jobs:
                 itemId,
                 fieldId: entry.fieldId,
                 value: { text: entry.value }
+              });
+            }
+
+            const maintainerFieldId = fieldIds['Maintainer POC'];
+            if (maintainerLogins.length === 0 && maintainerFieldId) {
+              await github.graphql(`
+                mutation($projectId: ID!, $itemId: ID!, $fieldId: ID!) {
+                  clearProjectV2ItemFieldValue(input: {
+                    projectId: $projectId,
+                    itemId: $itemId,
+                    fieldId: $fieldId
+                  }) {
+                    projectV2Item {
+                      id
+                    }
+                  }
+                }
+              `, {
+                projectId: project.id,
+                itemId,
+                fieldId: maintainerFieldId
               });
             }
 
