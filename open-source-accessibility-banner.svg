@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="800" viewBox="0 0 1920 800" role="img" aria-labelledby="title description">
+  <title id="title">Open Source Accessibility community and framework banner</title>
+  <desc id="description">A near-black and gold banner introducing the Open Source Accessibility community and its practical four-phase framework, with QR codes for both initiatives.</desc>
+  <defs>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFE9A3"/>
+      <stop offset=".48" stop-color="#F4C95D"/>
+      <stop offset="1" stop-color="#D9A62E"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#171A1E"/>
+      <stop offset="1" stop-color="#0E1013"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="16" stdDeviation="22" flood-color="#000" flood-opacity=".38"/>
+    </filter>
+    <style>
+      text { font-family: Inter, "Segoe UI", Arial, sans-serif; }
+      .eyebrow { font-size: 15px; font-weight: 750; letter-spacing: 2.4px; }
+      .body { font-size: 18px; font-weight: 450; }
+      .label { font-size: 14px; font-weight: 750; letter-spacing: 1.8px; }
+    </style>
+    <symbol id="organization-qr" viewBox="0 0 37 37">
+      <rect width="37" height="37" fill="#fff"/>
+      <path fill="#080A0D" shape-rendering="crispEdges" d="M4 4h7v1h-7zM16 4h2v1h-2zM19 4h1v1h-1zM21 4h1v1h-1zM26 4h7v1h-7zM4 5h1v1h-1zM10 5h1v1h-1zM12 5h1v1h-1zM16 5h4v1h-4zM21 5h3v1h-3zM26 5h1v1h-1zM32 5h1v1h-1zM4 6h1v1h-1zM6 6h3v1h-3zM10 6h1v1h-1zM13 6h1v1h-1zM15 6h1v1h-1zM17 6h2v1h-2zM24 6h1v1h-1zM26 6h1v1h-1zM28 6h3v1h-3zM32 6h1v1h-1zM4 7h1v1h-1zM6 7h3v1h-3zM10 7h1v1h-1zM12 7h2v1h-2zM17 7h1v1h-1zM19 7h1v1h-1zM21 7h1v1h-1zM23 7h1v1h-1zM26 7h1v1h-1zM28 7h3v1h-3zM32 7h1v1h-1zM4 8h1v1h-1zM6 8h3v1h-3zM10 8h1v1h-1zM12 8h2v1h-2zM15 8h1v1h-1zM17 8h1v1h-1zM21 8h1v1h-1zM23 8h1v1h-1zM26 8h1v1h-1zM28 8h3v1h-3zM32 8h1v1h-1zM4 9h1v1h-1zM10 9h1v1h-1zM14 9h1v1h-1zM18 9h2v1h-2zM22 9h1v1h-1zM24 9h1v1h-1zM26 9h1v1h-1zM32 9h1v1h-1zM4 10h7v1h-7zM12 10h1v1h-1zM14 10h1v1h-1zM16 10h1v1h-1zM18 10h1v1h-1zM20 10h1v1h-1zM22 10h1v1h-1zM24 10h1v1h-1zM26 10h7v1h-7zM12 11h3v1h-3zM17 11h1v1h-1zM19 11h1v1h-1zM22 11h2v1h-2zM5 12h1v1h-1zM7 12h4v1h-4zM12 12h3v1h-3zM21 12h1v1h-1zM23 12h1v1h-1zM25 12h2v1h-2zM28 12h2v1h-2zM31 12h1v1h-1zM4 13h2v1h-2zM7 13h2v1h-2zM14 13h2v1h-2zM17 13h1v1h-1zM22 13h2v1h-2zM27 13h4v1h-4zM4 14h1v1h-1zM8 14h3v1h-3zM16 14h4v1h-4zM22 14h1v1h-1zM26 14h2v1h-2zM30 14h1v1h-1zM7 15h3v1h-3zM11 15h2v1h-2zM14 15h1v1h-1zM17 15h5v1h-5zM23 15h3v1h-3zM27 15h3v1h-3zM31 15h1v1h-1zM5 16h1v1h-1zM10 16h4v1h-4zM16 16h1v1h-1zM18 16h1v1h-1zM23 16h2v1h-2zM26 16h2v1h-2zM32 16h1v1h-1zM8 17h1v1h-1zM11 17h1v1h-1zM13 17h1v1h-1zM19 17h4v1h-4zM26 17h1v1h-1zM28 17h2v1h-2zM31 17h2v1h-2zM5 18h1v1h-1zM9 18h2v1h-2zM15 18h2v1h-2zM20 18h8v1h-8zM29 18h1v1h-1zM32 18h1v1h-1zM5 19h3v1h-3zM12 19h2v1h-2zM16 19h1v1h-1zM19 19h2v1h-2zM23 19h5v1h-5zM30 19h3v1h-3zM8 20h1v1h-1zM10 20h4v1h-4zM17 20h1v1h-1zM19 20h1v1h-1zM21 20h2v1h-2zM31 20h2v1h-2zM4 21h1v1h-1zM6 21h4v1h-4zM11 21h1v1h-1zM13 21h1v1h-1zM16 21h3v1h-3zM22 21h3v1h-3zM28 21h1v1h-1zM30 21h1v1h-1zM4 22h5v1h-5zM10 22h3v1h-3zM14 22h5v1h-5zM20 22h4v1h-4zM25 22h3v1h-3zM30 22h1v1h-1zM32 22h1v1h-1zM4 23h2v1h-2zM7 23h3v1h-3zM12 23h1v1h-1zM16 23h1v1h-1zM19 23h2v1h-2zM23 23h1v1h-1zM25 23h1v1h-1zM27 23h5v1h-5zM4 24h2v1h-2zM9 24h3v1h-3zM14 24h1v1h-1zM16 24h2v1h-2zM20 24h2v1h-2zM23 24h8v1h-8zM12 25h4v1h-4zM19 25h1v1h-1zM21 25h2v1h-2zM24 25h1v1h-1zM28 25h2v1h-2zM4 26h7v1h-7zM13 26h1v1h-1zM16 26h1v1h-1zM19 26h2v1h-2zM23 26h2v1h-2zM26 26h1v1h-1zM28 26h1v1h-1zM4 27h1v1h-1zM10 27h1v1h-1zM12 27h1v1h-1zM16 27h2v1h-2zM20 27h1v1h-1zM22 27h3v1h-3zM28 27h2v1h-2zM32 27h1v1h-1zM4 28h1v1h-1zM6 28h3v1h-3zM10 28h1v1h-1zM12 28h2v1h-2zM15 28h2v1h-2zM21 28h1v1h-1zM23 28h7v1h-7zM4 29h1v1h-1zM6 29h3v1h-3zM10 29h1v1h-1zM12 29h1v1h-1zM16 29h3v1h-3zM22 29h1v1h-1zM25 29h1v1h-1zM31 29h1v1h-1zM4 30h1v1h-1zM6 30h3v1h-3zM10 30h1v1h-1zM13 30h2v1h-2zM16 30h2v1h-2zM19 30h1v1h-1zM21 30h3v1h-3zM25 30h1v1h-1zM27 30h2v1h-2zM31 30h2v1h-2zM4 31h1v1h-1zM10 31h1v1h-1zM12 31h1v1h-1zM14 31h3v1h-3zM20 31h1v1h-1zM22 31h1v1h-1zM25 31h1v1h-1zM27 31h4v1h-4zM32 31h1v1h-1zM4 32h7v1h-7zM13 32h2v1h-2zM16 32h2v1h-2zM19 32h1v1h-1zM23 32h2v1h-2zM27 32h1v1h-1z"/>
+    </symbol>
+    <symbol id="framework-qr" viewBox="0 0 37 37">
+      <rect width="37" height="37" fill="#fff"/>
+      <path fill="#080A0D" shape-rendering="crispEdges" d="M4 4h7v1h-7zM13 4h6v1h-6zM20 4h1v1h-1zM22 4h1v1h-1zM26 4h7v1h-7zM4 5h1v1h-1zM10 5h1v1h-1zM15 5h1v1h-1zM19 5h2v1h-2zM22 5h1v1h-1zM24 5h1v1h-1zM26 5h1v1h-1zM32 5h1v1h-1zM4 6h1v1h-1zM6 6h3v1h-3zM10 6h1v1h-1zM14 6h4v1h-4zM20 6h2v1h-2zM23 6h2v1h-2zM26 6h1v1h-1zM28 6h3v1h-3zM32 6h1v1h-1zM4 7h1v1h-1zM6 7h3v1h-3zM10 7h1v1h-1zM12 7h1v1h-1zM15 7h1v1h-1zM17 7h1v1h-1zM19 7h5v1h-5zM26 7h1v1h-1zM28 7h3v1h-3zM32 7h1v1h-1zM4 8h1v1h-1zM6 8h3v1h-3zM10 8h1v1h-1zM13 8h5v1h-5zM19 8h1v1h-1zM24 8h1v1h-1zM26 8h1v1h-1zM28 8h3v1h-3zM32 8h1v1h-1zM4 9h1v1h-1zM10 9h1v1h-1zM12 9h1v1h-1zM14 9h1v1h-1zM22 9h1v1h-1zM26 9h1v1h-1zM32 9h1v1h-1zM4 10h7v1h-7zM12 10h1v1h-1zM14 10h1v1h-1zM16 10h1v1h-1zM18 10h1v1h-1zM20 10h1v1h-1zM22 10h1v1h-1zM24 10h1v1h-1zM26 10h7v1h-7zM12 11h1v1h-1zM16 11h2v1h-2zM23 11h2v1h-2zM5 12h2v1h-2zM10 12h1v1h-1zM13 12h1v1h-1zM16 12h3v1h-3zM24 12h1v1h-1zM26 12h2v1h-2zM29 12h1v1h-1zM6 13h3v1h-3zM13 13h8v1h-8zM23 13h5v1h-5zM29 13h2v1h-2zM32 13h1v1h-1zM4 14h1v1h-1zM6 14h2v1h-2zM9 14h3v1h-3zM14 14h1v1h-1zM16 14h1v1h-1zM18 14h1v1h-1zM22 14h3v1h-3zM28 14h1v1h-1zM30 14h1v1h-1zM32 14h1v1h-1zM7 15h2v1h-2zM12 15h1v1h-1zM14 15h3v1h-3zM18 15h3v1h-3zM22 15h2v1h-2zM25 15h3v1h-3zM29 15h1v1h-1zM31 15h2v1h-2zM4 16h1v1h-1zM6 16h2v1h-2zM9 16h3v1h-3zM14 16h2v1h-2zM20 16h1v1h-1zM23 16h2v1h-2zM26 16h2v1h-2zM29 16h1v1h-1zM32 16h1v1h-1zM9 17h1v1h-1zM12 17h3v1h-3zM16 17h1v1h-1zM18 17h2v1h-2zM21 17h1v1h-1zM23 17h2v1h-2zM26 17h1v1h-1zM30 17h1v1h-1zM32 17h1v1h-1zM5 18h2v1h-2zM9 18h2v1h-2zM12 18h1v1h-1zM14 18h1v1h-1zM16 18h1v1h-1zM19 18h5v1h-5zM25 18h2v1h-2zM29 18h4v1h-4zM4 19h2v1h-2zM7 19h1v1h-1zM9 19h1v1h-1zM11 19h1v1h-1zM14 19h4v1h-4zM19 19h2v1h-2zM22 19h1v1h-1zM24 19h5v1h-5zM31 19h1v1h-1zM4 20h1v1h-1zM7 20h1v1h-1zM10 20h1v1h-1zM13 20h2v1h-2zM16 20h1v1h-1zM18 20h1v1h-1zM20 20h1v1h-1zM23 20h2v1h-2zM26 20h2v1h-2zM29 20h1v1h-1zM32 20h1v1h-1zM5 21h1v1h-1zM7 21h1v1h-1zM9 21h1v1h-1zM13 21h1v1h-1zM15 21h2v1h-2zM18 21h1v1h-1zM20 21h8v1h-8zM32 21h1v1h-1zM4 22h7v1h-7zM14 22h1v1h-1zM18 22h1v1h-1zM20 22h1v1h-1zM23 22h1v1h-1zM30 22h1v1h-1zM32 22h1v1h-1zM8 23h1v1h-1zM11 23h2v1h-2zM16 23h1v1h-1zM18 23h3v1h-3zM22 23h1v1h-1zM25 23h2v1h-2zM29 23h1v1h-1zM31 23h2v1h-2zM4 24h7v1h-7zM12 24h1v1h-1zM14 24h5v1h-5zM20 24h1v1h-1zM24 24h6v1h-6zM12 25h1v1h-1zM14 25h2v1h-2zM17 25h4v1h-4zM22 25h1v1h-1zM24 25h1v1h-1zM28 25h3v1h-3zM32 25h1v1h-1zM4 26h7v1h-7zM13 26h3v1h-3zM18 26h4v1h-4zM24 26h1v1h-1zM26 26h1v1h-1zM28 26h2v1h-2zM32 26h1v1h-1zM4 27h1v1h-1zM10 27h1v1h-1zM13 27h2v1h-2zM16 27h4v1h-4zM23 27h2v1h-2zM28 27h2v1h-2zM31 27h2v1h-2zM4 28h1v1h-1zM6 28h3v1h-3zM10 28h1v1h-1zM15 28h2v1h-2zM18 28h3v1h-3zM23 28h7v1h-7zM31 28h2v1h-2zM4 29h1v1h-1zM6 29h3v1h-3zM10 29h1v1h-1zM13 29h1v1h-1zM17 29h2v1h-2zM22 29h1v1h-1zM25 29h1v1h-1zM28 29h1v1h-1zM31 29h1v1h-1zM4 30h1v1h-1zM6 30h3v1h-3zM10 30h1v1h-1zM12 30h1v1h-1zM14 30h2v1h-2zM18 30h2v1h-2zM21 30h1v1h-1zM23 30h2v1h-2zM28 30h1v1h-1zM31 30h2v1h-2zM4 31h1v1h-1zM10 31h1v1h-1zM12 31h1v1h-1zM14 31h1v1h-1zM17 31h1v1h-1zM22 31h1v1h-1zM24 31h1v1h-1zM27 31h1v1h-1zM29 31h1v1h-1zM4 32h7v1h-7zM13 32h2v1h-2zM16 32h1v1h-1zM18 32h1v1h-1zM24 32h1v1h-1zM27 32h1v1h-1zM29 32h1v1h-1zM32 32h1v1h-1z"/>
+    </symbol>
+  </defs>
+
+  <rect width="1920" height="800" fill="#080A0D"/>
+  <path d="M0 686 686 0h180L180 686z" fill="#F4C95D" opacity=".035"/>
+  <path d="M44 800 844 0M180 800 980 0" stroke="#F4C95D" opacity=".09"/>
+  <circle cx="1820" cy="-30" r="360" fill="none" stroke="#F4C95D" stroke-width="2" opacity=".11"/>
+  <circle cx="1820" cy="-30" r="294" fill="none" stroke="#F4C95D" opacity=".07"/>
+
+  <g transform="translate(78 68)">
+    <path d="M64 4 124 108H4z" fill="none" stroke="url(#gold)" stroke-width="7" stroke-linejoin="round"/>
+    <path d="M64 28 101 92H27z" fill="none" stroke="url(#gold)" stroke-width="5" stroke-linejoin="round"/>
+    <path d="m34 81 24-42m36 42L70 39M27 92l31-22m43 22L70 70" fill="none" stroke="#F4C95D" stroke-width="5" stroke-linecap="round"/>
+    <circle cx="64" cy="62" r="13" fill="#080A0D" stroke="#FFE9A3" stroke-width="5"/>
+  </g>
+
+  <text x="232" y="91" fill="#F4C95D" class="eyebrow">OPEN SOURCE ACCESSIBILITY</text>
+  <text x="78" y="272" fill="#fff" font-size="76" font-weight="780" letter-spacing="-2.5">Open Source</text>
+  <text x="78" y="348" fill="url(#gold)" font-size="76" font-weight="780" letter-spacing="-2.5">Accessibility</text>
+  <text x="82" y="405" fill="#EEF0F2" font-size="25" font-weight="520">Making open source software more accessible—together.</text>
+  <rect x="82" y="448" width="550" height="2" fill="#F4C95D"/>
+  <text x="82" y="502" fill="#F4C95D" font-size="19" font-weight="700">Connect. Contribute. Make progress visible.</text>
+  <text x="82" y="540" fill="#AEB4BA" class="body">A community, a roadmap, and a practical framework</text>
+  <text x="82" y="568" fill="#AEB4BA" class="body">for sustained accessibility progress.</text>
+
+  <g transform="translate(82 633)">
+    <rect width="570" height="92" rx="12" fill="#111418" stroke="#33383E"/>
+    <rect width="7" height="92" rx="3.5" fill="#F4C95D"/>
+    <text x="30" y="33" fill="#F4C95D" class="label">OPEN SOURCE ACCESSIBILITY SUMMIT 2026</text>
+    <text x="30" y="64" fill="#D7DBDF" font-size="17" font-weight="550">October 19, 2026 · Raleigh, North Carolina</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="720" y="68" width="550" height="664" rx="26" fill="url(#panel)" stroke="#353A40"/>
+    <rect x="720" y="68" width="550" height="7" rx="3.5" fill="#F4C95D"/>
+    <text x="758" y="126" fill="#F4C95D" class="label">ORGANIZATION + COMMUNITY</text>
+    <text x="758" y="176" fill="#fff" font-size="34" font-weight="730">Join the community</text>
+    <text x="758" y="214" fill="#B8BEC4" class="body">Explore community discussion, summit materials,</text>
+    <text x="758" y="242" fill="#B8BEC4" class="body">the roadmap, and meaningful ways to contribute.</text>
+    <rect x="758" y="278" width="286" height="286" rx="18" fill="#fff"/>
+    <use href="#organization-qr" x="773" y="293" width="256" height="256"/>
+    <g transform="translate(1072 302)">
+      <circle cx="42" cy="42" r="42" fill="#24282D"/>
+      <path d="M42 17 66 59H18z" fill="none" stroke="#F4C95D" stroke-width="4" stroke-linejoin="round"/>
+      <circle cx="42" cy="41" r="7" fill="#24282D" stroke="#FFE9A3" stroke-width="3"/>
+      <text x="0" y="116" fill="#fff" font-size="17" font-weight="700">Community</text>
+      <text x="0" y="145" fill="#9EA5AC" font-size="15">Discuss</text>
+      <text x="0" y="169" fill="#9EA5AC" font-size="15">Collaborate</text>
+      <text x="0" y="193" fill="#9EA5AC" font-size="15">Contribute</text>
+    </g>
+    <text x="758" y="606" fill="#F4C95D" class="label">ORGANIZATION QR</text>
+    <text x="758" y="641" fill="#fff" font-size="20" font-weight="650">gh.io/accessibility-framework</text>
+    <text x="758" y="682" fill="#8F979F" font-size="14">Scan to connect with Open Source Accessibility.</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="1300" y="68" width="550" height="664" rx="26" fill="url(#panel)" stroke="#353A40"/>
+    <rect x="1300" y="68" width="550" height="7" rx="3.5" fill="#fff"/>
+    <text x="1338" y="126" fill="#E2E5E8" class="label">PRACTICAL IMPROVEMENT FRAMEWORK</text>
+    <text x="1338" y="176" fill="#fff" font-size="34" font-weight="730">Make progress visible</text>
+    <text x="1338" y="214" fill="#B8BEC4" class="body">Make accessibility goals public, trackable,</text>
+    <text x="1338" y="242" fill="#B8BEC4" class="body">incremental, and ongoing.</text>
+    <rect x="1338" y="278" width="286" height="286" rx="18" fill="#fff"/>
+    <use href="#framework-qr" x="1353" y="293" width="256" height="256"/>
+    <g transform="translate(1650 291)">
+      <text x="0" y="13" fill="#F4C95D" class="label">FOUR PHASES</text>
+      <path d="M8 39v166" stroke="#434950" stroke-width="2"/>
+      <circle cx="8" cy="47" r="7" fill="#F4C95D"/>
+      <circle cx="8" cy="99" r="7" fill="#F4C95D"/>
+      <circle cx="8" cy="151" r="7" fill="#F4C95D"/>
+      <circle cx="8" cy="203" r="7" fill="#F4C95D"/>
+      <text x="27" y="53" fill="#fff" font-size="16" font-weight="650">Foundational</text>
+      <text x="27" y="105" fill="#fff" font-size="16" font-weight="650">Workflow</text>
+      <text x="27" y="157" fill="#fff" font-size="16" font-weight="650">Testing</text>
+      <text x="27" y="209" fill="#fff" font-size="16" font-weight="650">Community</text>
+    </g>
+    <text x="1338" y="606" fill="#F4C95D" class="label">FRAMEWORK QR</text>
+    <text x="1338" y="641" fill="#fff" font-size="20" font-weight="650">gh.io/open-source-accessibility</text>
+    <text x="1338" y="682" fill="#8F979F" font-size="14">Scan to improve accessibility one phase at a time.</text>
+  </g>
+
+  <text x="1848" y="774" text-anchor="end" fill="#687078" font-size="12" font-weight="650" letter-spacing="1.4">COMMUNITY IN ACTION · ACCESSIBILITY IN PRACTICE</text>
+</svg>
