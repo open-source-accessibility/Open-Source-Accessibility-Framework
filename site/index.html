@@ -1,0 +1,1385 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <title>Open Source Accessibility Framework</title>
+    <meta
+      name="description"
+      content="A five phase framework for making open source projects accessible: foundational, workflow, testing, community, and sustaining."
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&&family=IBM+Plex+Sans:wght@500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap");
+
+      /* ---------------------------------------------------------------
+   Tokens
+   --------------------------------------------------------------- */
+      :root {
+        /* Color */
+        --color-paper: #ffffff;
+        --color-paper-sunken: #f1f3f5;
+        --color-ink: #131a21;
+        --color-ink-muted: #4a5761;
+        --color-line: #d5dbe0;
+        --color-line-strong: #66717a;
+        --color-signal: #a63d00;
+        --color-signal-hover: #7d2e00;
+        --color-signal-soft: #fbede4;
+        --color-focus: #a63d00;
+        --color-selection: #fbede4;
+
+        /* Type */
+        --font-display:
+          "Google Sans Flex", "IBM Plex Sans", system-ui, sans-serif;
+        --font-body: "DM Sans", "IBM Plex Sans", system-ui, sans-serif;
+        --font-utility: "DM Mono", ui-monospace, monospace;
+
+        --size-caption: 0.75rem;
+        --size-small: 0.875rem;
+        --size-body: 1rem;
+        --size-body-large: 1.125rem;
+        --size-lede: 1.25rem;
+        --size-subhead: 1.5rem;
+        --size-heading: clamp(1.5rem, 4vw, 2rem);
+        --size-display: clamp(2rem, 7vw, 4rem);
+
+        /* Space */
+        --space-3xs: 0.25rem;
+        --space-2xs: 0.5rem;
+        --space-xs: 0.75rem;
+        --space-s: 1rem;
+        --space-m: 1.5rem;
+        --space-l: 2rem;
+        --space-xl: 4rem;
+        --space-2xl: 8rem;
+
+        /* Lines */
+        --line-hairline: 0.0625rem;
+        --line-rule: 0.125rem;
+        --line-focus: 0.1875rem;
+        --radius: 0.25rem;
+        --measure: 40rem;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --color-paper: #0e1417;
+          --color-paper-sunken: #161e23;
+          --color-ink: #e8edf0;
+          --color-ink-muted: #a9b5bd;
+          --color-line: #2a343a;
+          --color-line-strong: #8b979f;
+          --color-signal: #ffca00;
+          --color-signal-hover: #fff200;
+          --color-signal-soft: #221914;
+          --color-focus: #ffca00;
+          --color-selection: #221914;
+        }
+      }
+
+      /* ---------------------------------------------------------------
+   Base
+   --------------------------------------------------------------- */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: var(--space-xl);
+      }
+
+      body {
+        margin: 0;
+        background-color: var(--color-paper);
+        color: var(--color-ink);
+        font-family: var(--font-body);
+        font-size: var(--size-body);
+        line-height: 1.6;
+        -webkit-text-size-adjust: 100%;
+      }
+
+      ::selection {
+        background-color: var(--color-selection);
+        color: var(--color-ink);
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: var(--font-display);
+        font-weight: 600;
+        line-height: 1.15;
+        letter-spacing: -0.01em;
+        margin: 0;
+        text-wrap: balance;
+      }
+
+      p,
+      ul,
+      ol {
+        margin: 0;
+      }
+
+      a {
+        color: var(--color-signal);
+        text-decoration-thickness: var(--line-hairline);
+        text-underline-offset: 0.1875rem;
+      }
+
+      a:hover {
+        color: var(--color-signal-hover);
+        text-decoration-thickness: var(--line-rule);
+      }
+
+      :focus-visible {
+        outline: var(--line-focus) solid var(--color-focus);
+        outline-offset: var(--space-3xs);
+        border-radius: var(--radius);
+        box-shadow: 0 0 0 var(--space-3xs) var(--color-paper);
+      }
+
+      /* Containers that only ever receive focus programmatically, so the
+         scroll position and heading are the indicator, not a ring. */
+      [tabindex="-1"]:focus,
+      [tabindex="-1"]:focus-visible {
+        outline: none;
+        box-shadow: none;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+
+      /* ---------------------------------------------------------------
+   Layout helpers
+   --------------------------------------------------------------- */
+      .wrap {
+        width: 100%;
+        max-width: 72rem;
+        margin-inline: auto;
+        padding-inline: var(--space-m);
+      }
+
+      .skip-link {
+        position: absolute;
+        left: var(--space-s);
+        top: var(--space-s);
+        z-index: 20;
+        transform: translateY(-8rem);
+        display: inline-block;
+        padding: var(--space-2xs) var(--space-s);
+        background-color: var(--color-paper);
+        border: var(--line-rule) solid var(--color-signal);
+        border-radius: var(--radius);
+        font-weight: 500;
+        text-decoration: none;
+        color: var(--color-ink);
+      }
+
+      .skip-link:focus {
+        transform: translateY(0);
+      }
+
+      /* ---------------------------------------------------------------
+   Masthead
+   --------------------------------------------------------------- */
+      .masthead {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background-color: var(--color-paper);
+        border-bottom: var(--line-hairline) solid var(--color-line);
+      }
+
+      .masthead__inner {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-2xs);
+        padding-block: var(--space-xs);
+      }
+
+      .masthead__mark {
+        display: inline-block;
+        padding-block: var(--space-2xs);
+        font-family: var(--font-utility);
+        font-size: var(--size-caption);
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--color-ink);
+        text-decoration: none;
+      }
+
+      .masthead__mark:hover {
+        color: var(--color-signal);
+      }
+
+      .phase-nav__list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-2xs) var(--space-s);
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        counter-reset: phase-nav;
+      }
+
+      .phase-nav__link {
+        display: inline-block;
+        padding-block: var(--space-2xs);
+        font-size: var(--size-small);
+        color: var(--color-ink-muted);
+        text-decoration: none;
+      }
+
+      .phase-nav__link::before {
+        counter-increment: phase-nav;
+        content: counter(phase-nav, decimal-leading-zero) " ";
+        font-family: var(--font-utility);
+        color: var(--color-ink-muted);
+      }
+
+      .phase-nav__link:hover {
+        color: var(--color-signal);
+        text-decoration: underline;
+        text-underline-offset: 0.1875rem;
+      }
+
+      .phase-nav__link[aria-current="location"] {
+        color: var(--color-ink);
+        font-weight: 500;
+        text-decoration: underline;
+        text-decoration-color: var(--color-signal);
+        text-decoration-thickness: var(--line-rule);
+        text-underline-offset: 0.1875rem;
+      }
+
+      .phase-nav__link[aria-current="location"]::before {
+        color: var(--color-signal);
+      }
+
+      @media (min-width: 48rem) {
+        .masthead__inner {
+          flex-direction: row;
+          align-items: baseline;
+          justify-content: space-between;
+          gap: var(--space-l);
+          padding-block: var(--space-s);
+        }
+      }
+
+      /* ---------------------------------------------------------------
+   Hero
+   --------------------------------------------------------------- */
+      .hero {
+        padding-block: var(--space-xl) var(--space-l);
+        border-bottom: var(--line-hairline) solid var(--color-line);
+      }
+
+      .hero__eyebrow {
+        font-family: var(--font-utility);
+        font-size: var(--size-caption);
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--color-signal);
+        margin-bottom: var(--space-s);
+      }
+
+      .hero__title {
+        font-size: var(--size-display);
+        max-width: 20ch;
+      }
+
+      .hero__lede {
+        font-size: var(--size-lede);
+        color: var(--color-ink-muted);
+        max-width: var(--measure);
+        margin-top: var(--space-m);
+      }
+
+      .hero__actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-s) var(--space-l);
+        margin-top: var(--space-l);
+      }
+
+      .hero__action {
+        font-weight: 500;
+      }
+
+      /* ---------------------------------------------------------------
+   Rail: the five phases at a glance
+   --------------------------------------------------------------- */
+      .rail {
+        padding-block: var(--space-xl);
+        border-bottom: var(--line-hairline) solid var(--color-line);
+      }
+
+      .rail__title {
+        font-size: var(--size-subhead);
+      }
+
+      .rail__intro {
+        color: var(--color-ink-muted);
+        max-width: var(--measure);
+        margin-top: var(--space-s);
+      }
+
+      .rail__list {
+        list-style: none;
+        margin: var(--space-l) 0 0;
+        padding: 0;
+        display: grid;
+        gap: var(--line-hairline);
+        background-color: var(--color-line);
+        border-block: var(--line-hairline) solid var(--color-line);
+      }
+
+      .rail__item {
+        background-color: var(--color-paper);
+        padding: var(--space-m) 0;
+      }
+
+      .rail__step {
+        display: block;
+        font-family: var(--font-utility);
+        font-size: var(--size-caption);
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        color: var(--color-signal);
+        margin-bottom: var(--space-2xs);
+      }
+
+      .rail__name {
+        display: block;
+        font-family: var(--font-display);
+        font-size: var(--size-body-large);
+        font-weight: 600;
+      }
+
+      .rail__summary {
+        color: var(--color-ink-muted);
+        font-size: var(--size-small);
+        margin-top: var(--space-3xs);
+      }
+
+      @media (min-width: 48rem) {
+        .rail__list {
+          grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+        }
+
+        .rail__item {
+          padding: var(--space-m);
+        }
+      }
+
+      /* ---------------------------------------------------------------
+   Phase sections
+   --------------------------------------------------------------- */
+      .phase {
+        padding-block: var(--space-xl);
+        border-bottom: var(--line-hairline) solid var(--color-line);
+        scroll-margin-top: var(--space-2xl);
+      }
+
+      .phase__grid {
+        display: grid;
+        gap: var(--space-l);
+      }
+
+      .phase__step {
+        display: block;
+        font-family: var(--font-utility);
+        font-size: var(--size-caption);
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--color-signal);
+        margin-bottom: var(--space-2xs);
+      }
+
+      .phase__title {
+        font-size: var(--size-heading);
+      }
+
+      .phase__purpose {
+        color: var(--color-ink-muted);
+        margin-top: var(--space-s);
+        max-width: var(--measure);
+      }
+
+      .phase__lede {
+        font-size: var(--size-body-large);
+        max-width: var(--measure);
+      }
+
+      .phase__subhead {
+        font-size: var(--size-body);
+        font-family: var(--font-utility);
+        font-weight: 500;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: var(--color-ink-muted);
+        margin-top: var(--space-l);
+        padding-top: var(--space-s);
+        border-top: var(--line-hairline) solid var(--color-line);
+      }
+
+      .phase__list {
+        list-style: none;
+        margin-top: var(--space-s);
+        padding: 0;
+        max-width: var(--measure);
+      }
+
+      .phase__list-item {
+        padding-left: var(--space-m);
+        position: relative;
+        margin-top: var(--space-xs);
+      }
+
+      .phase__list-item::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0.6875rem;
+        width: var(--space-2xs);
+        height: var(--line-rule);
+        background-color: var(--color-line-strong);
+      }
+
+      .phase__list--signals .phase__list-item::before {
+        background-color: var(--color-signal);
+      }
+
+      .phase__term {
+        font-weight: 500;
+      }
+
+      .phase__links {
+        list-style: none;
+        margin-top: var(--space-s);
+        padding: 0;
+      }
+
+      .phase__links-item {
+        margin-top: var(--space-2xs);
+      }
+
+      @media (min-width: 64rem) {
+        .phase__grid {
+          grid-template-columns: 18rem 1fr;
+          gap: var(--space-xl);
+        }
+
+        .phase__aside {
+          position: sticky;
+          top: 92px;
+          align-self: start;
+        }
+      }
+
+      /* ---------------------------------------------------------------
+   Closing section
+   --------------------------------------------------------------- */
+      .join {
+        padding-block: var(--space-xl);
+      }
+
+      .join__title {
+        font-size: var(--size-heading);
+      }
+
+      .join__lede {
+        font-size: var(--size-body-large);
+        color: var(--color-ink-muted);
+        max-width: var(--measure);
+        margin-top: var(--space-s);
+      }
+
+      .join__list {
+        list-style: none;
+        margin: var(--space-l) 0 0;
+        padding: 0;
+        display: grid;
+        gap: var(--space-m);
+        max-width: var(--measure);
+      }
+
+      .join__heading {
+        font-size: var(--size-body);
+        font-weight: 600;
+      }
+
+      .join__text {
+        color: var(--color-ink-muted);
+        font-size: var(--size-small);
+        margin-top: var(--space-3xs);
+      }
+
+      /* ---------------------------------------------------------------
+   Footer
+   --------------------------------------------------------------- */
+      .site-footer {
+        border-top: var(--line-hairline) solid var(--color-line);
+        padding-block: var(--space-l);
+        background-color: var(--color-paper-sunken);
+      }
+
+      .site-footer__inner {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-s);
+        font-size: var(--size-small);
+        color: var(--color-ink-muted);
+      }
+
+      .site-footer__list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-s);
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      @media (min-width: 48rem) {
+        .site-footer__inner {
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-between;
+        }
+      }
+
+      /* ---------------------------------------------------------------
+   Forced colors
+   --------------------------------------------------------------- */
+      @media (forced-colors: active) {
+        :focus-visible {
+          outline-color: Highlight;
+        }
+
+        .rail__item {
+          border: var(--line-hairline) solid CanvasText;
+        }
+
+        .phase__list-item::before {
+          background-color: CanvasText;
+          forced-color-adjust: none;
+        }
+
+        .phase-nav__link[aria-current="location"] {
+          text-decoration-color: Highlight;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <header class="masthead">
+      <div class="wrap masthead__inner">
+        <a class="masthead__mark" href="#top"
+          >Open Source Accessibility Framework</a
+        >
+        <nav class="phase-nav" aria-label="Framework phases">
+          <ol class="phase-nav__list" role="list">
+            <li>
+              <a class="phase-nav__link" href="#foundational">Foundational</a>
+            </li>
+            <li><a class="phase-nav__link" href="#workflow">Workflow</a></li>
+            <li><a class="phase-nav__link" href="#testing">Testing</a></li>
+            <li><a class="phase-nav__link" href="#community">Community</a></li>
+            <li>
+              <a class="phase-nav__link" href="#sustaining">Sustaining</a>
+            </li>
+          </ol>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main" tabindex="-1">
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <div class="wrap">
+          <p class="hero__eyebrow">Open Source Accessibility</p>
+          <h1 class="hero__title" id="hero-title">
+            Accessibility, built into how your project already works
+          </h1>
+          <p class="hero__lede">
+            Open source software powers most of the world's technology, and much
+            of it still cannot be used by people with disabilities. This
+            framework breaks that problem into five phases a maintainer can
+            actually work through, starting with the files already in the
+            repository and ending with a project that keeps its accessibility
+            gains after the people who made them move on.
+          </p>
+          <ul class="hero__actions" role="list">
+            <li>
+              <a class="hero__action" href="#foundational"
+                >Start with the foundational phase</a
+              >
+            </li>
+            <li>
+              <a
+                class="hero__action"
+                href="https://github.com/open-source-accessibility"
+                >Join the open source accessibility organization</a
+              >
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="rail" aria-labelledby="rail-title">
+        <div class="wrap">
+          <h2 class="rail__title" id="rail-title">Five phases</h2>
+          <p class="rail__intro">
+            The phases are ordered, not optional. Each one assumes the work in
+            the phase before it, so a project that skips ahead to testing
+            usually ends up with a backlog it has no process for clearing. Work
+            through them in order, at whatever pace your maintainers can
+            sustain.
+          </p>
+          <ol class="rail__list" role="list">
+            <li class="rail__item">
+              <span class="rail__step">Phase 01</span>
+              <a class="rail__name" href="#foundational">Foundational</a>
+              <p class="rail__summary">
+                State the commitment, name an owner, and fix the accessibility
+                of the project's own front door.
+              </p>
+            </li>
+            <li class="rail__item">
+              <span class="rail__step">Phase 02</span>
+              <a class="rail__name" href="#workflow">Workflow</a>
+              <p class="rail__summary">
+                Put accessibility into issues, pull requests, and CI so it is
+                checked before code lands.
+              </p>
+            </li>
+            <li class="rail__item">
+              <span class="rail__step">Phase 03</span>
+              <a class="rail__name" href="#testing">Testing</a>
+              <p class="rail__summary">
+                Layer automated checks, manual passes, and assistive technology
+                testing into a repeatable routine.
+              </p>
+            </li>
+            <li class="rail__item">
+              <span class="rail__step">Phase 04</span>
+              <a class="rail__name" href="#community">Community</a>
+              <p class="rail__summary">
+                Make contributing possible for disabled developers and make
+                their reports count.
+              </p>
+            </li>
+            <li class="rail__item">
+              <span class="rail__step">Phase 05</span>
+              <a class="rail__name" href="#sustaining">Sustaining</a>
+              <p class="rail__summary">
+                Measure the work, fund it, and hand it off so progress survives
+                maintainer turnover.
+              </p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section
+        class="phase"
+        id="foundational"
+        aria-labelledby="foundational-title"
+      >
+        <div class="wrap phase__grid">
+          <div class="phase__aside">
+            <h2 class="phase__title" id="foundational-title">
+              <span class="phase__step">Phase 01</span> Foundational
+            </h2>
+            <p class="phase__purpose">
+              State the commitment in writing, give it an owner, and make the
+              project's own documentation and interface usable.
+            </p>
+          </div>
+          <div class="phase__body">
+            <p class="phase__lede">
+              Most projects have no accessibility problem statement, no owner,
+              and no way for a user to report a barrier. Everything later in the
+              framework depends on closing that gap first, and almost all of it
+              is documentation work rather than code.
+            </p>
+
+            <h3 class="phase__subhead">Start here</h3>
+            <ul class="phase__list" role="list">
+              <li class="phase__list-item">
+                <span class="phase__term"
+                  >Publish an accessibility statement.</span
+                >
+                Add an ACCESSIBILITY.md that says what the project commits to,
+                which standard it targets, what is known to be broken, and how
+                to report a barrier.
+              </li>
+              <li class="phase__list-item">
+                <span class="phase__term">Pick a conformance target.</span> WCAG
+                2.2 Level AA is the working default for most web interfaces.
+                Command line tools, editors, and native apps need an equivalent
+                stated baseline rather than no baseline.
+              </li>
+              <li class="phase__list-item">
+                <span class="phase__term">Name someone accountable.</span> One
+                maintainer owns accessibility triage. Unowned accessibility work
+                is the first thing dropped when a release gets tight.
+              </li>
+              <li class="phase__list-item">
+                <span class="phase__term"
+                  >Add an accessibility issue template.</span
+                >
+                Ask for the barrier, the assistive technology and version, the
+                platform, and the expected behavior. Add a label so the issues
+                can be found later.
+              </li>
+              <li class="phase__list-item">
+                <span class="phase__term">Fix the front door.</span> The README,
+                the docs site, and the project website are what a disabled
+                developer meets first. Check heading order, alt text, link text,
+                contrast, and reading order there before touching product code.
+              </li>
+              <li class="phase__list-item">
+                <span class="phase__term">Write down the known barriers.</span>
+                An honest list of what does not work yet is more useful to users
+                than a claim of full conformance, and it becomes the backlog for
+                the next phase.
+              </li>
+              <li class="phase__list-item">
+                <span class="phase__term"
+                  >Say disability out loud in the code of conduct.</span
+                >
+                Inclusion that is only implied is not something a contributor
+                can point to when they need it.
+              </li>
+            </ul>
+
+            <h3 class="phase__subhead">Signals of progress</h3>
+            <ul class="phase__list phase__list--signals" role="list">
+              <li class="phase__list-item">
+                An ACCESSIBILITY.md exists at the repository root and names a
+                target and a contact.
+              </li>
+              <li class="phase__list-item">
+                Accessibility issues have a dedicated label and at least one
+                template.
+              </li>
+              <li class="phase__list-item">
+                A user can report a barrier without knowing anyone on the team.
+              </li>
+              <li class="phase__list-item">
+                The project's own documentation passes a keyboard and heading
+                structure check.
+              </li>
+            </ul>
+
+            <h3 class="phase__subhead">More information</h3>
+            <ul class="phase__links" role="list">
+              <li class="phase__links-item">
+                <a
+                  href="https://github.com/open-source-accessibility/Open-Source-Accessibility-Framework/blob/main/framework/phases/foundational-phase.md"
+                  >Read the full foundational phase</a
+                >
+              </li>
+              <li class="phase__links-item">
+                <a
+                  href="https://github.com/open-source-accessibility/accessibility-toolkit"
+                  >Use the accessibility toolkit templates</a
+                >
+              </li>
+              <li class="phase__links-item">
+                <a href="https://www.w3.org/TR/WCAG22/"
+                  >Web Content Accessibility Guidelines 2.2</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="phase" id="workflow" aria-labelledby="workflow-title">
+        <div class="wrap phase__grid">
+          <div class="phase__aside">
+            <h2 class="phase__title" id="workflow-title">
+              <span class="phase__step">Phase 02</span> Workflow
+            </h2>
+            <p class="phase__purpose">
+              Move accessibility from a review someone remembers to do into the
+              contribution process itself.
+            </p>
+          </div>
+          <div class="phase__body">
+            <p class="phase__lede">
+              Open source workflows tend to push accessibility to the end of a
+              cycle, where fixing an issue costs far more than building it in
+              would have. The work in this phase is making the default path
+              through your repository produce accessible code, so contributors
+              do not have to be accessibility experts to avoid regressions.
+            </p>
+
+            <h3 class="phase__subhead">Start here</h3>
+            <ul class="phase__list" role="list">
+              <li class="phase__list-item">
+                <span class="phase__term"
+                  >Put accessibility in the definition of done.</span
+                >
+                Document it in CONTRIBUTING.md so the expectation is visible
+                before someone opens a pull request, not after.
+              </li>
+              <li class="phase__list-item">
+                <span class="phase__term">Add a pull request checklist.</span>
+                Keyboard operable, visible focus, accessible name, contrast
+                checked, no meaning carried by color alone, tested at 400
+                percent zoom. Keep it short enough that people read it.
+              </li>
+              <li class="phase__list-item">
+                <span class="phase__term"
+                  >Automate the checks a machine can make.</span
+                >
+                Run a linter such as eslint-plugin-jsx-a11y in pre-commit and an
+                engine such as axe-core, pa11y, or Lighthouse CI on pull
+                requests.
+              </li>
+              <li class="phase__list-item">
+                <span class="phase__term"
+                  >Fail on new violations, not on the whole backlog.</span
+                >
+                Baseline the existing issues so CI blocks regressions without
+                blocking every contributor on day one.
+              </li>
+              <li class="phase__list-item">
+                <span class="phase__term"
+                  >Write acceptance criteria into feature issues.</span
+                >
+                Describe the keyboard interaction and the expected screen reader
+                announcement while the feature is being specified.
+              </li>
+              <li class="phase__list-item">
+                <span class="phase__term">Adopt an upstream first rule.</span>
+                When a barrier comes from a dependency or shared component, fix
+                it there and track the local workaround until the upstream fix
+                ships.
+              </li>
+              <li class="phase__list-item">
+                <span class="phase__term">Triage by user impact.</span> Rank a
+                blocked task for a screen reader user above a cosmetic contrast
+                miss, and write the severity scale down so triage is consistent
+                between maintainers.
+              </li>
+            </ul>
+
+            <h3 class="phase__subhead">Signals of progress</h3>
+            <ul class="phase__list phase__list--signals" role="list">
+              <li class="phase__list-item">
+                Automated accessibility checks run on every pull request and
+                their rule coverage is documented.
+              </li>
+              <li class="phase__list-item">
+                Accessibility appears in CONTRIBUTING.md and in the pull request
+                template.
+              </li>
+              <li class="phase__list-item">
+                New accessibility regressions are caught before merge rather
+                than reported by users.
+              </li>
+              <li class="phase__list-item">
+                Barriers found in dependencies are filed upstream and linked
+                from the local issue.
+              </li>
+            </ul>
+
+            <h3 class="phase__subhead">More information</h3>
+            <ul class="phase__links" role="list">
+              <li class="phase__links-item">
+                <a
+                  href="https://github.com/open-source-accessibility/Open-Source-Accessibility-Framework/blob/main/framework/phases/workflow-phase.md"
+                  >Read the full workflow phase</a
+                >
+              </li>
+              <li class="phase__links-item">
+                <a href="https://github.com/dequelabs/axe-core"
+                  >axe-core accessibility engine</a
+                >
+              </li>
+              <li class="phase__links-item">
+                <a href="https://www.w3.org/WAI/ARIA/apg/"
+                  >ARIA Authoring Practices Guide</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="phase" id="testing" aria-labelledby="testing-title">
+        <div class="wrap phase__grid">
+          <div class="phase__aside">
+            <h2 class="phase__title" id="testing-title">
+              <span class="phase__step">Phase 03</span> Testing
+            </h2>
+            <p class="phase__purpose">
+              Combine automation, manual review, and assistive technology
+              testing into a routine anyone can repeat.
+            </p>
+          </div>
+          <div class="phase__body">
+            <p class="phase__lede">
+              Automated tools catch a useful but small share of accessibility
+              defects, and they cannot judge whether an experience makes sense.
+              Comprehensive testing needs manual effort and specialist knowledge
+              that most teams do not have on hand, so the goal of this phase is
+              a documented procedure that a non-specialist maintainer can follow
+              and get the same answer twice.
+            </p>
+
+            <h3 class="phase__subhead">Start here</h3>
+            <ul class="phase__list" role="list">
+              <li class="phase__list-item">
+                <span class="phase__term">Run the keyboard pass first.</span>
+                Tab through every flow. Check reachability, focus visibility,
+                logical order, no traps, and that every mouse action has a
+                keyboard equivalent. It is the cheapest test with the highest
+                yield.
+              </li>
+              <li class="phase__list-item">
+                <span class="phase__term"
+                  >Test with real assistive technology.</span
+                >
+                Cover at least one screen reader per platform you support, such
+                as NVDA or JAWS with Windows browsers, VoiceOver on macOS and
+                iOS, TalkBack on Android, and Orca on Linux.
+              </li>
+              <li class="phase__list-item">
+                <span class="phase__term">Check reflow and text spacing.</span>
+                View at 400 percent zoom in a 1280 pixel viewport, and apply
+                increased line and letter spacing. Content should not be cut
+                off, overlapped, or require two dimensional scrolling.
+              </li>
+              <li class="phase__list-item">
+                <span class="phase__term"
+                  >Verify state, not just structure.</span
+                >
+                Errors, loading, expanded and collapsed, selected, and live
+                region updates are where most real barriers live.
+              </li>
+              <li class="phase__list-item">
+                <span class="phase__term">Publish the test procedure.</span>
+                Write the steps, the tools, and the versions into the repository
+                so results are reproducible and a new contributor can run them.
+              </li>
+              <li class="phase__list-item">
+                <span class="phase__term"
+                  >Add a regression test with every fix.</span
+                >
+                Unit and integration assertions on accessible name, role, and
+                focus behavior keep resolved bugs from returning.
+              </li>
+              <li class="phase__list-item">
+                <span class="phase__term">Report what you found.</span> A short
+                conformance summary or accessibility conformance report tells
+                downstream projects what they are inheriting.
+              </li>
+            </ul>
+
+            <h3 class="phase__subhead">Signals of progress</h3>
+            <ul class="phase__list phase__list--signals" role="list">
+              <li class="phase__list-item">
+                The assistive technology and browser combinations under test are
+                named in the repository.
+              </li>
+              <li class="phase__list-item">
+                Manual test steps are written down and have been run by more
+                than one person.
+              </li>
+              <li class="phase__list-item">
+                Fixed accessibility bugs have regression tests attached.
+              </li>
+              <li class="phase__list-item">
+                Test results are published where users and downstream
+                maintainers can read them.
+              </li>
+            </ul>
+
+            <h3 class="phase__subhead">More information</h3>
+            <ul class="phase__links" role="list">
+              <li class="phase__links-item">
+                <a
+                  href="https://github.com/open-source-accessibility/Open-Source-Accessibility-Framework/blob/main/framework/phases/testing-phase.md"
+                  >Read the full testing phase</a
+                >
+              </li>
+              <li class="phase__links-item">
+                <a href="https://www.w3.org/WAI/test-evaluate/"
+                  >WAI evaluation and testing resources</a
+                >
+              </li>
+              <li class="phase__links-item">
+                <a
+                  href="https://github.com/marketplace/actions/accessibility-scanner"
+                  >Accessibility scanner action</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="phase" id="community" aria-labelledby="community-title">
+        <div class="wrap phase__grid">
+          <div class="phase__aside">
+            <h2 class="phase__title" id="community-title">
+              <span class="phase__step">Phase 04</span> Community
+            </h2>
+            <p class="phase__purpose">
+              Close the distance between the people who build the software and
+              the people who depend on it being accessible.
+            </p>
+          </div>
+          <div class="phase__body">
+            <p class="phase__lede">
+              Developers usually work in isolation from the users who rely on
+              accessibility features, and that distance is where barriers get
+              designed in. Without disabled people involved in the work, teams
+              miss the insight that would have prevented the problem, and the
+              fix arrives as an afterthought if it arrives at all.
+            </p>
+
+            <h3 class="phase__subhead">Start here</h3>
+            <ul class="phase__list" role="list">
+              <li class="phase__list-item">
+                <span class="phase__term">Make contributing possible.</span> An
+                inaccessible dev environment, setup script, or docs site
+                excludes the exact contributors you need. Test the contributor
+                path with a screen reader and keyboard.
+              </li>
+              <li class="phase__list-item">
+                <span class="phase__term"
+                  >Answer accessibility reports in public and on a
+                  schedule.</span
+                >
+                Say what you will do and when. Silence teaches people not to
+                file the next one.
+              </li>
+              <li class="phase__list-item">
+                <span class="phase__term">Pay or credit disabled testers.</span>
+                Lived experience is expertise. Treat it like any other
+                specialist contribution rather than free QA.
+              </li>
+              <li class="phase__list-item">
+                <span class="phase__term"
+                  >Tag approachable accessibility work.</span
+                >
+                Good first issues with clear reproduction steps turn interest
+                into pull requests.
+              </li>
+              <li class="phase__list-item">
+                <span class="phase__term"
+                  >Run accessible meetings and events.</span
+                >
+                Captions, agendas circulated in advance, a described screen
+                share, and notes afterwards.
+              </li>
+              <li class="phase__list-item">
+                <span class="phase__term"
+                  >Name accessibility work in release notes.</span
+                >
+                Visible credit is how the work becomes something contributors
+                want on their record.
+              </li>
+              <li class="phase__list-item">
+                <span class="phase__term">Connect to the wider effort.</span>
+                Assistive technology communities, other maintainers, and shared
+                working groups reduce how much any one project has to figure out
+                alone.
+              </li>
+            </ul>
+
+            <h3 class="phase__subhead">Signals of progress</h3>
+            <ul class="phase__list phase__list--signals" role="list">
+              <li class="phase__list-item">
+                Disabled users are involved before a feature ships, not only
+                after a complaint.
+              </li>
+              <li class="phase__list-item">
+                Accessibility issues get a first response within a stated
+                window.
+              </li>
+              <li class="phase__list-item">
+                The contributor setup path has been tested with assistive
+                technology.
+              </li>
+              <li class="phase__list-item">
+                Accessibility fixes appear by name in release notes.
+              </li>
+            </ul>
+
+            <h3 class="phase__subhead">More information</h3>
+            <ul class="phase__links" role="list">
+              <li class="phase__links-item">
+                <a
+                  href="https://github.com/open-source-accessibility/Open-Source-Accessibility-Framework/blob/main/framework/phases/community-phase.md"
+                  >Read the full community phase</a
+                >
+              </li>
+              <li class="phase__links-item">
+                <a
+                  href="https://join.slack.com/t/opensourceacc-kab3997/shared_invite/zt-39veighf6-ANp0KNyuMnITxGYMGCGFIA"
+                  >Join the Open Source Accessibility Slack</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="phase" id="sustaining" aria-labelledby="sustaining-title">
+        <div class="wrap phase__grid">
+          <div class="phase__aside">
+            <h2 class="phase__title" id="sustaining-title">
+              <span class="phase__step">Phase 05</span> Sustaining
+            </h2>
+            <p class="phase__purpose">
+              Keep the gains after the person who cared most about them moves
+              on.
+            </p>
+          </div>
+          <div class="phase__body">
+            <p class="phase__lede">
+              Accessibility programs usually fail slowly. Ownership goes
+              unfilled, the statement goes stale, a dependency changes, and a
+              year of work quietly reverses. This phase is about making the
+              commitment survive turnover, budget pressure, and shifting
+              priorities.
+            </p>
+
+            <h3 class="phase__subhead">Start here</h3>
+            <ul class="phase__list" role="list">
+              <li class="phase__list-item">
+                <span class="phase__term"
+                  >Track a small number of real measures.</span
+                >
+                Open accessibility issues, age of the oldest one, regressions
+                caught in CI, and time to first response tell you more than a
+                conformance percentage.
+              </li>
+              <li class="phase__list-item">
+                <span class="phase__term">Schedule a review per release.</span>
+                Tie an accessibility pass to a date or a milestone so it does
+                not depend on someone remembering.
+              </li>
+              <li class="phase__list-item">
+                <span class="phase__term">Keep the statement current.</span>
+                Update known barriers and test coverage when they change. A
+                stale accessibility statement is a trust problem, not just a
+                documentation one.
+              </li>
+              <li class="phase__list-item">
+                <span class="phase__term">Plan for succession.</span> Document
+                where the tests, baselines, and decisions live, and have more
+                than one maintainer who can run them.
+              </li>
+              <li class="phase__list-item">
+                <span class="phase__term">Fund the work.</span> Sponsorship,
+                grants, or paid maintainer time is what separates a project that
+                keeps up from one that has a good first year.
+              </li>
+              <li class="phase__list-item">
+                <span class="phase__term">Watch what you depend on.</span>
+                Upgrades to frameworks, component libraries, and assistive
+                technology change behavior. Retest after major bumps.
+              </li>
+              <li class="phase__list-item">
+                <span class="phase__term">Record the decisions.</span> Why a
+                pattern was chosen and what was rejected saves the next
+                maintainer from relitigating it.
+              </li>
+            </ul>
+
+            <h3 class="phase__subhead">Signals of progress</h3>
+            <ul class="phase__list phase__list--signals" role="list">
+              <li class="phase__list-item">
+                Accessibility measures are reported alongside other project
+                health metrics.
+              </li>
+              <li class="phase__list-item">
+                More than one maintainer can run the full test procedure.
+              </li>
+              <li class="phase__list-item">
+                The accessibility statement has been updated within the last
+                release cycle.
+              </li>
+              <li class="phase__list-item">
+                Accessibility work continues through a change of maintainers.
+              </li>
+            </ul>
+
+            <h3 class="phase__subhead">More information</h3>
+            <ul class="phase__links" role="list">
+              <li class="phase__links-item">
+                <a
+                  href="https://github.com/open-source-accessibility/Open-Source-Accessibility-Framework"
+                  >Read the full framework</a
+                >
+              </li>
+              <li class="phase__links-item">
+                <a href="https://github.com/open-source-accessibility"
+                  >Open Source Accessibility on GitHub</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="join" aria-labelledby="join-title">
+        <div class="wrap">
+          <h2 class="join__title" id="join-title">
+            Contribute to the framework
+          </h2>
+          <p class="join__lede">
+            The framework is maintained in the open by people from the
+            disability, accessibility, and open source communities. It improves
+            when maintainers who have used it say what worked and what did not.
+          </p>
+          <ul class="join__list" role="list">
+            <li>
+              <h3 class="join__heading">
+                <a
+                  href="https://github.com/open-source-accessibility/Open-Source-Accessibility-Framework/issues"
+                  >Open an issue</a
+                >
+              </h3>
+              <p class="join__text">
+                Tell us where a phase was unclear, missing a step, or wrong for
+                your kind of project.
+              </p>
+            </li>
+            <li>
+              <h3 class="join__heading">
+                <a
+                  href="https://join.slack.com/t/opensourceacc-kab3997/shared_invite/zt-39veighf6-ANp0KNyuMnITxGYMGCGFIA"
+                  >Join the Slack</a
+                >
+              </h3>
+              <p class="join__text">
+                Working groups coordinate roadmap items, priorities, and
+                community projects in the open.
+              </p>
+            </li>
+            <li>
+              <h3 class="join__heading">
+                <a
+                  href="https://github.com/open-source-accessibility/accessibility-toolkit"
+                  >Adopt the toolkit</a
+                >
+              </h3>
+              <p class="join__text">
+                Templates for accessibility statements, issue forms, and pull
+                request checklists you can copy into your repository today.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap site-footer__inner">
+        <p>Open Source Accessibility Framework. Licensed MIT.</p>
+        <ul class="site-footer__list" role="list">
+          <li>
+            <a
+              href="https://github.com/open-source-accessibility/Open-Source-Accessibility-Framework"
+              >Repository</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://github.com/open-source-accessibility/Open-Source-Accessibility-Framework/blob/main/CODE_OF_CONDUCT.md"
+              >Code of conduct</a
+            >
+          </li>
+          <li>
+            <a href="https://github.com/open-source-accessibility"
+              >Organization</a
+            >
+          </li>
+        </ul>
+      </div>
+    </footer>
+
+    <script>
+      (function () {
+        var links = Array.prototype.slice.call(
+          document.querySelectorAll(".phase-nav__link"),
+        );
+        if (!links.length || !("IntersectionObserver" in window)) {
+          return;
+        }
+
+        var sections = links
+          .map(function (link) {
+            return document.querySelector(link.getAttribute("href"));
+          })
+          .filter(Boolean);
+
+        var visible = new Set();
+
+        function setCurrent(id) {
+          links.forEach(function (link) {
+            if (link.getAttribute("href") === "#" + id) {
+              link.setAttribute("aria-current", "location");
+            } else {
+              link.removeAttribute("aria-current");
+            }
+          });
+        }
+
+        var observer = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                visible.add(entry.target.id);
+              } else {
+                visible.delete(entry.target.id);
+              }
+            });
+
+            var current = sections.filter(function (section) {
+              return visible.has(section.id);
+            })[0];
+
+            if (current) {
+              setCurrent(current.id);
+            }
+          },
+          { rootMargin: "-20% 0px -60% 0px", threshold: 0 },
+        );
+
+        sections.forEach(function (section) {
+          observer.observe(section);
+        });
+      })();
+    </script>
+  </body>
+</html>

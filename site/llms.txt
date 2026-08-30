@@ -1,0 +1,29 @@
+# Open Source Accessibility Framework
+
+> A five phase framework maintainers can follow to make an open source project accessible. The phases are ordered: each assumes the work in the one before it. Every phase names what to do first and the signals that show it is working.
+
+The framework is maintained in the open by contributors from the disability, accessibility, and open source communities. It targets project maintainers rather than accessibility specialists, and most of the early work is documentation and process rather than code.
+
+## The five phases
+
+- [Phase 01, Foundational](https://open-source-accessibility.github.io/Open-Source-Accessibility-Framework/#foundational): State the commitment in writing, give it an owner, and make the project's own documentation and interface usable. Publish an ACCESSIBILITY.md, pick a conformance target such as WCAG 2.2 Level AA, add an accessibility issue template and label, and list the known barriers honestly.
+- [Phase 02, Workflow](https://open-source-accessibility.github.io/Open-Source-Accessibility-Framework/#workflow): Move accessibility into the contribution process. Accessibility in the definition of done, a short pull request checklist, linting and automated checks in CI that fail on new violations rather than the whole backlog, acceptance criteria written into feature issues, an upstream first rule for barriers in dependencies, and triage ranked by user impact.
+- [Phase 03, Testing](https://open-source-accessibility.github.io/Open-Source-Accessibility-Framework/#testing): Layer automated checks, manual review, and assistive technology testing into a repeatable routine. Keyboard pass first, then screen readers per platform, reflow at 400 percent zoom, text spacing, state and live region behavior, a published test procedure, and a regression test with every fix.
+- [Phase 04, Community](https://open-source-accessibility.github.io/Open-Source-Accessibility-Framework/#community): Close the distance between the people who build the software and the people who depend on it being accessible. Make the contributor path itself accessible, answer accessibility reports in public on a stated schedule, pay or credit disabled testers, tag approachable issues, run accessible meetings, and name accessibility work in release notes.
+- [Phase 05, Sustaining](https://open-source-accessibility.github.io/Open-Source-Accessibility-Framework/#sustaining): Keep the gains after the person who cared most about them moves on. Track a small number of real measures, schedule a review per release, keep the accessibility statement current, plan for succession, fund the work, retest after major dependency upgrades, and record the decisions.
+
+## Source documents
+
+- [Framework repository](https://github.com/open-source-accessibility/Open-Source-Accessibility-Framework): Canonical source for the phase documents.
+- [Foundational phase](https://github.com/open-source-accessibility/Open-Source-Accessibility-Framework/blob/main/framework/phases/foundational-phase.md)
+- [Workflow phase](https://github.com/open-source-accessibility/Open-Source-Accessibility-Framework/blob/main/framework/phases/workflow-phase.md)
+- [Testing phase](https://github.com/open-source-accessibility/Open-Source-Accessibility-Framework/blob/main/framework/phases/testing-phase.md)
+- [Community phase](https://github.com/open-source-accessibility/Open-Source-Accessibility-Framework/blob/main/framework/phases/community-phase.md)
+
+## Optional
+
+- [Accessibility toolkit](https://github.com/open-source-accessibility/accessibility-toolkit): Copyable templates for an accessibility statement, an accessibility issue form, and a pull request checklist.
+- [Open Source Accessibility organization](https://github.com/open-source-accessibility): Working groups, projects, and roadmap items.
+- [Open Source Accessibility Slack](https://join.slack.com/t/opensourceacc-kab3997/shared_invite/zt-39veighf6-ANp0KNyuMnITxGYMGCGFIA): Community discussion and working group coordination.
+- [WCAG 2.2](https://www.w3.org/TR/WCAG22/): The conformance target referenced throughout the framework.
+- [ARIA Authoring Practices Guide](https://www.w3.org/WAI/ARIA/apg/): Patterns referenced in the workflow phase.
