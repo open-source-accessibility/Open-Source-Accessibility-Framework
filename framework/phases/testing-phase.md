@@ -34,7 +34,7 @@ This action helps catch common regressions.
 #### Recommended Steps
 
 1. Review the guidance on [testing continuously](https://opensource.guide/accessibility-best-practices-for-your-project/#test-accessibility-continuously).
-2. Select an appropriate tool, such as [eslint-plugin-jsx-a11y](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y), [axe](https://github.com/dequelabs/axe-core), or [GitHub Accessibility Scanner](https://github.com/github/accessibility-scanner).
+2. Select an appropriate tool such as [Accessibility Insights](https://accessibilityinsights.io/downloads/). Other options include [eslint-plugin-jsx-a11y](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y), [axe](https://github.com/dequelabs/axe-core), and [GitHub Accessibility Scanner](https://github.com/github/accessibility-scanner).
 3. Configure the test or document the decision in your project documentation.
 4. Run the check against relevant project code or user flows.
 5. Ensure accessibility issues from CI/CD checks are tracked.
