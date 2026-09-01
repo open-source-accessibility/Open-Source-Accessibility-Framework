@@ -1,7 +1,0 @@
-# Open Source Accessibility Framework
-# Everything here is public documentation. Crawl it.
-
-User-agent: *
-Allow: /
-
-Sitemap: https://open-source-accessibility.github.io/Open-Source-Accessibility-Framework/sitemap.xml
