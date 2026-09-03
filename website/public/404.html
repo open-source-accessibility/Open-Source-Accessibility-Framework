@@ -7,9 +7,8 @@
       // GitHub Pages has no server-side routing, so deep links to Vue Router
       // paths 404. Redirect to the app root with the original path preserved
       // in the query string, and main.ts restores it via history.replaceState.
-      var basePath = '/Open-Source-Accessibility-Framework/';
-      var path = location.pathname.slice(basePath.length);
-      location.replace(basePath + '?redirect=' + encodeURIComponent(path) + location.search + location.hash);
+      var path = location.pathname.slice(1);
+      location.replace('/?redirect=' + encodeURIComponent(path) + location.search + location.hash);
     </script>
   </head>
   <body></body>
