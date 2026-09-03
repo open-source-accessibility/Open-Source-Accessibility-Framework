@@ -70,30 +70,32 @@ See [Vite Configuration Reference](https://vite.dev/config/).
 
 ### Project Setup
 
+The website source and its Node.js configuration live in the [`website/`](../../website/) directory. Run the following commands from the repository root:
+
 ```sh
-npm install
+cd website && npm install
 ```
 
 #### Compile and Hot-Reload for Development
 
 ```sh
-npm run dev
+cd website && npm run dev
 ```
 
 #### Type-Check, Compile and Minify for Production
 
 ```sh
-npm run build
+cd website && npm run build
 ```
 
 #### Run Unit Tests with [Vitest](https://vitest.dev/)
 
 ```sh
-npm run test:unit
+cd website && npm run test:unit
 ```
 
 #### Lint with [ESLint](https://eslint.org/)
 
 ```sh
-npm run lint
+cd website && npm run lint
 ```

@@ -48,3 +48,7 @@ Want to help a participating project improve?
 To improve the framework itself, open an issue or pull request in this repository.
 
 Framework maintainers can find operational guidance in [Framework maintenance](framework/maintainers/framework-maintenance.md).
+
+## Website
+
+The source for the framework's companion site lives in [`website/`](website). See [`website/README.md`](website/README.md) for local development instructions.

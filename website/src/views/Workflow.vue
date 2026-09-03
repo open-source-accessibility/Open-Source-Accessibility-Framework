@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import MarkdownPage from '../components/MarkdownPage.vue'
-import workflowPhaseMarkdown from '../../framework/phases/workflow-phase.md?raw'
+import workflowPhaseMarkdown from '../../../framework/phases/workflow-phase.md?raw'
 </script>
 
 <template>
