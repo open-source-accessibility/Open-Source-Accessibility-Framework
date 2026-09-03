@@ -212,7 +212,6 @@ a:hover {
   margin: 0;
   padding: 0;
   list-style: none;
-  counter-reset: phase-nav;
 }
 
 .phase-nav__link {
@@ -221,13 +220,6 @@ a:hover {
   font-size: var(--size-small);
   color: var(--color-ink-muted);
   text-decoration: none;
-}
-
-.phase-nav__link::before {
-  counter-increment: phase-nav;
-  content: counter(phase-nav, decimal-leading-zero) ' ';
-  font-family: var(--font-utility);
-  color: var(--color-ink-muted);
 }
 
 .phase-nav__link:hover {
