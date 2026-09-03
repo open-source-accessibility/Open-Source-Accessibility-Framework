@@ -1,13 +1,19 @@
 <script setup lang="ts">
 import { RouterLink } from "vue-router";
+import logo from "../assets/logo.svg";
 </script>
 
 <template>
   <header class="masthead">
     <div class="wrap masthead__inner">
-      <RouterLink to="/" class="masthead__mark"
-        >Open Source Accessibility Framework</RouterLink
-      >
+      <RouterLink to="/" class="masthead__mark">
+        <img
+          class="masthead__mark__logo"
+          :src="logo"
+          alt="Open Source Accessibility Framework logo"
+        />
+        Open Source Accessibility Framework
+      </RouterLink>
       <nav class="phase-nav" aria-label="Framework phases">
         <ul class="phase-nav__list" role="list">
           <li>

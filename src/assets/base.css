@@ -183,7 +183,8 @@ a:hover {
 }
 
 .masthead__mark {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   padding-block: var(--space-2xs);
   font-family: var(--font-utility);
   font-size: var(--size-caption);
@@ -192,6 +193,12 @@ a:hover {
   text-transform: uppercase;
   color: var(--color-ink);
   text-decoration: none;
+}
+
+.masthead__mark__logo {
+  display: block;
+  height: 1.8rem;
+  margin-inline-end: var(--space-2xs);
 }
 
 .masthead__mark:hover {
@@ -247,7 +254,7 @@ a:hover {
 @media (min-width: 48rem) {
   .masthead__inner {
     flex-direction: row;
-    align-items: baseline;
+    align-items: center;
     justify-content: space-between;
     gap: var(--space-l);
     padding-block: var(--space-s);
