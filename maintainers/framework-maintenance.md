@@ -70,7 +70,7 @@ See [Vite Configuration Reference](https://vite.dev/config/).
 
 ### Project Setup
 
-The website source and its Node.js configuration live in the [`website/`](../../website/) directory. Run the following commands from the repository root:
+The website source and its Node.js configuration live in the [`website/`](../website/) directory. Run the following commands from the repository root:
 
 ```sh
 cd website && npm install
