@@ -25,15 +25,15 @@ This action gives users and contributors a clear place to find accessibility inf
 
 #### Definition of done
 
-1. `ACCESSIBILITY.md` exists in the repository.
-2. The file includes an a brief statement describing why accessibility matters to your project.
+1. An `ACCESSIBILITY.md` exists in the repository.
+2. The file includes a brief statement describing why accessibility matters to your project.
 
 #### Recommended Steps
 
 1. Create an `ACCESSIBILITY.md` file in the repository.
-2. Refer to the [initial `ACCESSIBILITY.md` example](../supporting/foundational-phase/initial-accessibility.md).
-3. Document the project’s accessibility commitment statement, goals, contributor requirements, and supported environments.
-4. Commit the file and make it available in the default branch.
+2. Add a brief accessibility statement for your project.
+   - Refer to the [initial `ACCESSIBILITY.md` example](../supporting/foundational-phase/initial-accessibility.md) for guidance.
+3. Commit the file and make it available in the default branch.
 
 **Note:** Here is an example of a robust [`ACCESSIBILITY.md`](https://github.com/open-source-accessibility/accessibility-toolkit/blob/main/ACCESSIBILITY.md) for mature projects.
 
