@@ -35,7 +35,7 @@ This action gives users and contributors a clear place to find accessibility inf
    - Refer to the [initial `ACCESSIBILITY.md` example](../supporting/foundational-phase/initial-accessibility.md) for guidance.
 3. Commit the file and make it available in the default branch.
 
-**Note:** Here is an example of a robust [`ACCESSIBILITY.md`](https://github.com/open-source-accessibility/accessibility-toolkit/blob/main/ACCESSIBILITY.md) for mature projects.
+**Note:** Mature projects can refer to this comprehensive [`ACCESSIBILITY.md` example](https://github.com/open-source-accessibility/accessibility-toolkit/blob/main/ACCESSIBILITY.md) for additional guidance.
 
 ### 2. Use an accessibility label to track relevant work
 
