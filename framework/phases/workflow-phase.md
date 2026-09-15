@@ -44,10 +44,10 @@ This action communicates the project’s accessibility priorities and sets clear
    - Refer to the [priorities and contributor expectations example](../supporting/workflow-phase/contributor-accessibility.md) for guidance.
 2. Add a "Contributor expectations" section that defines the accessibility testing, documentation, and continuous integration requirements for contributions.
    - Refer to the [priorities and contributor expectations example](../supporting/workflow-phase/contributor-accessibility.md) for guidance.
-3. In your `CONTRIBUTING.md`, add a reference to the contributor expectations in your `ACCESSIBILITY.md`.
+3. In your `CONTRIBUTING.md`, add a reference to the contributor expectations from your `ACCESSIBILITY.md`.
    - Refer to the [contributor guidance example](https://github.com/open-source-accessibility/accessibility-toolkit/blob/main/CONTRIBUTING.md) for guidance.
 
-**Note:** Here is an example of a robust [`ACCESSIBILITY.md`](https://github.com/open-source-accessibility/accessibility-toolkit/blob/main/ACCESSIBILITY.md) for mature projects.
+**Note:** Mature projects can refer to this comprehensive [`ACCESSIBILITY.md` example](https://github.com/open-source-accessibility/accessibility-toolkit/blob/main/ACCESSIBILITY.md) for additional guidance.
 
 ### 2. Add an issue template for reporting accessibility bugs
 
@@ -77,19 +77,20 @@ This action gives people a clear way to report accessibility barriers and helps 
 
 #### Definition of done
 
-1. The project’s `ACCESSIBILITY.md` explains how to report an accessibility barrier and what information is helpful to include.
+1. The `ACCESSIBILITY.md` explains how to report an accessibility barrier and what information is helpful to include.
 2. Severity categories describe how strongly a barrier affects a person’s ability to complete a task.
 3. Response expectations explain how reports are acknowledged, tracked, updated, and resolved.
 
 #### Recommended Steps
 
-1. Review the [accessibility triage example](../supporting/workflow-phase/triage-accessibility.md).
-2. In your `ACCESSIBILITY.md`, explain how to report a barrier and invite relevant context, such as the affected task, URL, observed behavior, browser, operating system, and assistive technology.
-   - Make screenshots and recordings optional, and do not require reporters to disclose a disability.
-3. Define severity categories, such as critical, serious, moderate, and minor, based on how strongly a barrier affects a person’s ability to complete a task.
+1. In the `ACCESSIBILITY.md`, define your process for reporting accessibility issues
+   - Refer to the [reporting accessibility issues example](../supporting/workflow-phase/triage-accessibility.md) for guidance.
+2. Define severity categories, such as critical, serious, moderate, and minor, based on how strongly a barrier affects a person’s ability to complete a task.
    - Keep these categories consistent with the project’s issue template, labels, and resolution targets.
-4. Document what reporters can expect, including acknowledgement, status updates, workarounds, anticipated timelines, and opportunities to verify a fix.
-5. Apply the documented severity and response approach when triaging accessibility reports.
+3. Document what reporters can expect, including acknowledgement, status updates, workarounds, anticipated timelines, and opportunities to verify a fix.
+4. Apply the documented severity and response approach when triaging accessibility reports.
+
+**Note:** Mature projects can refer to this comprehensive [`ACCESSIBILITY.md` example](https://github.com/open-source-accessibility/accessibility-toolkit/blob/main/ACCESSIBILITY.md) for additional guidance.
 
 ### 4. Tag beginner-friendly accessibility issues
 
@@ -135,13 +136,15 @@ This action makes accessibility a consistent part of the review process.
 
 1. The pull request template includes an accessibility section.
 2. The checklist covers the project’s relevant accessibility requirements.
-3. Contributors are prompted to complete or explain each applicable item.
+3. Contributors are prompted to complete each applicable item.
 
 #### Recommended Steps
 
-1. Review the [pull request template example](https://github.com/open-source-accessibility/accessibility-toolkit/blob/main/.github/PULL_REQUEST_TEMPLATE.md).
+1. Include an Accessibility checklist in your pull request template (create one if there isn't one already)
+   - Refer to the [pull request template example](https://github.com/open-source-accessibility/accessibility-toolkit/blob/main/.github/PULL_REQUEST_TEMPLATE.md) for guidance.
 2. Add checklist items for content changes and UI (user interface) changes.
-3. Customize the checklist for the project’s needs.
+3. Prompted contributors to complete each applicable item.
+4. Customize the checklist for the project’s needs.
 
 ### 7. Assign accessibility ownership
 
@@ -151,15 +154,14 @@ This action prevents drift.
 
 #### Definition of done
 
-1. An accessibility owner or ownership group is identified.
-2. Responsibilities are documented in a project-maintained location.
-3. A handoff process is defined.
+1. The `ACCESSIBILITY.md` identifies an accessibility owner.
+2. Responsibilities are documented.
 
 #### Recommended Steps
 
-1. Identify a maintainer, working group, or rotating role responsible for triaging accessibility work.
-2. Document the responsibility in `ACCESSIBILITY.md`, `README.md`, `CONTRIBUTING.md`, a tracking issue, or `CODEOWNERS`.
-3. Define how ownership is handed off when responsibilities change.
+1. In the `ACCESSIBILITY.md`, identify a maintainer for triaging accessibility work.
+2. Document the responsibilities of the accessibility owner.
+   - Refer to the [ownership and maintenance example](../supporting/workflow-phase/ownership-accessibility.md) for guidance.
 
 ### 8. Make docs accessible by default
 
