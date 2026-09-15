@@ -57,15 +57,16 @@ This action improves report quality and supports consistent triage.
 
 #### Definition of done
 
-1. The template is available when a contributor opens a new issue.
-2. The template includes all required accessibility bug-report fields and the `accessibility` label.
+1. A template for reporting accessibility bugs is available when opening a new issue.
+2. The template applied the the `accessibility` (or another clearly understood equivalent) label and requests useful context.
 
 #### Recommended Steps
 
 1. Review the [accessibility issue-template guidance](https://opensource.guide/accessibility-best-practices-for-your-project/#add-issue-labels-and-template).
-2. Create an accessibility bug-report template in `.github/ISSUE_TEMPLATE/`.
+2. Create a template to report accessibility bugs
+   - Refer to the [accessibility issue template example](https://github.com/open-source-accessibility/accessibility-toolkit/blob/main/.github/ISSUE_TEMPLATE/accessibility.yml) for guidance.
 3. Include fields for expected behavior, actual behavior, steps to reproduce, environment, assistive technology, and severity.
-4. Configure the template to apply the `accessibility` label.
+4. Configure the template to apply the `accessibility` (or another clearly understood equivalent) label.
 5. Preview or test the template by opening a new issue.
 
 ### 3. Establish a simple accessibility triage approach
@@ -98,13 +99,13 @@ This action makes contribution easier to start.
 
 #### Definition of done
 
-1. Beginner-friendly accessibility issues are clearly labeled.
+1. Beginner-friendly accessibility issues are clearly labeled (using both `good first issue` and `accessibility` (or another clearly understood equivalent) labels).
 2. Each selected issue has a clear scope and contribution context.
 
 #### Recommended Steps
 
 1. Identify small, well-scoped accessibility issues suitable for new contributors.
-2. Apply both the `accessibility` and `good first issue` labels.
+2. Apply both the `good first issue` and `accessibility` (or another clearly understood equivalent) labels.
 3. Add enough context and acceptance criteria for contributors to begin.
 
 ### 5. Tag accessibility issues where you need expert help
@@ -115,13 +116,13 @@ This action makes contribution easier to start.
 
 #### Definition of done
 
-1. Accessibility issues where expert help is needed are clearly labeled.
+1. Accessibility issues where expert help is needed are clearly labeled `help wanted` and `accessibility` (or another clearly understood equivalent) labels.
 2. Each selected issue has a clear scope and contribution context.
 
 #### Recommended Steps
 
 1. Identify accessibility issues that require specialized knowledge or experience.
-2. Apply both the `accessibility` and `help wanted` labels.
+2. Apply both the `help wanted` and `accessibility` (or another clearly understood equivalent) labels.
 3. Add enough context, acceptance criteria, and required expertise for contributors to begin.
 
 ### 6. Add an accessibility section to the pull request template
