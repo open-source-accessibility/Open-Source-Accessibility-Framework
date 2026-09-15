@@ -11,8 +11,8 @@ This phase has **11 total actions** with **30 total tasks** to complete.
 | Action                                                                                                                              | Number of tasks | Typical initial effort |
 | :---------------------------------------------------------------------------------------------------------------------------------- | --------------: | :--------------------- |
 | [Action 1](#1-surface-accessibility-expectations-for-contributors): Surface accessibility expectations for contributors             |               3 | Quick                  |
-| [Action 2](#2-establish-a-simple-accessibility-triage-approach): Establish a simple accessibility triage approach                   |               3 | Moderate               |
-| [Action 3](#3-add-an-issue-template-for-reporting-accessibility-bugs): Add an issue template for reporting accessibility bugs       |               2 | Moderate               |
+| [Action 2](#2-add-an-issue-template-for-reporting-accessibility-bugs): Add an issue template for reporting accessibility bugs       |               2 | Moderate               |
+| [Action 3](#3-establish-a-simple-accessibility-triage-approach): Establish a simple accessibility triage approach                   |               3 | Moderate               |
 | [Action 4](#4-tag-beginner-friendly-accessibility-issues): Tag beginner-friendly accessibility issues                               |               2 | Quick                  |
 | [Action 5](#5-tag-accessibility-issues-where-you-need-expert-help): Tag accessibility issues where you need expert help             |               2 | Quick                  |
 | [Action 6](#6-add-an-accessibility-section-to-the-pull-request-template): Add an accessibility section to the pull request template |               3 | Quick                  |
@@ -49,28 +49,7 @@ This action communicates the project’s accessibility priorities and sets clear
 
 **Note:** Here is an example of a robust [`ACCESSIBILITY.md`](https://github.com/open-source-accessibility/accessibility-toolkit/blob/main/ACCESSIBILITY.md) for mature projects.
 
-### 2. Establish a simple accessibility triage approach
-
-#### Why it matters
-
-This action helps maintainers prioritize work.
-
-#### Definition of done
-
-1. A process for reporting accessibility issues is defined.
-2. Severity categories are documented.
-3. Resolution expectations are defined.
-
-#### Recommended Steps
-
-1. Review the [reporting accessibility issues example](https://github.com/open-source-accessibility/accessibility-toolkit/blob/main/ACCESSIBILITY.md#reporting-accessibility-issues).
-2. In your `ACCESSIBILITY.md`, add a section on how to report accessibility issues.
-3. Define severity categories such as critical, serious, moderate, and minor.
-4. Document resolution expectations.
-5. Set expectations for how you will respond to accessibility reports.
-6. Apply the approach during triage.
-
-### 3. Add an issue template for reporting accessibility bugs
+### 2. Add an issue template for reporting accessibility bugs
 
 #### Why it matters
 
@@ -88,6 +67,28 @@ This action improves report quality and supports consistent triage.
 3. Include fields for expected behavior, actual behavior, steps to reproduce, environment, assistive technology, and severity.
 4. Configure the template to apply the `accessibility` label.
 5. Preview or test the template by opening a new issue.
+
+### 3. Establish a simple accessibility triage approach
+
+#### Why it matters
+
+This action gives people a clear way to report accessibility barriers and helps maintainers assess, prioritize, and respond to them consistently.
+
+#### Definition of done
+
+1. The project’s `ACCESSIBILITY.md` explains how to report an accessibility barrier and what information is helpful to include.
+2. Severity categories describe how strongly a barrier affects a person’s ability to complete a task.
+3. Response expectations explain how reports are acknowledged, tracked, updated, and resolved.
+
+#### Recommended Steps
+
+1. Review the [accessibility triage example](../supporting/workflow-phase/triage-accessibility.md).
+2. In your `ACCESSIBILITY.md`, explain how to report a barrier and invite relevant context, such as the affected task, URL, observed behavior, browser, operating system, and assistive technology.
+   - Make screenshots and recordings optional, and do not require reporters to disclose a disability.
+3. Define severity categories, such as critical, serious, moderate, and minor, based on how strongly a barrier affects a person’s ability to complete a task.
+   - Keep these categories consistent with the project’s issue template, labels, and resolution targets.
+4. Document what reporters can expect, including acknowledgement, status updates, workarounds, anticipated timelines, and opportunities to verify a fix.
+5. Apply the documented severity and response approach when triaging accessibility reports.
 
 ### 4. Tag beginner-friendly accessibility issues
 
