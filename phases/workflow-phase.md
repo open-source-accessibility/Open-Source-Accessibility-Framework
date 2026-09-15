@@ -57,7 +57,7 @@ This action helps prevent common accessibility issues from being introduced in t
 #### Recommended Steps
 
 1. Review the [accessible interface design practices](https://opensource.guide/accessibility-best-practices-for-your-project/#design-accessible-interfaces).
-2. Ensure the [contributor requirements](https://github.com/open-source-accessibility/accessibility-toolkit/blob/main/ACCESSIBILITY.md#contributor-requirements) include checks for keyboard and screen reader support, such as visible focus states, clear labels, and other project-relevant requirements.
+2. Ensure the [contributor expectations](https://github.com/open-source-accessibility/accessibility-toolkit/blob/main/ACCESSIBILITY.md#contributor-expectations) include checks for keyboard and screen reader support, such as visible focus states, clear labels, and other project-relevant requirements.
 3. Apply the checks when creating or updating interfaces.
 
 ### 3. Surface accessibility expectations for contributors

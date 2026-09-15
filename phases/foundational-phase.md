@@ -49,13 +49,13 @@ This action gives users and contributors a clear place to find accessibility inf
 #### Definition of done
 
 1. `ACCESSIBILITY.md` exists in the repository.
-2. The file includes a commitment statement, goals, contributor requirements, and supported environments.
+2. The file includes a commitment statement, goals, contributor expectations, and supported environments.
 
 #### Recommended Steps
 
 1. Review the [example `ACCESSIBILITY.md`](https://github.com/open-source-accessibility/accessibility-toolkit/blob/main/ACCESSIBILITY.md).
 2. Create an `ACCESSIBILITY.md` file in the repository.
-3. Document the project’s accessibility commitment statement, goals, contributor requirements, and supported environments.
+3. Document the project’s accessibility commitment statement, goals, contributor expectations, and supported environments.
 4. Commit the file and make it available in the default branch.
 
 ### 3. Add a link to `ACCESSIBILITY.md` in your `README.md`

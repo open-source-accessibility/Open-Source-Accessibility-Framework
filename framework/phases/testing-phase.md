@@ -56,7 +56,7 @@ This action covers a high-impact baseline.
 #### Recommended Steps
 
 1. Identify key tasks and user journeys.
-2. Document a short set of keyboard-only checks for those tasks using the [testing examples](https://github.com/open-source-accessibility/accessibility-toolkit/blob/main/ACCESSIBILITY.md#contributor-requirements).
+2. Document a short set of keyboard-only checks for those tasks using the [testing examples](https://github.com/open-source-accessibility/accessibility-toolkit/blob/main/ACCESSIBILITY.md#contributor-expectations).
 3. Run the checks without using a mouse or other pointing device.
 4. Record and track accessibility issues found using the [accessibility issue-template guidance](https://opensource.guide/accessibility-best-practices-for-your-project/#add-issue-labels-and-template).
 
@@ -76,7 +76,7 @@ This action validates real usability beyond automation.
 
 1. Identify key tasks and user journeys.
 2. Select a supported screen reader and browser combination.
-3. Test the flows using the [testing examples](https://github.com/open-source-accessibility/accessibility-toolkit/blob/main/ACCESSIBILITY.md#contributor-requirements).
+3. Test the flows using the [testing examples](https://github.com/open-source-accessibility/accessibility-toolkit/blob/main/ACCESSIBILITY.md#contributor-expectations).
 4. Record and track accessibility issues found using the [accessibility issue-template guidance](https://opensource.guide/accessibility-best-practices-for-your-project/#add-issue-labels-and-template).
 
 ### 4. Perform manual accessibility checks
@@ -114,5 +114,5 @@ This action improves the first experience many users have.
 #### Recommended Steps
 
 1. Review and identify key project documentation.
-2. Perform documentation checks using the [testing examples](https://github.com/open-source-accessibility/accessibility-toolkit/blob/main/ACCESSIBILITY.md#contributor-requirements).
+2. Perform documentation checks using the [testing examples](https://github.com/open-source-accessibility/accessibility-toolkit/blob/main/ACCESSIBILITY.md#contributor-expectations).
 3. Record and track accessibility issues found using the [accessibility issue-template guidance](https://opensource.guide/accessibility-best-practices-for-your-project/#add-issue-labels-and-template).
