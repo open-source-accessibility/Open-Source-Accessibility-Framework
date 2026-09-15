@@ -6,77 +6,50 @@ The goal is to make accessible practice repeatable across the project, even as c
 
 ## Phase overview
 
-This phase has **9 total actions** with **25 total tasks** to complete.
+This phase has **11 total actions** with **30 total tasks** to complete.
 
 | Action                                                                                                                              | Number of tasks | Typical initial effort |
 | :---------------------------------------------------------------------------------------------------------------------------------- | --------------: | :--------------------- |
-| [Action 1](#1-make-docs-accessible-by-default): Make docs accessible by default                                                     |               3 | Extended               |
-| [Action 2](#2-design-accessible-interfaces): Design accessible interfaces                                                           |               3 | Extended               |
-| [Action 3](#3-surface-accessibility-expectations-for-contributors): Surface accessibility expectations for contributors             |               2 | Quick                  |
-| [Action 4](#4-establish-a-simple-accessibility-triage-approach): Establish a simple accessibility triage approach                   |               3 | Moderate               |
-| [Action 5](#5-tag-beginner-friendly-accessibility-issues): Tag beginner-friendly accessibility issues                               |               2 | Moderate               |
+| [Action 1](#1-surface-accessibility-expectations-for-contributors): Surface accessibility expectations for contributors             |               3 | Quick                  |
+| [Action 2](#2-establish-a-simple-accessibility-triage-approach): Establish a simple accessibility triage approach                   |               3 | Moderate               |
+| [Action 3](#3-add-an-issue-template-for-reporting-accessibility-bugs): Add an issue template for reporting accessibility bugs       |               2 | Moderate               |
+| [Action 4](#4-tag-beginner-friendly-accessibility-issues): Tag beginner-friendly accessibility issues                               |               2 | Quick                  |
+| [Action 5](#5-tag-accessibility-issues-where-you-need-expert-help): Tag accessibility issues where you need expert help             |               2 | Quick                  |
 | [Action 6](#6-add-an-accessibility-section-to-the-pull-request-template): Add an accessibility section to the pull request template |               3 | Quick                  |
-| [Action 7](#7-leverage-ai-for-accessibility): Leverage AI for Accessibility                                                         |               2 | Moderate               |
-| [Action 8](#8-assign-accessibility-ownership): Assign accessibility ownership                                                       |               3 | Moderate               |
-| [Action 9](#9-evaluate-key-dependencies-and-upstream-blockers): Evaluate key dependencies and upstream blockers                     |               4 | Extended               |
+| [Action 7](#7-assign-accessibility-ownership): Assign accessibility ownership                                                       |               3 | Moderate               |
+| [Action 8](#8-make-docs-accessible-by-default): Make docs accessible by default                                                     |               3 | Extended               |
+| [Action 9](#9-design-accessible-interfaces): Design accessible interfaces                                                           |               3 | Extended               |
+| [Action 10](#10-leverage-ai-for-accessibility): Leverage AI for Accessibility                                                       |               2 | Moderate               |
+| [Action 11](#11-evaluate-key-dependencies-and-upstream-blockers): Evaluate key dependencies and upstream blockers                   |               4 | Extended               |
 
 Effort varies by project size and maturity. Complete these actions incrementally and adapt them to your project's needs. Typical initial effort is categorized as **Quick** (less than 1 hour), **Moderate** (1-3 hours), or **Extended** (more than 3 hours); ongoing practices should be repeated as part of normal project work.
 
 ## Workflow actions
 
-### 1. Make docs accessible by default
+### 1. Surface accessibility expectations for contributors
 
 #### Why it matters
 
-This action makes project information usable for everyone.
+This action communicates the project’s accessibility priorities and sets clear expectations for contributors.
 
 #### Definition of done
 
-1. Documentation uses meaningful structure and semantics.
-2. Images, diagrams, and videos have appropriate alternatives or supporting text.
-3. Tables and code blocks are presented accessibly.
+1. The project’s `ACCESSIBILITY.md` includes a "Priorities" section describing its accessibility goals and areas of focus.
+2. The project’s `ACCESSIBILITY.md` includes a "Contributor expectations" section describing the accessibility requirements for contributions.
+3. The project’s `CONTRIBUTING.md` directs contributors to these expectations and any relevant accessibility checks and resources.
 
 #### Recommended Steps
 
-1. Review the [accessibility best practices for documentation](https://opensource.guide/accessibility-best-practices-for-your-project/#make-docs-accessible-by-default).
-2. Check document structure and semantics, images, diagrams, videos, tables, and code blocks.
-3. Fix identified barriers.
+1. Add a "Priorities" section to your `ACCESSIBILITY.md` that identifies the project’s accessibility goals, applicable standards, and areas of focus.
+   - Refer to the [priorities and contributor expectations example](../supporting/workflow-phase/contributor-accessibility.md) for guidance.
+2. Add a "Contributor expectations" section that defines the accessibility testing, documentation, and continuous integration requirements for contributions.
+   - Refer to the [priorities and contributor expectations example](../supporting/workflow-phase/contributor-accessibility.md) for guidance.
+3. In your `CONTRIBUTING.md`, add a reference to the contributor expectations in your `ACCESSIBILITY.md`.
+   - Refer to the [contributor guidance example](https://github.com/open-source-accessibility/accessibility-toolkit/blob/main/CONTRIBUTING.md) for guidance.
 
-### 2. Design accessible interfaces
+**Note:** Here is an example of a robust [`ACCESSIBILITY.md`](https://github.com/open-source-accessibility/accessibility-toolkit/blob/main/ACCESSIBILITY.md) for mature projects.
 
-#### Why it matters
-
-This action helps prevent common accessibility issues from being introduced in the first place, reducing rework and improving usability for everyone.
-
-#### Definition of done
-
-1. Project-relevant interface requirements are documented.
-2. New and updated interfaces are reviewed against those requirements.
-3. Keyboard access, focus states, and labels are addressed or tracked.
-
-#### Recommended Steps
-
-1. Review the [accessible interface design practices](https://opensource.guide/accessibility-best-practices-for-your-project/#design-accessible-interfaces).
-2. Ensure the [contributor requirements](https://github.com/open-source-accessibility/accessibility-toolkit/blob/main/ACCESSIBILITY.md#contributor-requirements) include checks for keyboard and screen reader support, such as visible focus states, clear labels, and other project-relevant requirements.
-3. Apply the checks when creating or updating interfaces.
-
-### 3. Surface accessibility expectations for contributors
-
-#### Why it matters
-
-This action sets norms early so they are not missed.
-
-#### Definition of done
-
-1. Contributor documentation includes accessibility expectations.
-2. Contributors are directed to the relevant accessibility checks and resources.
-
-#### Recommended Steps
-
-1. Review the [contributor guidance example](https://github.com/open-source-accessibility/accessibility-toolkit/blob/main/CONTRIBUTING.md).
-2. In your `CONTRIBUTING.md`, add a reference to your accessibility checks.
-
-### 4. Establish a simple accessibility triage approach
+### 2. Establish a simple accessibility triage approach
 
 #### Why it matters
 
@@ -97,7 +70,26 @@ This action helps maintainers prioritize work.
 5. Set expectations for how you will respond to accessibility reports.
 6. Apply the approach during triage.
 
-### 5. Tag beginner-friendly accessibility issues
+### 3. Add an issue template for reporting accessibility bugs
+
+#### Why it matters
+
+This action improves report quality and supports consistent triage.
+
+#### Definition of done
+
+1. The template is available when a contributor opens a new issue.
+2. The template includes all required accessibility bug-report fields and the `accessibility` label.
+
+#### Recommended Steps
+
+1. Review the [accessibility issue-template guidance](https://opensource.guide/accessibility-best-practices-for-your-project/#add-issue-labels-and-template).
+2. Create an accessibility bug-report template in `.github/ISSUE_TEMPLATE/`.
+3. Include fields for expected behavior, actual behavior, steps to reproduce, environment, assistive technology, and severity.
+4. Configure the template to apply the `accessibility` label.
+5. Preview or test the template by opening a new issue.
+
+### 4. Tag beginner-friendly accessibility issues
 
 #### Why it matters
 
@@ -113,6 +105,23 @@ This action makes contribution easier to start.
 1. Identify small, well-scoped accessibility issues suitable for new contributors.
 2. Apply both the `accessibility` and `good first issue` labels.
 3. Add enough context and acceptance criteria for contributors to begin.
+
+### 5. Tag accessibility issues where you need expert help
+
+#### Why it matters
+
+This action makes contribution easier to start.
+
+#### Definition of done
+
+1. Accessibility issues where expert help is needed are clearly labeled.
+2. Each selected issue has a clear scope and contribution context.
+
+#### Recommended Steps
+
+1. Identify accessibility issues that require specialized knowledge or experience.
+2. Apply both the `accessibility` and `help wanted` labels.
+3. Add enough context, acceptance criteria, and required expertise for contributors to begin.
 
 ### 6. Add an accessibility section to the pull request template
 
@@ -132,24 +141,7 @@ This action makes accessibility a consistent part of the review process.
 2. Add checklist items for content changes and UI (user interface) changes.
 3. Customize the checklist for the project’s needs.
 
-### 7. Leverage AI for Accessibility
-
-#### Why it matters
-
-This action helps teams identify and address accessibility issues more efficiently while ensuring AI-generated recommendations align with project requirements and real user needs.
-
-#### Definition of done
-
-1. Agents or prompts include the project’s accessibility requirements.
-2. AI-generated changes are reviewed by a maintainer or subject-matter expert.
-
-#### Recommended Steps
-
-1. Review the [guidance on leveraging GitHub Copilot for accessibility](https://opensource.guide/accessibility-best-practices-for-your-project/#leverage-github-copilot).
-2. If applicable, add accessibility custom instructions.
-3. If applicable, create specialized AI agents or prompts for appropriate accessibility tasks.
-
-### 8. Assign accessibility ownership
+### 7. Assign accessibility ownership
 
 #### Why it matters
 
@@ -167,7 +159,60 @@ This action prevents drift.
 2. Document the responsibility in `ACCESSIBILITY.md`, `README.md`, `CONTRIBUTING.md`, a tracking issue, or `CODEOWNERS`.
 3. Define how ownership is handed off when responsibilities change.
 
-### 9. Evaluate key dependencies and upstream blockers
+### 8. Make docs accessible by default
+
+#### Why it matters
+
+This action makes project information usable for everyone.
+
+#### Definition of done
+
+1. Documentation uses meaningful structure and semantics.
+2. Images, diagrams, and videos have appropriate alternatives or supporting text.
+3. Tables and code blocks are presented accessibly.
+
+#### Recommended Steps
+
+1. Review the [accessibility best practices for documentation](https://opensource.guide/accessibility-best-practices-for-your-project/#make-docs-accessible-by-default).
+2. Check document structure and semantics, images, diagrams, videos, tables, and code blocks.
+3. Fix identified barriers.
+
+### 9. Design accessible interfaces
+
+#### Why it matters
+
+This action helps prevent common accessibility issues from being introduced in the first place, reducing rework and improving usability for everyone.
+
+#### Definition of done
+
+1. Project-relevant interface requirements are documented.
+2. New and updated interfaces are reviewed against those requirements.
+3. Keyboard access, focus states, and labels are addressed or tracked.
+
+#### Recommended Steps
+
+1. Review the [accessible interface design practices](https://opensource.guide/accessibility-best-practices-for-your-project/#design-accessible-interfaces).
+2. Ensure the [contributor requirements](https://github.com/open-source-accessibility/accessibility-toolkit/blob/main/ACCESSIBILITY.md#contributor-requirements) include checks for keyboard and screen reader support, such as visible focus states, clear labels, and other project-relevant requirements.
+3. Apply the checks when creating or updating interfaces.
+
+### 10. Leverage AI for Accessibility
+
+#### Why it matters
+
+This action helps teams identify and address accessibility issues more efficiently while ensuring AI-generated recommendations align with project requirements and real user needs.
+
+#### Definition of done
+
+1. Agents or prompts include the project’s accessibility requirements.
+2. AI-generated changes are reviewed by a maintainer or subject-matter expert.
+
+#### Recommended Steps
+
+1. Review the [guidance on leveraging GitHub Copilot for accessibility](https://opensource.guide/accessibility-best-practices-for-your-project/#leverage-github-copilot).
+2. If applicable, add accessibility custom instructions.
+3. If applicable, create specialized AI agents or prompts for appropriate accessibility tasks.
+
+### 11. Evaluate key dependencies and upstream blockers
 
 #### Why it matters
 
