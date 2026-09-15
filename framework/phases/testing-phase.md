@@ -8,13 +8,14 @@ The goal is not to test every possible interaction at once. Projects begin with 
 
 This phase has **5 total actions** with **15 total tasks** to complete.
 
-| Action                                                                                                              | Number of tasks | Typical initial effort |
-| :------------------------------------------------------------------------------------------------------------------ | --------------: | :--------------------- |
-| [Action 1](#1-add-at-least-one-automated-accessibility-check): Add at least one automated accessibility check       |               3 | Extended               |
-| [Action 2](#2-perform-a-keyboard-only-smoke-test-for-core-flows): Perform a keyboard-only smoke test for core flows |               3 | Moderate               |
-| [Action 3](#3-perform-a-screen-reader-spot-check-for-core-flows): Perform a screen reader spot check for core flows |               3 | Extended               |
-| [Action 4](#4-perform-manual-accessibility-checks): Perform manual accessibility checks                             |               3 | Extended               |
-| [Action 5](#5-perform-accessibility-checks-for-documentation): Perform accessibility checks for documentation       |               3 | Moderate               |
+| Action                                                                                                                      | Number of tasks | Typical initial effort |
+| :-------------------------------------------------------------------------------------------------------------------------- | --------------: | :--------------------- |
+| [Action 1](#1-add-at-least-one-automated-accessibility-check): Add at least one automated accessibility check               |               3 | Extended               |
+| [Action 2](#2-perform-a-keyboard-only-smoke-test-for-core-flows): Perform a keyboard-only smoke test for core flows         |               3 | Moderate               |
+| [Action 3](#3-perform-a-screen-reader-spot-check-for-core-flows): Perform a screen reader spot check for core flows         |               3 | Extended               |
+| [Action 4](#4-perform-manual-accessibility-checks): Perform manual accessibility checks                                     |               3 | Extended               |
+| [Action 5](#5-perform-accessibility-checks-for-documentation): Perform accessibility checks for documentation               |               3 | Moderate               |
+| [Action 6](#6-document-supported-environments-and-known-limitations): Document supported environments and known limitations |               2 | Moderate               |
 
 Effort varies by project size and maturity. Complete these actions incrementally and adapt them to your project's needs. Typical initial effort is categorized as **Quick** (less than 1 hour), **Moderate** (1-3 hours), or **Extended** (more than 3 hours); ongoing practices should be repeated as part of normal project work.
 
@@ -116,3 +117,25 @@ This action improves the first experience many users have.
 1. Review and identify key project documentation.
 2. Perform documentation checks using the [testing examples](https://github.com/open-source-accessibility/accessibility-toolkit/blob/main/ACCESSIBILITY.md#contributor-expectations).
 3. Record and track accessibility issues found using the [accessibility issue-template guidance](https://opensource.guide/accessibility-best-practices-for-your-project/#add-issue-labels-and-template).
+
+### 6. Document supported environments and known limitations
+
+#### Why it matters
+
+This action sets transparent expectations about where the project has been evaluated and helps people understand known accessibility barriers and available alternatives.
+
+#### Definition of done
+
+1. The `ACCESSIBILITY.md` identifies supported or tested platforms, devices, browsers, input methods, and assistive technologies.
+2. Known accessibility limitations are described in terms of their effect on users, with workarounds, equivalent access, and links to tracked issues where available.
+
+#### Recommended Steps
+
+1. In the `ACCESSIBILITY.md`, add a "Supported environments" section.
+   - Refer to the [supported environments and known limitations example](../supporting/workflow-phase/limitations-accessibility.md) for guidance.
+   - List only environments the project supports or has evaluated, include versions where useful, and note partial support.
+2. Add a "Known limitations" section.
+   - Describe each barrier in terms of the affected user experience rather than standards codes.
+   - Include available workarounds or equivalent access and link to tracked issues.
+   - If no limitations are currently documented, describe what has been tested rather than claiming that no barriers exist.
+3. Invite people to report accessibility barriers that are not already documented.
