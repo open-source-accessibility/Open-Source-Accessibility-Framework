@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { marked } from 'marked'
-import { ref, watchEffect } from 'vue'
+import { nextTick, ref, watch, watchEffect } from 'vue'
+import { useRoute } from 'vue-router'
 
 const props = defineProps<{
   markdown: string
@@ -8,6 +9,8 @@ const props = defineProps<{
 }>()
 
 const renderedMarkdown = ref('')
+const markdownContent = ref<HTMLElement>()
+const route = useRoute()
 
 const phaseRoutes: Record<string, string> = {
   'community-phase.md': 'community',
@@ -107,10 +110,30 @@ function createHeadingRenderer() {
     headingCounts.set(baseId, duplicateCount + 1)
     const id = duplicateCount === 0 ? baseId : `${baseId}-${duplicateCount}`
 
-    return `<h3 id="${id}">${content}</h3>\n`
+    return `<h3 id="${id}" tabindex="-1">${content}</h3>\n`
   }
 
   return renderer
+}
+
+async function focusHashTarget(hash: string): Promise<void> {
+  if (!hash) {
+    return
+  }
+
+  await nextTick()
+
+  if (route.hash !== hash) {
+    return
+  }
+
+  const target = document.getElementById(hash.slice(1))
+  if (!target || !markdownContent.value?.contains(target)) {
+    return
+  }
+
+  target.scrollIntoView({ block: 'start' })
+  target.focus({ preventScroll: true })
 }
 
 watchEffect(async () => {
@@ -123,12 +146,20 @@ watchEffect(async () => {
     },
   })
 })
+
+watch(
+  [() => route.hash, renderedMarkdown],
+  ([hash]) => {
+    void focusHashTarget(hash)
+  },
+  { flush: 'post', immediate: true },
+)
 </script>
 
 <template>
   <section class="markdown-page">
     <div class="wrap">
-      <article class="markdown-page__content" v-html="renderedMarkdown" />
+      <article ref="markdownContent" class="markdown-page__content" v-html="renderedMarkdown" />
     </div>
   </section>
 </template>
