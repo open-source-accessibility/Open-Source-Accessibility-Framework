@@ -8,19 +8,19 @@ The goal is to make accessible practice repeatable across the project, even as c
 
 This phase has **11 total actions** with **29 total tasks** to complete.
 
-| Action                                                                                                                              | Number of tasks | Typical initial effort |
-| :---------------------------------------------------------------------------------------------------------------------------------- | --------------: | :--------------------- |
-| [Action 1](#1-surface-accessibility-expectations-for-contributors): Surface accessibility expectations for contributors             |               3 | Moderate               |
-| [Action 2](#2-add-an-issue-template-for-reporting-accessibility-bugs): Add an issue template for reporting accessibility bugs       |               2 | Moderate               |
-| [Action 3](#3-establish-a-simple-accessibility-triage-approach): Establish a simple accessibility triage approach                   |               3 | Moderate               |
-| [Action 4](#4-tag-beginner-friendly-accessibility-issues): Tag beginner-friendly accessibility issues                               |               2 | Quick                  |
-| [Action 5](#5-tag-accessibility-issues-where-you-need-expert-help): Tag accessibility issues where you need expert help             |               2 | Quick                  |
-| [Action 6](#6-add-an-accessibility-section-to-the-pull-request-template): Add an accessibility section to the pull request template |               3 | Quick                  |
-| [Action 7](#7-assign-accessibility-ownership): Assign accessibility ownership                                                       |               2 | Quick                  |
-| [Action 8](#8-make-docs-accessible-by-default): Make docs accessible by default                                                     |               3 | Extended               |
-| [Action 9](#9-design-accessible-interfaces): Design accessible interfaces                                                           |               3 | Extended               |
-| [Action 10](#10-leverage-ai-for-accessibility): Leverage AI for Accessibility                                                       |               2 | Moderate               |
-| [Action 11](#11-evaluate-key-dependencies-and-upstream-blockers): Evaluate key dependencies and upstream blockers                   |               4 | Extended               |
+| Action                                                                                                                                | Number of tasks | Typical initial effort |
+| :------------------------------------------------------------------------------------------------------------------------------------ | --------------: | :--------------------- |
+| [Action 1](#1-surface-accessibility-expectations-for-contributors): Surface accessibility expectations for contributors               |               3 | Moderate               |
+| [Action 2](#2-create-an-accessible-path-for-reporting-accessibility-bugs): Create an accessible path for reporting accessibility bugs |               2 | Moderate               |
+| [Action 3](#3-establish-a-simple-accessibility-triage-approach): Establish a simple accessibility triage approach                     |               3 | Moderate               |
+| [Action 4](#4-tag-beginner-friendly-accessibility-issues): Tag beginner-friendly accessibility issues                                 |               2 | Quick                  |
+| [Action 5](#5-tag-accessibility-issues-where-you-need-expert-help): Tag accessibility issues where you need expert help               |               2 | Quick                  |
+| [Action 6](#6-add-an-accessibility-section-to-the-pull-request-template): Add an accessibility section to the pull request template   |               3 | Quick                  |
+| [Action 7](#7-assign-accessibility-ownership): Assign accessibility ownership                                                         |               2 | Quick                  |
+| [Action 8](#8-make-docs-accessible-by-default): Make docs accessible by default                                                       |               3 | Extended               |
+| [Action 9](#9-design-accessible-interfaces): Design accessible interfaces                                                             |               3 | Extended               |
+| [Action 10](#10-leverage-ai-for-accessibility): Leverage AI for Accessibility                                                         |               2 | Moderate               |
+| [Action 11](#11-evaluate-key-dependencies-and-upstream-blockers): Evaluate key dependencies and upstream blockers                     |               4 | Extended               |
 
 Effort varies by project size and maturity. Complete these actions incrementally and adapt them to your project's needs. Typical initial effort is categorized as **Quick** (less than 1 hour), **Moderate** (1-3 hours), or **Extended** (more than 3 hours); ongoing practices should be repeated as part of normal project work.
 
@@ -49,25 +49,24 @@ This action communicates the project’s accessibility priorities and sets clear
 
 **Note:** Mature projects can refer to this comprehensive [`ACCESSIBILITY.md` example](https://github.com/open-source-accessibility/accessibility-toolkit/blob/main/ACCESSIBILITY.md) for additional guidance.
 
-### 2. Add an issue template for reporting accessibility bugs
+### 2. Create an accessible path for reporting accessibility bugs
 
 #### Why it matters
 
-This action improves report quality and supports consistent triage.
+A clear, accessible reporting path improves report quality and supports consistent triage.
 
 #### Definition of done
 
-1. A template for reporting accessibility bugs is available when opening a new issue.
-2. The template applied the the `accessibility` (or another clearly understood equivalent) label and requests useful context.
+1. The project documents an accessible way to report accessibility bugs.
+2. Submitted accessibility reports follow a documented triage and response process.
 
 #### Recommended Steps
 
-1. Review the [accessibility issue-template guidance](https://opensource.guide/accessibility-best-practices-for-your-project/#add-issue-labels-and-template).
-2. Create a template to report accessibility bugs
+1. Create and document a reporting method, such as an issue template.
    - Refer to the [accessibility issue template example](https://github.com/open-source-accessibility/accessibility-toolkit/blob/main/.github/ISSUE_TEMPLATE/accessibility.yml) for guidance.
-3. Include fields for expected behavior, actual behavior, steps to reproduce, environment, assistive technology, and severity.
-4. Configure the template to apply the `accessibility` (or another clearly understood equivalent) label.
-5. Preview or test the template by opening a new issue.
+2. Request useful details, including expected and actual behavior, steps to reproduce, environment, assistive technology, and severity.
+3. Apply the `accessibility` label, or a clearly understood equivalent, to submitted reports if applicable.
+4. If the primary reporting method creates an accessibility barrier, provide an alternative reporting path, such as an accessible email address or community contact.
 
 ### 3. Establish a simple accessibility triage approach
 
