@@ -1,46 +1,45 @@
 # Community Phase
 
-The community phase strengthens how a project listens to, responds to, and collaborates with the people who use and contribute to it. Accessibility is not only a property of the project’s code or documentation; it also depends on whether people can report barriers, receive respectful responses, participate in decision-making, and contribute through accessible community practices.
+The community phase strengthens how a project listens to, collaborates with, and shares ownership with the people who use and contribute to it. Can people can report barriers, participate in discussions, influence decisions, contribute their expertise, and use the project's community spaces without encountering unnecessary barriers? Accessibility extends beyond a project’s code and documentation; the ways people collaborate must also be accessible.
 
-In this phase, projects build trust and shared ownership by responding constructively to accessibility reports, publishing progress, inviting community participation, partnering with people with disabilities, and recognizing accessibility contributions. These practices help projects learn from lived experience, make progress visible, and sustain accessibility work as the project and its community grow.
+In this phase, projects build trust by responding constructively to accessibility reports, publishing progress, inviting participation, partnering with people with disabilities, and recognizing accessibility contributions. Involving users, testers, practitioners, assistive technology users, and contributors throughout the project lifecycle replaces assumptions with evidence grounded in lived experience.
 
 ## Phase overview
 
 This phase has **6 total actions** with **20 total tasks** to complete.
 
-| Action                                                                                                        | Number of tasks | Typical initial effort |
-| :------------------------------------------------------------------------------------------------------------ | --------------: | :--------------------- |
-| [Action 1](#1-respond-respectfully-to-accessibility-issues): Respond respectfully to accessibility issues     |               4 | Moderate               |
-| [Action 2](#2-publish-accessibility-progress-updates): Publish accessibility progress updates                 |               3 | Moderate               |
-| [Action 3](#3-invite-community-help-on-accessibility-work): Invite community help on accessibility work       |               4 | Extended               |
-| [Action 4](#4-use-accessible-collaboration-tools): Use accessible collaboration tools                         |               3 | Extended               |
-| [Action 5](#5-share-reusable-accessibility-resources): Share reusable accessibility resources                 |               3 | Extended               |
-| [Action 6](#6-recognize-accessibility-contributions-publicly): Recognize accessibility contributions publicly |               3 | Moderate               |
+| Action                                                                                                          | Number of tasks | Typical initial effort |
+| :-------------------------------------------------------------------------------------------------------------- | --------------: | :--------------------- |
+| [Action 1](#1-respond-constructively-to-accessibility-reports): Respond constructively to accessibility reports |               4 | Moderate               |
+| [Action 2](#2-publish-accessibility-progress-updates): Publish accessibility progress updates                   |               3 | Moderate               |
+| [Action 3](#3-invite-community-help-on-accessibility-work): Invite community help on accessibility work         |               4 | Extended               |
+| [Action 4](#4-use-accessible-collaboration-tools): Use accessible collaboration tools                           |               3 | Extended               |
+| [Action 5](#5-share-reusable-accessibility-resources): Share reusable accessibility resources                   |               3 | Extended               |
+| [Action 6](#6-recognize-accessibility-contributions-publicly): Recognize accessibility contributions publicly   |               3 | Moderate               |
 
 Effort varies by project size and maturity. Complete these actions incrementally and adapt them to your project's needs. Typical initial effort is categorized as **Quick** (less than 1 hour), **Moderate** (1-3 hours), or **Extended** (more than 3 hours); ongoing practices should be repeated as part of normal project work.
 
 ## Community actions
 
-### 1. Respond respectfully to accessibility issues
+### 1. Respond constructively to accessibility reports
 
 #### Why it matters
 
-This action builds trust with users and contributors.
+This action builds trust with users and contributors; how a project responds to accessibility reports can determine whether people continue using or contributing to it.
 
 #### Definition of done
 
 1. Best practices on how to respond are documented in your `ACCESSIBILITY.md`.
-2. Accessibility reports receive a respectful acknowledgement.
-3. Accessibility fixes are validated with affected users when possible.
-4. Follow-up questions and next steps are documented.
+2. Accessibility reports receive a respectful acknowledgement, status, and next step response.
+3. Resolution outcomes are documented and, when possible, accessibility fixes get validated with affected users.
 
 #### Recommended Steps
 
-1. Review the guidance in the [how we respond example](https://github.com/open-source-accessibility/accessibility-toolkit/blob/main/ACCESSIBILITY.md#how-we-respond).
-2. Document respectful guidance on how to respond.
-3. Ensure your team asks clarifying questions without dismissing or challenging the reporter’s experience.
-4. When possible, involve affected users in validating accessibility fixes.
-5. Document the outcome and next steps.
+1. In the `ACCESSIBILITY.md`, document respectful and constructive guidance on how to respond.
+   - Review the guidance in the [how we respond example](https://github.com/open-source-accessibility/accessibility-toolkit/blob/main/ACCESSIBILITY.md#how-we-respond).
+2. When needed, ask clarifying questions without dismissing or challenging the reporter’s experience.
+3. When practical, invite the reporter or another impacted user to validate the proposed fix.
+4. Document the outcome and next steps before closing the issue.
 
 ### 2. Publish accessibility progress updates
 
