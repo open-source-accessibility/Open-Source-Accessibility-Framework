@@ -4,7 +4,7 @@ import readmeMarkdown from "../../../README.md?raw";
 </script>
 
 <template>
-  <MarkdownPage :markdown="readmeMarkdown" class="readme" />
+  <MarkdownPage :markdown="readmeMarkdown" source-path="README.md" class="readme" />
 </template>
 
 <style scoped>

@@ -4,5 +4,5 @@ import testingPhaseMarkdown from '../../../framework/phases/testing-phase.md?raw
 </script>
 
 <template>
-  <MarkdownPage :markdown="testingPhaseMarkdown" />
+  <MarkdownPage :markdown="testingPhaseMarkdown" source-path="framework/phases/testing-phase.md" />
 </template>

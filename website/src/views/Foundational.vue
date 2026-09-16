@@ -4,5 +4,8 @@ import foundationalPhaseMarkdown from '../../../framework/phases/foundational-ph
 </script>
 
 <template>
-  <MarkdownPage :markdown="foundationalPhaseMarkdown" />
+  <MarkdownPage
+    :markdown="foundationalPhaseMarkdown"
+    source-path="framework/phases/foundational-phase.md"
+  />
 </template>
