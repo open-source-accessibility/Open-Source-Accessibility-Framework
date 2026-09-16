@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { RouterLink } from "vue-router";
+import externalLinkIcon from "../assets/external-link.svg";
 </script>
 
 <template>
@@ -10,18 +10,40 @@ import { RouterLink } from "vue-router";
         <li>
           <a
             href="https://github.com/open-source-accessibility/Open-Source-Accessibility-Framework"
-            >Repository</a
+            target="_blank"
+            rel="noopener noreferrer"
+            >Repository
+            <img
+              class="external-link-icon"
+              :src="externalLinkIcon"
+              alt="opens external page"
+            /></a
           >
         </li>
         <li>
           <a
             href="https://github.com/open-source-accessibility/Open-Source-Accessibility-Framework/blob/main/CODE_OF_CONDUCT.md"
-            >Code of conduct</a
+            target="_blank"
+            rel="noopener noreferrer"
+            >Code of conduct
+            <img
+              class="external-link-icon"
+              :src="externalLinkIcon"
+              alt="opens external page"
+            /></a
           >
         </li>
         <li>
-          <a href="https://github.com/open-source-accessibility"
-            >Organization</a
+          <a
+            href="https://github.com/open-source-accessibility"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Organization
+            <img
+              class="external-link-icon"
+              :src="externalLinkIcon"
+              alt="opens external page"
+            /></a
           >
         </li>
       </ul>

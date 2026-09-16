@@ -45,7 +45,10 @@ describe('MarkdownPage', () => {
     const link = wrapper.find('.markdown-page__content a')
     expect(link.exists()).toBe(true)
     expect(link.attributes('href')).toBe('https://example.com')
+    expect(link.attributes('target')).toBe('_blank')
+    expect(link.attributes('rel')).toBe('noopener noreferrer')
     expect(link.text()).toBe('docs')
+    expect(link.find('img').attributes('alt')).toBe('opens external page')
 
     const listItem = wrapper.find('.markdown-page__content li')
     expect(listItem.exists()).toBe(true)
@@ -91,6 +94,8 @@ describe('MarkdownPage', () => {
       '/community',
       'https://example.com/framework/phases/community-phase.md',
     ])
+    expect(links.slice(0, 3).every((link) => link.attributes('target') === undefined)).toBe(true)
+    expect(links[3]?.attributes('target')).toBe('_blank')
   })
 
   it('keeps non-website links pointing to repository files', async () => {

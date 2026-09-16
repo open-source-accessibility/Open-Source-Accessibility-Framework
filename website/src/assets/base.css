@@ -117,6 +117,13 @@ a:hover {
   text-decoration-thickness: var(--line-rule);
 }
 
+.external-link-icon {
+  display: inline-block;
+  width: 0.85em;
+  height: 0.85em;
+  vertical-align: baseline;
+}
+
 :focus-visible {
   outline: var(--line-focus) solid var(--color-focus);
   outline-offset: var(--space-3xs);
@@ -269,7 +276,7 @@ a:hover {
   color: var(--color-bold);
 }
 
-.markdown-page__content > * + * {
+.markdown-page__content>*+* {
   margin-top: var(--space-s);
 }
 

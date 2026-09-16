@@ -2,6 +2,7 @@
 import { marked } from 'marked'
 import { nextTick, ref, watch, watchEffect } from 'vue'
 import { useRoute } from 'vue-router'
+import externalLinkIcon from '../assets/external-link.svg'
 
 const props = defineProps<{
   markdown: string
@@ -89,9 +90,22 @@ function rewriteMarkdownLink(href: string, sourcePath: string): string {
   return `${repositoryBlobUrl}/${repositoryPath}${match[2] ?? ''}`
 }
 
+function isExternalLink(href: string): boolean {
+  if (!/^https?:\/\//i.test(href)) {
+    return false
+  }
+
+  const url = new URL(href)
+  return (
+    url.origin !== window.location.origin &&
+    url.origin !== 'https://open-source-accessibility.github.io'
+  )
+}
+
 function createHeadingRenderer() {
   const renderer = new marked.Renderer()
   const headingCounts = new Map<string, number>()
+  const renderLink = renderer.link
 
   renderer.heading = function ({ tokens, depth }) {
     const content = this.parser.parseInline(tokens)
@@ -111,6 +125,20 @@ function createHeadingRenderer() {
     const id = duplicateCount === 0 ? baseId : `${baseId}-${duplicateCount}`
 
     return `<h3 id="${id}" tabindex="-1">${content}</h3>\n`
+  }
+
+  renderer.link = function (token) {
+    const link = renderLink.call(this, token)
+    if (!isExternalLink(token.href)) {
+      return link
+    }
+
+    return link
+      .replace('<a ', '<a target="_blank" rel="noopener noreferrer" ')
+      .replace(
+        '</a>',
+        ` <img class="external-link-icon" src="${externalLinkIcon}" alt="opens external page"></a>`,
+      )
   }
 
   return renderer
