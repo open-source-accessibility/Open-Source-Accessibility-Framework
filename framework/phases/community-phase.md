@@ -45,20 +45,20 @@ This action builds trust with users and contributors; how a project responds to 
 
 #### Why it matters
 
-This action reinforces accountability and momentum.
+Public progress updates build trust and accountability by showing that accessibility reports lead to action, highlighting work that still needs attention, and reducing duplicated effort.
 
 #### Definition of done
 
-1. Accessibility progress is published in a public channel.
-2. Updates include completed work, remaining work, and relevant links.
+1. Accessibility progress is published through at least one public project channel.
+2. Updates include completed work, remaining work, known barriers or limitations, and relevant links.
 3. The project maintains a repeatable update practice.
 
 #### Recommended Steps
 
-1. Identify appropriate public channels, such as issues, release notes, or discussions.
-2. Share completed improvements, open work, and lessons learned.
-3. Link updates to relevant accessibility issues or pull requests.
-4. Publish updates on a regular or milestone-based cadence.
+1. Identify appropriate public channels, such as issues, release notes, project discussions, roadmap updates, newsletters, or community meetings.
+2. Share completed accessibility improvements, open work, available workarounds, and lessons learned since the previous update.
+3. Link updates to relevant accessibility issues, pull requests, discussions, or documentation.
+4. Publish updates on a predictable cadence or at meaningful project milestones.
 
 ### 3. Invite community help on accessibility work
 
