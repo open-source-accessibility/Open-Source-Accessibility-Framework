@@ -18,20 +18,20 @@ This is an improvement framework, not a certification, score, or ranking. The go
 
 1. [Register your project](https://github.com/open-source-accessibility/Open-Source-Accessibility-Framework/issues/new?template=project-registration.yml). Your registration issue becomes the public place where your project tracks progress.
 2. Complete the [Foundational phase](framework/phases/foundational-phase.md).
-   - [Create an ACCESSIBILITY.md](framework/phases/foundational-phase.md#2-create-an-accessibilitymd)
-   - [Use an accessibility label to track relevant work](framework/phases/foundational-phase.md#3-use-an-accessibility-label-to-track-relevant-work)
+   - [Create an ACCESSIBILITY.md](framework/phases/foundational-phase.md#1-create-an-accessibilitymd)
+   - [Use an accessibility label to track relevant work](framework/phases/foundational-phase.md#2-use-an-accessibility-label-to-track-relevant-work)
 3. Complete the remaining phases in the order that best suits your project, updating your tracking issue as you finish each action.
 
 Projects can work incrementally and adapt the actions to their size, maturity, and community needs.
 
 ## Framework phases
 
-| Phase                                                                 | Outcome                                                                                                         |
-| :-------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------- |
-| **[Foundational](/Open-Source-Accessibility-Framework/foundational)** | Make the project’s accessibility commitment visible and establish clear reporting and tracking paths.           |
-| **[Workflow](/Open-Source-Accessibility-Framework/workflow)**         | Integrate accessibility into documentation, design, triage, pull requests, ownership, and dependency decisions. |
-| **[Testing](/Open-Source-Accessibility-Framework/testing)**           | Add repeatable automated and manual accessibility checks for core experiences and documentation.                |
-| **[Community](/Open-Source-Accessibility-Framework/community)**       | Respond to accessibility feedback, share progress, invite participation, and support accessible collaboration.  |
+| Phase                                                      | Outcome                                                                                                         |
+| :--------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------- |
+| **[Foundational](framework/phases/foundational-phase.md)** | Make the project’s accessibility commitment visible and establish clear reporting and tracking paths.           |
+| **[Workflow](framework/phases/workflow-phase.md)**         | Integrate accessibility into documentation, design, triage, pull requests, ownership, and dependency decisions. |
+| **[Testing](framework/phases/testing-phase.md)**           | Add repeatable automated and manual accessibility checks for core experiences and documentation.                |
+| **[Community](framework/phases/community-phase.md)**       | Respond to accessibility feedback, share progress, invite participation, and support accessible collaboration.  |
 
 ## Follow progress
 
