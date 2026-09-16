@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&&family=IBM+Plex+Sans:wght@500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&&family=IBM+Plex+Sans:wght@500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap");
 
 :root {
   --color-paper: #ffffff;
@@ -13,9 +13,9 @@
   --color-focus: #a63d00;
   --color-selection: #fbede4;
 
-  --font-display: 'Google Sans Flex', 'IBM Plex Sans', system-ui, sans-serif;
-  --font-body: 'DM Sans', 'IBM Plex Sans', system-ui, sans-serif;
-  --font-utility: 'DM Mono', ui-monospace, monospace;
+  --font-display: "Google Sans Flex", "IBM Plex Sans", system-ui, sans-serif;
+  --font-body: "DM Sans", "IBM Plex Sans", system-ui, sans-serif;
+  --font-utility: "DM Mono", ui-monospace, monospace;
 
   --size-caption: 0.75rem;
   --size-small: 0.875rem;
@@ -50,7 +50,7 @@
     --color-ink-muted: #a9b5bd;
     --color-line: #2a343a;
     --color-line-strong: #8b979f;
-    --color-bold: #FFF0A6;
+    --color-bold: #fff0a6;
     --color-signal: #ffca00;
     --color-signal-hover: #fff200;
     --color-signal-soft: #221914;
@@ -124,8 +124,8 @@ a:hover {
   box-shadow: 0 0 0 var(--space-3xs) var(--color-paper);
 }
 
-[tabindex='-1']:focus,
-[tabindex='-1']:focus-visible {
+[tabindex="-1"]:focus,
+[tabindex="-1"]:focus-visible {
   outline: none;
   box-shadow: none;
 }
@@ -232,8 +232,8 @@ a:hover {
   text-underline-offset: 0.1875rem;
 }
 
-.phase-nav__link[aria-current='location'],
-.phase-nav__link[aria-current='page'] {
+.phase-nav__link[aria-current="location"],
+.phase-nav__link[aria-current="page"] {
   color: var(--color-ink);
   font-weight: 500;
   text-decoration: underline;
@@ -242,8 +242,8 @@ a:hover {
   text-underline-offset: 0.1875rem;
 }
 
-.phase-nav__link[aria-current='location']::before,
-.phase-nav__link[aria-current='page']::before {
+.phase-nav__link[aria-current="location"]::before,
+.phase-nav__link[aria-current="page"]::before {
   color: var(--color-signal);
 }
 
@@ -269,7 +269,7 @@ a:hover {
   color: var(--color-bold);
 }
 
-.markdown-page__content>*+* {
+.markdown-page__content > * + * {
   margin-top: var(--space-s);
 }
 
@@ -310,7 +310,7 @@ a:hover {
 }
 
 .markdown-page__content ul li::before {
-  content: '';
+  content: "";
   position: absolute;
   inset-inline-start: 0;
   top: 0.62em;
@@ -338,6 +338,10 @@ a:hover {
 .markdown-page__content code {
   font-family: var(--font-utility);
   font-size: var(--size-small);
+  background: #000;
+  padding: 0.2em 0.4em;
+  border: 1px solid #1d282e;
+  border-radius: 0.2em;
 }
 
 .markdown-page__content pre {
@@ -352,8 +356,8 @@ a:hover {
     outline-color: Highlight;
   }
 
-  .phase-nav__link[aria-current='location'],
-  .phase-nav__link[aria-current='page'] {
+  .phase-nav__link[aria-current="location"],
+  .phase-nav__link[aria-current="page"] {
     text-decoration-color: Highlight;
   }
 }
