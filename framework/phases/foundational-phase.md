@@ -10,8 +10,8 @@ This phase has **2 total actions** with **4 total tasks** to complete.
 
 | Action                                                                                                              | Number of tasks | Typical initial effort |
 | :------------------------------------------------------------------------------------------------------------------ | --------------: | :--------------------- |
-| [Action 1](#2-create-an-accessibilitymd): Create an ACCESSIBILITY.md                                                |               2 | Quick                  |
-| [Action 2](#3-use-an-accessibility-label-to-track-relevant-work): Use an accessibility label to track relevant work |               2 | Quick                  |
+| [Action 1](#1-create-an-accessibilitymd): Create an ACCESSIBILITY.md                                                |               2 | Quick                  |
+| [Action 2](#2-use-an-accessibility-label-to-track-relevant-work): Use an accessibility label to track relevant work |               2 | Quick                  |
 
 Effort varies by project size and maturity. Complete these actions incrementally and adapt them to your project's needs. Typical initial effort is categorized as **Quick** (less than 1 hour), **Moderate** (1-3 hours), or **Extended** (more than 3 hours); ongoing practices should be repeated as part of normal project work.
 

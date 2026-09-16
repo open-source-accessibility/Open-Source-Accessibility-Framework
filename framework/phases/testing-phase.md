@@ -6,13 +6,13 @@ The goal is not to test every possible interaction at once. Projects begin with 
 
 ## Phase overview
 
-This phase has **5 total actions** with **15 total tasks** to complete.
+This phase has **6 total actions** with **17 total tasks** to complete.
 
 | Action                                                                                                                      | Number of tasks | Typical initial effort |
 | :-------------------------------------------------------------------------------------------------------------------------- | --------------: | :--------------------- |
 | [Action 1](#1-add-at-least-one-automated-accessibility-check): Add at least one automated accessibility check               |               3 | Extended               |
 | [Action 2](#2-perform-a-keyboard-only-smoke-test-for-core-flows): Perform a keyboard-only smoke test for core flows         |               3 | Moderate               |
-| [Action 3](#3-perform-a-screen-reader-spot-check-for-core-flows): Perform a screen reader spot check for core flows         |               3 | Extended               |
+| [Action 3](#3-perform-a-screen-reader-spot-check-for-core-flows): Perform a screen reader spot check for core flows         |               3 | Moderate               |
 | [Action 4](#4-perform-manual-accessibility-checks): Perform manual accessibility checks                                     |               3 | Extended               |
 | [Action 5](#5-perform-accessibility-checks-for-documentation): Perform accessibility checks for documentation               |               3 | Moderate               |
 | [Action 6](#6-document-supported-environments-and-known-limitations): Document supported environments and known limitations |               2 | Moderate               |

@@ -6,17 +6,17 @@ The goal is to make accessible practice repeatable across the project, even as c
 
 ## Phase overview
 
-This phase has **11 total actions** with **30 total tasks** to complete.
+This phase has **11 total actions** with **29 total tasks** to complete.
 
 | Action                                                                                                                              | Number of tasks | Typical initial effort |
 | :---------------------------------------------------------------------------------------------------------------------------------- | --------------: | :--------------------- |
-| [Action 1](#1-surface-accessibility-expectations-for-contributors): Surface accessibility expectations for contributors             |               3 | Quick                  |
+| [Action 1](#1-surface-accessibility-expectations-for-contributors): Surface accessibility expectations for contributors             |               3 | Moderate               |
 | [Action 2](#2-add-an-issue-template-for-reporting-accessibility-bugs): Add an issue template for reporting accessibility bugs       |               2 | Moderate               |
 | [Action 3](#3-establish-a-simple-accessibility-triage-approach): Establish a simple accessibility triage approach                   |               3 | Moderate               |
 | [Action 4](#4-tag-beginner-friendly-accessibility-issues): Tag beginner-friendly accessibility issues                               |               2 | Quick                  |
 | [Action 5](#5-tag-accessibility-issues-where-you-need-expert-help): Tag accessibility issues where you need expert help             |               2 | Quick                  |
 | [Action 6](#6-add-an-accessibility-section-to-the-pull-request-template): Add an accessibility section to the pull request template |               3 | Quick                  |
-| [Action 7](#7-assign-accessibility-ownership): Assign accessibility ownership                                                       |               3 | Moderate               |
+| [Action 7](#7-assign-accessibility-ownership): Assign accessibility ownership                                                       |               2 | Quick                  |
 | [Action 8](#8-make-docs-accessible-by-default): Make docs accessible by default                                                     |               3 | Extended               |
 | [Action 9](#9-design-accessible-interfaces): Design accessible interfaces                                                           |               3 | Extended               |
 | [Action 10](#10-leverage-ai-for-accessibility): Leverage AI for Accessibility                                                       |               2 | Moderate               |
