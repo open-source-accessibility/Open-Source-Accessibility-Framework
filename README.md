@@ -26,12 +26,12 @@ Projects can work incrementally and adapt the actions to their size, maturity, a
 
 ## Framework phases
 
-| Phase                                                      | Outcome                                                                                                         |
-| :--------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------- |
-| **[Foundational](framework/phases/foundational-phase.md)** | Make the project’s accessibility commitment visible and establish clear reporting and tracking paths.           |
-| **[Workflow](framework/phases/workflow-phase.md)**         | Integrate accessibility into documentation, design, triage, pull requests, ownership, and dependency decisions. |
-| **[Testing](framework/phases/testing-phase.md)**           | Add repeatable automated and manual accessibility checks for core experiences and documentation.                |
-| **[Community](framework/phases/community-phase.md)**       | Respond to accessibility feedback, share progress, invite participation, and support accessible collaboration.  |
+| Phase                                                                 | Outcome                                                                                                         |
+| :-------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------- |
+| **[Foundational](/Open-Source-Accessibility-Framework/foundational)** | Make the project’s accessibility commitment visible and establish clear reporting and tracking paths.           |
+| **[Workflow](/Open-Source-Accessibility-Framework/workflow)**         | Integrate accessibility into documentation, design, triage, pull requests, ownership, and dependency decisions. |
+| **[Testing](/Open-Source-Accessibility-Framework/testing)**           | Add repeatable automated and manual accessibility checks for core experiences and documentation.                |
+| **[Community](/Open-Source-Accessibility-Framework/community)**       | Respond to accessibility feedback, share progress, invite participation, and support accessible collaboration.  |
 
 ## Follow progress
 
