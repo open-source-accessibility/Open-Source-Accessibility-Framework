@@ -8,14 +8,14 @@ In this phase, projects build trust by responding constructively to accessibilit
 
 This phase has **6 total actions** with **20 total tasks** to complete.
 
-| Action                                                                                                          | Number of tasks | Typical initial effort |
-| :-------------------------------------------------------------------------------------------------------------- | --------------: | :--------------------- |
-| [Action 1](#1-respond-constructively-to-accessibility-reports): Respond constructively to accessibility reports |               4 | Moderate               |
-| [Action 2](#2-publish-accessibility-progress-updates): Publish accessibility progress updates                   |               3 | Moderate               |
-| [Action 3](#3-invite-community-help-on-accessibility-work): Invite community help on accessibility work         |               4 | Extended               |
-| [Action 4](#4-use-accessible-collaboration-tools): Use accessible collaboration tools                           |               3 | Extended               |
-| [Action 5](#5-share-reusable-accessibility-resources): Share reusable accessibility resources                   |               3 | Extended               |
-| [Action 6](#6-recognize-accessibility-contributions-publicly): Recognize accessibility contributions publicly   |               3 | Moderate               |
+| Action                                                                                                                                                    | Number of tasks | Typical initial effort |
+| :-------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------: | :--------------------- |
+| [Action 1](#1-respond-constructively-to-accessibility-reports): Respond constructively to accessibility reports                                           |               4 | Moderate               |
+| [Action 2](#2-publish-accessibility-progress-updates): Publish accessibility progress updates                                                             |               3 | Moderate               |
+| [Action 3](#3-invite-community-help-on-accessibility-work): Invite community help on accessibility work                                                   |               4 | Extended               |
+| [Action 4](#4-provide-accessible-and-respectful-ways-to-contribute-and-collaborate): Provide accessible and respectful ways to contribute and collaborate |               3 | Extended               |
+| [Action 5](#5-share-reusable-accessibility-resources): Share reusable accessibility resources                                                             |               3 | Extended               |
+| [Action 6](#6-recognize-accessibility-contributions-publicly): Recognize accessibility contributions publicly                                             |               3 | Moderate               |
 
 Effort varies by project size and maturity. Complete these actions incrementally and adapt them to your project's needs. Typical initial effort is categorized as **Quick** (less than 1 hour), **Moderate** (1-3 hours), or **Extended** (more than 3 hours); ongoing practices should be repeated as part of normal project work.
 
@@ -64,7 +64,7 @@ Public progress updates build trust and accountability by showing that accessibi
 
 #### Why it matters
 
-This action makes progress more scalable.
+Involving people with disabilities early brings lived experience that tools and specifications cannot reproduce, while practitioners and experienced testers contribute complementary technical expertise. Together, these perspectives help projects make better decisions throughout development instead of evaluating accessibility only after the work is complete.
 
 #### Definition of done
 
@@ -82,24 +82,34 @@ This action makes progress more scalable.
 5. Validate fixes with affected users when possible.
 6. Maintain a lightweight advisory or feedback loop.
 
-### 4. Use accessible collaboration tools
+### 4. Provide accessible and respectful ways to contribute and collaborate
 
 #### Why it matters
 
-This action helps ensure community participation itself is accessible, not just the project output.
+Accessible tools and processes allow more people to share expertise, influence decisions, and take on responsibility. Contributions can include testing, issue reproduction, documentation, design feedback, research, mentoring, translation, community support, documentation, governance, and leadership.
 
 #### Definition of done
 
-1. Collaboration tools have been reviewed for accessibility.
-2. Known barriers have remediation plans or alternatives.
-3. Participation guidance identifies accessible options.
+1. Contributor guidance documents accessible synchronous and asynchronous ways to participate.
+2. Collaboration tools and workflows have been reviewed for significant accessibility and usability barriers, with alternatives documented as needed.
+3. A code of conduct or equivalent policy is adopted and enforced.
+4. Contributors can request accommodations without unnecessary public disclosure.
 
 #### Recommended Steps
 
-1. Inventory the communication and meeting tools used by the project.
-2. Check for captions, keyboard access, screen reader support, accessible chat, and accessible documentation.
-3. Address barriers or document alternative ways to participate.
-4. Reassess tools when workflows or community needs change.
+1. Identify accessible to participate.
+   - Create clearly scoped accessibility issues using labels such as `accessibility`, `help wanted`, and `good first issue` when appropriate.
+   - Make meeting agendas and accessible materials available in advance when practical.
+   - Explicitly document non-code contribution opportunities.
+   - Provide asynchronous options such as issues, discussions, mailing lists, meeting notes, transcripts, or summaries.
+   - Provide captions and describe meaningful visual information during meetings and presentations when practical.
+   - Avoid requiring camera use, spoken participation, or a single communication channel unless the project has a compelling need for this.
+2. Review collaboration tools for accessibility, addressing barriers or providing alternatives.
+   - Check for keyboard access, screen reader support, captions, transcripts, accessible chat, accessible documents, magnification and reflow support, and understandable interaction patterns.
+3. Adopt and enforce a code of conduct. GitHub provides guidance for [adding a code of conduct to a project](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project).
+   - Ensure disability-related harassment, dismissive behavior, personal attacks, and disclosure of private information get handled consistently via the project's community standards.
+4. Provide a way to request accommodations without requiring unnecessary public disclosure.
+   - Identify an accessibility or accommodation contact for significant community meetings and events.
 
 ### 5. Share reusable accessibility resources
 
