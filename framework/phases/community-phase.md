@@ -8,22 +8,44 @@ Use the [Community Accessibility Resources](https://github.com/open-source-acces
 
 ## Phase overview
 
-This phase has **6 total actions** with **24 total tasks** to complete.
+This phase has **6 total actions** with **19 total tasks** to complete.
 
 | Action                                                                                                                                                    | Number of tasks | Typical initial effort |
 | :-------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------: | :--------------------- |
-| [Action 1](#1-respond-constructively-to-accessibility-reports): Respond constructively to accessibility reports                                           |               4 | Moderate               |
-| [Action 2](#2-publish-accessibility-progress-updates): Publish accessibility progress updates                                                             |               4 | Moderate               |
-| [Action 3](#3-invite-community-help-on-accessibility-work): Invite community help on accessibility work                                                   |               6 | Extended               |
-| [Action 4](#4-provide-accessible-and-respectful-ways-to-contribute-and-collaborate): Provide accessible and respectful ways to contribute and collaborate |               4 | Extended               |
-| [Action 5](#5-share-accessibility-resources): Share accessibility resources                                                                               |               4 | Moderate               |
-| [Action 6](#6-recognize-accessibility-contributions-publicly): Recognize accessibility contributions publicly                                             |               2 | Quick                  |
+| [Action 1](#1-invite-community-help-on-accessibility-work): Invite community help on accessibility work                                                   |               4 | Extended               |
+| [Action 2](#2-respond-constructively-to-accessibility-reports): Respond constructively to accessibility reports                                           |               3 | Moderate               |
+| [Action 3](#3-provide-accessible-and-respectful-ways-to-contribute-and-collaborate): Provide accessible and respectful ways to contribute and collaborate |               4 | Extended               |
+| [Action 4](#4-recognize-accessibility-contributions-publicly): Recognize accessibility contributions publicly                                             |               2 | Quick                  |
+| [Action 5](#5-publish-accessibility-progress-updates): Publish accessibility progress updates                                                             |               3 | Moderate               |
+| [Action 6](#6-share-accessibility-resources): Share accessibility resources                                                                               |               3 | Moderate               |
 
 Effort varies by project size and maturity. Complete these actions incrementally and adapt them to your project's needs. Typical initial effort is categorized as **Quick** (less than 1 hour), **Moderate** (1-3 hours), or **Extended** (more than 3 hours); ongoing practices should be repeated as part of normal project work.
 
 ## Community actions
 
-### 1. Respond constructively to accessibility reports
+### 1. Invite community help on accessibility work
+
+#### Why it matters
+
+Involving people with disabilities early brings lived experience that tools and specifications cannot reproduce, while practitioners and experienced testers contribute complementary technical expertise. Together, these perspectives help projects make better decisions throughout development instead of evaluating accessibility only after the work is complete.
+
+#### Definition of done
+
+1. Community-contribution opportunities are publicly available.
+2. Issues include scope, context, and acceptance criteria.
+3. Contributors can access guidance and maintainer support.
+4. The project maintains an ongoing feedback or advisory practice.
+
+#### Recommended Steps
+
+1. Identify accessibility tasks that can be completed by community contributors.
+2. Create clearly scoped issues with context, and acceptance criteria and appropriate labels such as `accessibility` with `good first issue` for beginner-friendly work and `accessibility` with `help wanted` where projects are actively seeking support.
+3. Invite participation through office hours, group channels, or community discussions.
+4. Provide contributors with a way to ask questions and receive feedback.
+5. Validate fixes with affected users when possible.
+6. Maintain a lightweight advisory or feedback loop.
+
+### 2. Respond constructively to accessibility reports
 
 #### Why it matters
 
@@ -43,48 +65,7 @@ This action builds trust with users and contributors; how a project responds to 
 3. When practical, invite the reporter or another impacted user to validate the proposed fix.
 4. Document the outcome and next steps before closing the issue.
 
-### 2. Publish accessibility progress updates
-
-#### Why it matters
-
-Public progress updates build trust and accountability by showing that accessibility reports lead to action, highlighting work that still needs attention, and reducing duplicated effort.
-
-#### Definition of done
-
-1. Accessibility progress is published through at least one public project channel.
-2. Updates include completed work, remaining work, known barriers or limitations, and relevant links.
-3. The project maintains a repeatable update practice.
-
-#### Recommended Steps
-
-1. Identify appropriate public channels, such as issues, release notes, project discussions, roadmap updates, newsletters, or community meetings.
-2. Share completed accessibility improvements, open work, available workarounds, and lessons learned since the previous update.
-3. Link updates to relevant accessibility issues, pull requests, discussions, or documentation.
-4. Publish updates on a predictable cadence or at meaningful project milestones.
-
-### 3. Invite community help on accessibility work
-
-#### Why it matters
-
-Involving people with disabilities early brings lived experience that tools and specifications cannot reproduce, while practitioners and experienced testers contribute complementary technical expertise. Together, these perspectives help projects make better decisions throughout development instead of evaluating accessibility only after the work is complete.
-
-#### Definition of done
-
-1. Community-contribution opportunities are publicly available through issues labeled `accessibility` and `help wanted`.
-2. Issues include scope, context, and acceptance criteria.
-3. Contributors can access guidance and maintainer support.
-4. The project maintains an ongoing feedback or advisory practice.
-
-#### Recommended Steps
-
-1. Identify accessibility tasks that can be completed by community contributors.
-2. Create clearly scoped issues with the `accessibility` and `help wanted` labels, context, and acceptance criteria.
-3. Invite participation through office hours, group channels, or community discussions.
-4. Provide contributors with a way to ask questions and receive feedback.
-5. Validate fixes with affected users when possible.
-6. Maintain a lightweight advisory or feedback loop.
-
-### 4. Provide accessible and respectful ways to contribute and collaborate
+### 3. Provide accessible and respectful ways to contribute and collaborate
 
 #### Why it matters
 
@@ -113,7 +94,48 @@ Accessible tools and processes allow more people to share expertise, influence d
 4. Provide a way to request accommodations without requiring unnecessary public disclosure.
    - Identify an accessibility or accommodation contact for significant community meetings and events.
 
-### 5. Share accessibility resources
+### 4. Recognize accessibility contributions publicly
+
+#### Why it matters
+
+Public recognition shows that accessibility work, including contributions beyond source code, is valued.
+
+#### Definition of done
+
+1. Recognition respects contributor preferences and protects personal information.
+2. Accessibility contributions are publicly recognized with the contributor's consent.
+
+#### Recommended Steps
+
+1. Ask contributors how they want to be recognized and obtain their consent.
+   - Ask contributors how they would like to receive credit.
+   - Never disclose a contributor's disability, diagnosis, assistive technology use, or other personal information without permission.
+   - Do not tokenize contributors or present anyone as representing an entire disability community.
+2. Recognize accessibility contributions in release notes, community updates, contributor lists, discussions, project websites, or other appropriate channels.
+   - Include contributions beyond code, such as documentation, testing, research, design feedback, mentoring, translation, event support, and remediation guidance.
+   - Consider sharing contributions in the [Open Source Accessibility community (shoutout)](https://github.com/orgs/open-source-accessibility/discussions/new?category=shoutout).
+   - Present accessibility work as valuable project work, not charity or an exceptional favor.
+
+### 5. Publish accessibility progress updates
+
+#### Why it matters
+
+Public progress updates build trust and accountability by showing that accessibility reports lead to action, highlighting work that still needs attention, and reducing duplicated effort.
+
+#### Definition of done
+
+1. Accessibility progress is published through at least one public project channel.
+2. Updates include completed work, remaining work, known barriers or limitations, and relevant links.
+3. The project maintains a repeatable update practice.
+
+#### Recommended Steps
+
+1. Identify appropriate public channels, such as issues, release notes, project discussions, roadmap updates, newsletters, or community meetings.
+2. Share completed accessibility improvements, open work, available workarounds, and lessons learned since the previous update.
+3. Link updates to relevant accessibility issues, pull requests, discussions, or documentation.
+4. Publish updates on a predictable cadence or at meaningful project milestones.
+
+### 6. Share accessibility resources
 
 #### Why it matters
 
@@ -148,25 +170,3 @@ Sharing accessibility resources, solutions, and lessons learned helps other proj
    - Consider sharing your work in the [Open Source Accessibility community show-and-tell](https://github.com/orgs/open-source-accessibility/discussions/new?category=show-and-tell).
    - Review the [sharing resources and solutions](https://github.com/open-source-accessibility/accessibility-toolkit/blob/main/resources/community/community.md#sharing-resources-and-solutions) guidance.
 4. Keep shared resources current as standards, tools, and community practices evolve.
-
-### 6. Recognize accessibility contributions publicly
-
-#### Why it matters
-
-Public recognition shows that accessibility work, including contributions beyond source code, is valued.
-
-#### Definition of done
-
-1. Recognition respects contributor preferences and protects personal information.
-2. Accessibility contributions are publicly recognized with the contributor's consent.
-
-#### Recommended Steps
-
-1. Ask contributors how they want to be recognized and obtain their consent.
-   - Ask contributors how they would like to receive credit.
-   - Never disclose a contributor's disability, diagnosis, assistive technology use, or other personal information without permission.
-   - Do not tokenize contributors or present anyone as representing an entire disability community.
-2. Recognize accessibility contributions in release notes, community updates, contributor lists, discussions, project websites, or other appropriate channels.
-   - Include contributions beyond code, such as documentation, testing, research, design feedback, mentoring, translation, event support, and remediation guidance.
-   - Consider sharing contributions in the [Open Source Accessibility community (shoutout)](https://github.com/orgs/open-source-accessibility/discussions/new?category=shoutout).
-   - Present accessibility work as valuable project work, not charity or an exceptional favor.
