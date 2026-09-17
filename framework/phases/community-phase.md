@@ -6,16 +6,16 @@ In this phase, projects build trust by responding constructively to accessibilit
 
 ## Phase overview
 
-This phase has **6 total actions** with **20 total tasks** to complete.
+This phase has **6 total actions** with **24 total tasks** to complete.
 
 | Action                                                                                                                                                    | Number of tasks | Typical initial effort |
 | :-------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------: | :--------------------- |
 | [Action 1](#1-respond-constructively-to-accessibility-reports): Respond constructively to accessibility reports                                           |               4 | Moderate               |
-| [Action 2](#2-publish-accessibility-progress-updates): Publish accessibility progress updates                                                             |               3 | Moderate               |
-| [Action 3](#3-invite-community-help-on-accessibility-work): Invite community help on accessibility work                                                   |               4 | Extended               |
-| [Action 4](#4-provide-accessible-and-respectful-ways-to-contribute-and-collaborate): Provide accessible and respectful ways to contribute and collaborate |               3 | Extended               |
-| [Action 5](#5-share-accessibility-resources): Share reusable accessibility resources                                                                      |               3 | Extended               |
-| [Action 6](#6-recognize-accessibility-contributions-publicly): Recognize accessibility contributions publicly                                             |               3 | Moderate               |
+| [Action 2](#2-publish-accessibility-progress-updates): Publish accessibility progress updates                                                             |               4 | Moderate               |
+| [Action 3](#3-invite-community-help-on-accessibility-work): Invite community help on accessibility work                                                   |               6 | Extended               |
+| [Action 4](#4-provide-accessible-and-respectful-ways-to-contribute-and-collaborate): Provide accessible and respectful ways to contribute and collaborate |               4 | Extended               |
+| [Action 5](#5-share-accessibility-resources): Share accessibility resources                                                                               |               4 | Moderate               |
+| [Action 6](#6-recognize-accessibility-contributions-publicly): Recognize accessibility contributions publicly                                             |               2 | Quick                  |
 
 Effort varies by project size and maturity. Complete these actions incrementally and adapt them to your project's needs. Typical initial effort is categorized as **Quick** (less than 1 hour), **Moderate** (1-3 hours), or **Extended** (more than 3 hours); ongoing practices should be repeated as part of normal project work.
 
