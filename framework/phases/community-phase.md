@@ -143,24 +143,28 @@ Sharing accessibility resources, solutions, and lessons learned helps other proj
    - Explain the problem each resource intends to solve.
    - Include prerequisites, limitations, known tradeoffs, and situations where the resource may not apply.
 3. Publish them in a discoverable repository location or community channel.
-   - Review the (sharing your accessibility resources)[TBD]
+   - Consider sharing your work in the [Open Source Accessibility community show-and-tell](https://github.com/orgs/open-source-accessibility/discussions/new?category=show-and-tell).
+   - Review the (sharing your accessibility resources)[TBD].
 4. Keep shared resources current as standards, tools, and community practices evolve.
 
 ### 6. Recognize accessibility contributions publicly
 
 #### Why it matters
 
-This action signals that accessibility work is valued.
+Public recognition shows that accessibility work, including contributions beyond source code, is valued.
 
 #### Definition of done
 
-1. Accessibility contributions are recognized publicly.
-2. Recognition is accurate and appropriate to the contributor’s preferences.
-3. The project has a repeatable way to acknowledge contributions.
+1. Recognition respects contributor preferences and protects personal information.
+2. Accessibility contributions are publicly recognized with the contributor's consent.
 
 #### Recommended Steps
 
-1. Identify contributors who have supported accessibility work.
-2. Thank them in updates, release notes, or discussions, with their consent where appropriate.
-3. Consider sharing contributions in the [Open Source Accessibility community (shoutout)](https://github.com/orgs/open-source-accessibility/discussions/new?category=shoutout).
-4. Ensure recognition does not disclose personal information without permission.
+1. Ask contributors how they want to be recognized and obtain their consent.
+   - Ask contributors how they would like to receive credit.
+   - Never disclose a contributor's disability, diagnosis, assistive technology use, or other personal information without permission.
+   - Do not tokenize contributors or present anyone as representing an entire disability community.
+2. Recognize accessibility contributions in release notes, community updates, contributor lists, discussions, project websites, or other appropriate channels.
+   - Include contributions beyond code, such as documentation, testing, research, design feedback, mentoring, translation, event support, and remediation guidance.
+   - Consider sharing contributions in the [Open Source Accessibility community (shoutout)](https://github.com/orgs/open-source-accessibility/discussions/new?category=shoutout).
+   - Present accessibility work as valuable project work, not charity or an exceptional favor.
