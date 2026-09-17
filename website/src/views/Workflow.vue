@@ -4,5 +4,5 @@ import workflowPhaseMarkdown from '../../../framework/phases/workflow-phase.md?r
 </script>
 
 <template>
-  <MarkdownPage :markdown="workflowPhaseMarkdown" />
+  <MarkdownPage :markdown="workflowPhaseMarkdown" source-path="framework/phases/workflow-phase.md" />
 </template>
