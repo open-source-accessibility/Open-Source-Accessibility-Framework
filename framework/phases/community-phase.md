@@ -4,6 +4,8 @@ The community phase strengthens how a project listens to, collaborates with, and
 
 In this phase, projects build trust by responding constructively to accessibility reports, publishing progress, inviting participation, partnering with people with disabilities, and recognizing accessibility contributions. Involving users, testers, practitioners, assistive technology users, and contributors throughout the project lifecycle replaces assumptions with evidence grounded in lived experience.
 
+Use the [Community Accessibility Resources](https://github.com/open-source-accessibility/accessibility-toolkit/blob/main/resources/community/community.md) guide to find learning materials, community-engagement guidance, participation opportunities, and examples for this phase.
+
 ## Phase overview
 
 This phase has **6 total actions** with **24 total tasks** to complete.
@@ -144,7 +146,7 @@ Sharing accessibility resources, solutions, and lessons learned helps other proj
    - Include prerequisites, limitations, known tradeoffs, and situations where the resource may not apply.
 3. Publish them in a discoverable repository location or community channel.
    - Consider sharing your work in the [Open Source Accessibility community show-and-tell](https://github.com/orgs/open-source-accessibility/discussions/new?category=show-and-tell).
-   - Review the (sharing your accessibility resources)[TBD].
+   - Review the [sharing resources and solutions](https://github.com/open-source-accessibility/accessibility-toolkit/blob/main/resources/community/community.md#sharing-resources-and-solutions) guidance.
 4. Keep shared resources current as standards, tools, and community practices evolve.
 
 ### 6. Recognize accessibility contributions publicly
