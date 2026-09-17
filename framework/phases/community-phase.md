@@ -98,7 +98,7 @@ Accessible tools and processes allow more people to share expertise, influence d
 #### Recommended Steps
 
 1. Identify accessible to participate.
-   - Create clearly scoped accessibility issues using labels such as `accessibility`, `help wanted`, and `good first issue` when appropriate.
+   - Create clearly scoped accessibility issues using labels such as `accessibility` with `good first issue` for beginner-friendly work and `accessibility` with `help wanted` where projects are actively seeking support.
    - Make meeting agendas and accessible materials available in advance when practical.
    - Explicitly document non-code contribution opportunities.
    - Provide asynchronous options such as issues, discussions, mailing lists, meeting notes, transcripts, or summaries.
