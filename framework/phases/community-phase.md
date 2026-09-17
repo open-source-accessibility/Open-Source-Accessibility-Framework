@@ -14,7 +14,7 @@ This phase has **6 total actions** with **20 total tasks** to complete.
 | [Action 2](#2-publish-accessibility-progress-updates): Publish accessibility progress updates                                                             |               3 | Moderate               |
 | [Action 3](#3-invite-community-help-on-accessibility-work): Invite community help on accessibility work                                                   |               4 | Extended               |
 | [Action 4](#4-provide-accessible-and-respectful-ways-to-contribute-and-collaborate): Provide accessible and respectful ways to contribute and collaborate |               3 | Extended               |
-| [Action 5](#5-share-reusable-accessibility-resources): Share reusable accessibility resources                                                             |               3 | Extended               |
+| [Action 5](#5-share-accessibility-resources): Share reusable accessibility resources                                                                      |               3 | Extended               |
 | [Action 6](#6-recognize-accessibility-contributions-publicly): Recognize accessibility contributions publicly                                             |               3 | Moderate               |
 
 Effort varies by project size and maturity. Complete these actions incrementally and adapt them to your project's needs. Typical initial effort is categorized as **Quick** (less than 1 hour), **Moderate** (1-3 hours), or **Extended** (more than 3 hours); ongoing practices should be repeated as part of normal project work.
@@ -111,25 +111,40 @@ Accessible tools and processes allow more people to share expertise, influence d
 4. Provide a way to request accommodations without requiring unnecessary public disclosure.
    - Identify an accessibility or accommodation contact for significant community meetings and events.
 
-### 5. Share reusable accessibility resources
+### 5. Share accessibility resources
 
 #### Why it matters
 
-This action helps other projects improve faster.
+Sharing accessibility resources, solutions, and lessons learned helps other projects improve faster. Documenting both successes and failures enables communities to build on proven practices and avoid repeating mistakes.
 
 #### Definition of done
 
-1. Reusable accessibility resources are published publicly.
+1. Useful accessibility resources are made publicly available.
 2. Resources include enough context for another project to use them.
 3. Ownership for maintaining the resources is identified.
 
 #### Recommended Steps
 
-1. Identify project materials that could help other teams, such as templates, checklists, example issues, or lessons learned.
-2. Review the materials for clarity and accessibility.
+1. Identify project materials that could help other teams, such as:
+   - accessibility issue templates
+   - pull request checklists
+   - test procedures
+   - accessible component examples
+   - coding patterns
+   - accessibility statements
+   - meeting accessibility checklists
+   - contributor guidance
+   - usability-test tasks
+   - community feedback templates
+   - testing scripts
+   - remediation examples
+   - lessons learned
+2. Review the materials to ensure they are clear, accessible, and easy to use.
+   - Explain the problem each resource intends to solve.
+   - Include prerequisites, limitations, known tradeoffs, and situations where the resource may not apply.
 3. Publish them in a discoverable repository location or community channel.
-4. Consider sharing contributions in the [Open Source Accessibility community (show-and-tell)](https://github.com/orgs/open-source-accessibility/discussions/new?category=show-and-tell).
-5. Keep shared resources current as practices evolve.
+   - Review the (sharing your accessibility resources)[TBD]
+4. Keep shared resources current as standards, tools, and community practices evolve.
 
 ### 6. Recognize accessibility contributions publicly
 
