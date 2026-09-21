@@ -4,5 +4,8 @@ import communityPhaseMarkdown from '../../../framework/phases/community-phase.md
 </script>
 
 <template>
-  <MarkdownPage :markdown="communityPhaseMarkdown" />
+  <MarkdownPage
+    :markdown="communityPhaseMarkdown"
+    source-path="framework/phases/community-phase.md"
+  />
 </template>
