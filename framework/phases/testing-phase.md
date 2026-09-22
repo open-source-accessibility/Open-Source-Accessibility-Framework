@@ -36,7 +36,7 @@ This action helps catch common regressions.
 #### Recommended Steps
 
 1. Review the guidance on [testing continuously](https://opensource.guide/accessibility-best-practices-for-your-project/#test-accessibility-continuously).
-2. Select an appropriate tool such as [Accessibility Insights](https://accessibilityinsights.io/downloads/). Other options include [eslint-plugin-jsx-a11y](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y), [axe](https://github.com/dequelabs/axe-core), and [GitHub Accessibility Scanner](https://github.com/github/accessibility-scanner).
+2. Select an appropriate tool such as [Accessibility Insights](https://accessibilityinsights.io/downloads/). Other options include [eslint-plugin-jsx-a11y](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y), [WAVE](https://wave.webaim.org/), [axe](https://github.com/dequelabs/axe-core), and [GitHub Accessibility Scanner](https://github.com/github/accessibility-scanner).
 3. Configure the test or document the decision in your project documentation.
 4. Run the check against relevant project code or user flows.
 5. Ensure accessibility issues from CI/CD checks are tracked.
@@ -51,7 +51,7 @@ This action covers a high-impact baseline.
 #### Definition of done
 
 1. Key tasks have documented keyboard-only checks.
-2. The checks confirm keyboard access, focus visibility, and logical focus order where applicable.
+2. The checks confirm keyboard access, focus visibility, and logical focus order.
 3. Accessibility issues are fixed or tracked using the [accessibility issue-template guidance](https://opensource.guide/accessibility-best-practices-for-your-project/#add-issue-labels-and-template).
 
 #### Recommended Steps
@@ -76,7 +76,7 @@ This action validates real usability beyond automation.
 #### Recommended Steps
 
 1. Identify key tasks and user journeys.
-2. Select a supported screen reader and browser combination.
+2. Select a supported screen reader and browser combination (such as Windows + [NVDA](https://www.nvaccess.org/download/) and MacOS + VoiceOver).
 3. Test the flows using the [testing examples](https://github.com/open-source-accessibility/accessibility-toolkit/blob/main/ACCESSIBILITY.md#contributor-expectations).
 4. Record and track accessibility issues found using the [accessibility issue-template guidance](https://opensource.guide/accessibility-best-practices-for-your-project/#add-issue-labels-and-template).
 
