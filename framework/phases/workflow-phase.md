@@ -211,9 +211,10 @@ This action helps teams identify and address accessibility issues more efficient
 
 #### Recommended Steps
 
-1. Review the [guidance on leveraging GitHub Copilot for accessibility](https://opensource.guide/accessibility-best-practices-for-your-project/#leverage-github-copilot).
-2. If applicable, add accessibility custom instructions.
-3. If applicable, create specialized AI agents or prompts for appropriate accessibility tasks.
+1. Review the [AI Usage Guidance](../ai/guide.md) for detailed recommendations on configuring AI tools for accessibility work.
+2. If applicable, add accessibility custom instructions (such as `.github/copilot-instructions.md` or `AGENTS.md`).
+3. If applicable, create specialized AI agents or prompts for appropriate accessibility tasks. See the [Workflow Skills Catalog](../ai/skills.md) for ready-to-use skills covering each action in this phase.
+4. Ensure all AI-generated changes are reviewed by a maintainer or subject-matter expert before merging.
 
 ### 11. Evaluate key dependencies and upstream blockers
 
