@@ -32,6 +32,16 @@ const router = createRouter({
       name: 'community',
       component: () => import('../views/Community.vue'),
     },
+    {
+      path: '/ai',
+      name: 'ai',
+      component: () => import('../views/AiUsage.vue'),
+    },
+    {
+      path: '/skills',
+      name: 'skills',
+      component: () => import('../views/Skills.vue'),
+    },
   ],
 })
 

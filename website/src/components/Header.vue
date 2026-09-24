@@ -36,6 +36,11 @@ import logo from "../assets/logo.svg";
               >Community</RouterLink
             >
           </li>
+          <li>
+            <RouterLink to="/ai" class="phase-nav__link"
+              >AI Usage</RouterLink
+            >
+          </li>
         </ul>
       </nav>
     </div>

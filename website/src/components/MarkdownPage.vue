@@ -18,10 +18,12 @@ const phaseRoutes: Record<string, string> = {
   'foundational-phase.md': 'foundational',
   'testing-phase.md': 'testing',
   'workflow-phase.md': 'workflow',
+  'guide.md': 'ai',
+  'skills.md': 'skills',
 }
 
 const githubPhaseLinkPattern =
-  /^(?:\/?framework\/phases\/|https:\/\/github\.com\/open-source-accessibility\/Open-Source-Accessibility-Framework\/blob\/.+?\/framework\/phases\/)([^/?#]+\.md)([?#].*)?$/
+  /^(?:\/?framework\/(?:phases|ai)\/|https:\/\/github\.com\/open-source-accessibility\/Open-Source-Accessibility-Framework\/blob\/.+?\/framework\/(?:phases|ai)\/)([^/?#]+\.md)([?#].*)?$/
 
 const repositoryBlobUrl =
   'https://github.com/open-source-accessibility/Open-Source-Accessibility-Framework/blob/main'
@@ -81,7 +83,7 @@ function rewriteMarkdownLink(href: string, sourcePath: string): string {
     return href
   }
 
-  const phaseMatch = repositoryPath.match(/^framework\/phases\/([^/]+\.md)$/)
+  const phaseMatch = repositoryPath.match(/^framework\/(?:phases|ai)\/([^/]+\.md)$/)
   const phaseFilename = phaseMatch?.[1]
   if (phaseFilename) {
     return websitePhaseLink(phaseFilename, match[2]) ?? href
