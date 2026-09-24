@@ -12,6 +12,7 @@
   --color-signal-soft: #fbede4;
   --color-focus: #a63d00;
   --color-selection: #fbede4;
+  --color-code-bg: rgba(175, 184, 193, 0.2);
 
   --font-display: "Google Sans Flex", "IBM Plex Sans", system-ui, sans-serif;
   --font-body: "DM Sans", "IBM Plex Sans", system-ui, sans-serif;
@@ -56,6 +57,7 @@
     --color-signal-soft: #221914;
     --color-focus: #ffca00;
     --color-selection: #221914;
+    --color-code-bg: rgba(110, 118, 129, 0.4);
   }
 }
 
@@ -97,7 +99,7 @@ h3 {
 }
 
 code {
-  color: var(--color-bold);
+  font-family: var(--font-utility);
 }
 
 p,
@@ -345,10 +347,16 @@ a:hover {
 .markdown-page__content code {
   font-family: var(--font-utility);
   font-size: var(--size-small);
-  background: #000;
+  color: var(--color-ink);
+  background-color: var(--color-code-bg);
   padding: 0.2em 0.4em;
-  border: 1px solid #1d282e;
-  border-radius: 0.2em;
+  border-radius: 6px;
+}
+
+.markdown-page__content pre code {
+  background-color: transparent;
+  padding: 0;
+  border-radius: 0;
 }
 
 .markdown-page__content pre {
