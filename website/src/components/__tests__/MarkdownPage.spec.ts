@@ -55,6 +55,21 @@ describe('MarkdownPage', () => {
     expect(listItem.text()).toBe('First item')
   })
 
+  it('renders phase skill notes as callout asides', async () => {
+    const { wrapper } = await mountMarkdownPage({
+      markdown:
+        '**Phase skill:** Use the [Testing Phase Skill](../ai/skills/testing-skills.md).',
+      sourcePath: 'framework/phases/testing-phase.md',
+    })
+
+    await flushPromises()
+
+    const callout = wrapper.find('aside.phase-skill-callout')
+    expect(callout.exists()).toBe(true)
+    expect(callout.text()).toContain('Phase skill:')
+    expect(callout.find('a').attributes('href')).toBe('/skills/testing')
+  })
+
   it('re-renders when markdown prop changes', async () => {
     const { wrapper } = await mountMarkdownPage({
       markdown: 'Initial paragraph',

@@ -25,7 +25,7 @@ Effort varies by project size and maturity. Complete these actions incrementally
 
 Cadence describes how an action continues after its initial completion: **One-time setup** is completed once and revisited when project needs change, **Initial setup + ongoing** establishes something that must then be maintained or used, and **Ongoing** is repeated as part of normal project work.
 
-**Note:** You can use the [Workflow Phase Skill](../ai/skills/workflow-skills.md) to implement this phase. Refer to the [Framework Skills instructions](../ai/guide.md#framework-skills) for setup and usage guidance.
+**Phase skill:** You can use the [Workflow Phase Skill](../ai/skills/workflow-skills.md) to implement this phase. Refer to the [Framework Skills instructions](../ai/guide.md#framework-skills) for setup and usage guidance.
 
 ## Workflow actions
 

@@ -308,6 +308,22 @@ a:hover {
   color: var(--color-ink);
 }
 
+.phase-skill-callout {
+  padding: var(--space-s) var(--space-m);
+  border: var(--line-hairline) solid var(--color-line);
+  border-inline-start: var(--line-rule) solid var(--color-signal);
+  border-radius: var(--radius);
+  background-color: var(--color-signal-soft);
+}
+
+.phase-skill-callout p {
+  margin: 0;
+}
+
+.phase-skill-callout strong {
+  color: var(--color-ink);
+}
+
 .markdown-page__content ul,
 .markdown-page__content ol {
   padding-inline-start: var(--space-m);

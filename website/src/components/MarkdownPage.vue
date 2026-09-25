@@ -122,6 +122,7 @@ function createHeadingRenderer() {
   const renderer = new marked.Renderer();
   const headingCounts = new Map<string, number>();
   const renderLink = renderer.link;
+  const renderParagraph = renderer.paragraph;
 
   renderer.heading = function ({ tokens, depth }) {
     const content = this.parser.parseInline(tokens);
@@ -155,6 +156,15 @@ function createHeadingRenderer() {
         "</a>",
         ` <img class="external-link-icon" src="${externalLinkIcon}" alt="opens external page"></a>`,
       );
+  };
+
+  renderer.paragraph = function (token) {
+    const paragraph = renderParagraph.call(this, token);
+    if (!token.raw.trimStart().startsWith("**Phase skill:**")) {
+      return paragraph;
+    }
+
+    return `<aside class="phase-skill-callout">${paragraph}</aside>\n`;
   };
 
   return renderer;
