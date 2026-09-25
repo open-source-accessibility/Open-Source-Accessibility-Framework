@@ -140,7 +140,7 @@ function createHeadingRenderer() {
     headingCounts.set(baseId, duplicateCount + 1);
     const id = duplicateCount === 0 ? baseId : `${baseId}-${duplicateCount}`;
 
-    return `<h3 id="${id}" tabindex="-1">${content}</h3>\n`;
+    return `<h${depth} id="${id}" tabindex="-1">${content}</h${depth}>\n`;
   };
 
   renderer.link = function (token) {

@@ -227,6 +227,11 @@ a:hover {
   list-style: none;
 }
 
+.phase-nav__guidance {
+  border-inline-start: var(--line-hairline) solid var(--color-line-strong);
+  padding-inline-start: var(--space-s);
+}
+
 .phase-nav__link {
   display: inline-block;
   padding-block: var(--space-2xs);
