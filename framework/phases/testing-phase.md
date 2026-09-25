@@ -19,6 +19,8 @@ This phase has **6 total actions** with **17 total tasks** to complete.
 
 Effort varies by project size and maturity. Complete these actions incrementally and adapt them to your project's needs. Typical initial effort is categorized as **Quick** (less than 1 hour), **Moderate** (1-3 hours), or **Extended** (more than 3 hours); ongoing practices should be repeated as part of normal project work.
 
+**Note:** You can use the [Testing Phase Skill](../ai/skills/testing-skills.md) to implement this phase. Refer to the [Framework Skills instructions](../ai/guide.md#framework-skills) for setup and usage guidance.
+
 ## Testing actions
 
 ### 1. Add at least one automated accessibility check

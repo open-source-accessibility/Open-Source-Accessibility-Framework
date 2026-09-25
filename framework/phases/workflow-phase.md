@@ -23,6 +23,8 @@ This phase has **10 total actions** with **27 total tasks** to complete.
 
 Effort varies by project size and maturity. Complete these actions incrementally and adapt them to your project's needs. Typical initial effort is categorized as **Quick** (less than 1 hour), **Moderate** (1-3 hours), or **Extended** (more than 3 hours); ongoing practices should be repeated as part of normal project work.
 
+**Note:** You can use the [Workflow Phase Skill](../ai/skills/workflow-skills.md) to implement this phase. Refer to the [Framework Skills instructions](../ai/guide.md#framework-skills) for setup and usage guidance.
+
 ## Workflow actions
 
 ### 1. Surface accessibility expectations for contributors

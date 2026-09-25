@@ -15,6 +15,8 @@ This phase has **2 total actions** with **4 total tasks** to complete.
 
 Effort varies by project size and maturity. Complete these actions incrementally and adapt them to your project's needs. Typical initial effort is categorized as **Quick** (less than 1 hour), **Moderate** (1-3 hours), or **Extended** (more than 3 hours); ongoing practices should be repeated as part of normal project work.
 
+**Note:** You can use the [Foundational Phase Skill](../ai/skills/foundational-skills.md) to implement this phase. Refer to the [Framework Skills instructions](../ai/guide.md#framework-skills) for setup and usage guidance.
+
 ## Foundational actions
 
 ### 1. Create an ACCESSIBILITY.md
