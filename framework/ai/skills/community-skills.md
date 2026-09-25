@@ -27,12 +27,12 @@ metadata:
    - If the user provides action numbers, titles, or heading anchors, select only those actions.
    - If the user does not specify a scope, ask whether to implement all actions or selected actions before changing files.
    - If a requested action does not exist, report the mismatch and ask the user to select a valid action.
-4. For every selected action, read its complete section through the next level-three action heading, including "Why it matters," "Definition of done," "Recommended Steps," notes, and linked examples.
+4. For every selected action, read its cadence from the phase overview and its complete section through the next level-three action heading, including "Why it matters," "Definition of done," "Recommended Steps," notes, and linked examples.
 5. Treat each selected action's "Definition of done" as the authoritative requirements. Use "Recommended Steps" as implementation guidance that may be adapted to the repository.
 6. Inspect the repository and available community channels before editing. Identify requirements already satisfied, requirements needing changes, and requirements that require maintainer decisions or external community actions.
 7. Implement the selected actions in phase order. Preserve accessible synchronous and asynchronous participation options.
 8. Protect contributor privacy and choice. Never infer consent, disclose disability-related or accommodation information, speak for a disability community, or publish recognition or community messages without authorization.
-9. Verify each selected action against every definition-of-done item. Clearly distinguish completed requirements from unmet requirements and external follow-up.
+9. Verify each selected action against every definition-of-done item. Clearly distinguish completed requirements, unmet requirements, and recurring work required by actions marked "Initial setup + ongoing" or "Ongoing."
 10. Present the changes and verification results for maintainer review before committing or publishing.
 11. If the phase source cannot be retrieved or parsed, report the error and stop instead of using remembered requirements.
 ```

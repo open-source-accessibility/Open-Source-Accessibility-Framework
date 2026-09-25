@@ -10,16 +10,18 @@ Use the [Community Accessibility Resources](https://github.com/open-source-acces
 
 This phase has **6 total actions** with **19 total tasks** to complete.
 
-| Action                                                                                                                                                    | Number of tasks | Typical initial effort |
-| :-------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------: | :--------------------- |
-| [Action 1](#1-invite-community-help-on-accessibility-work): Invite community help on accessibility work                                                   |               4 | Extended               |
-| [Action 2](#2-respond-constructively-to-accessibility-reports): Respond constructively to accessibility reports                                           |               3 | Moderate               |
-| [Action 3](#3-provide-accessible-and-respectful-ways-to-contribute-and-collaborate): Provide accessible and respectful ways to contribute and collaborate |               4 | Extended               |
-| [Action 4](#4-recognize-accessibility-contributions-publicly): Recognize accessibility contributions publicly                                             |               2 | Quick                  |
-| [Action 5](#5-publish-accessibility-progress-updates): Publish accessibility progress updates                                                             |               3 | Moderate               |
-| [Action 6](#6-share-accessibility-resources): Share accessibility resources                                                                               |               3 | Moderate               |
+| Action                                                                                                                                                    | Number of tasks | Typical initial effort | Cadence                 |
+| :-------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------: | :--------------------- | :---------------------- |
+| [Action 1](#1-invite-community-help-on-accessibility-work): Invite community help on accessibility work                                                   |               4 | Extended               | Ongoing                 |
+| [Action 2](#2-respond-constructively-to-accessibility-reports): Respond constructively to accessibility reports                                           |               3 | Moderate               | Ongoing                 |
+| [Action 3](#3-provide-accessible-and-respectful-ways-to-contribute-and-collaborate): Provide accessible and respectful ways to contribute and collaborate |               4 | Extended               | Initial setup + ongoing |
+| [Action 4](#4-recognize-accessibility-contributions-publicly): Recognize accessibility contributions publicly                                             |               2 | Quick                  | Ongoing                 |
+| [Action 5](#5-publish-accessibility-progress-updates): Publish accessibility progress updates                                                             |               3 | Moderate               | Ongoing                 |
+| [Action 6](#6-share-accessibility-resources): Share accessibility resources                                                                               |               3 | Moderate               | Ongoing                 |
 
 Effort varies by project size and maturity. Complete these actions incrementally and adapt them to your project's needs. Typical initial effort is categorized as **Quick** (less than 1 hour), **Moderate** (1-3 hours), or **Extended** (more than 3 hours); ongoing practices should be repeated as part of normal project work.
+
+Cadence describes how an action continues after its initial completion: **One-time setup** is completed once and revisited when project needs change, **Initial setup + ongoing** establishes something that must then be maintained or used, and **Ongoing** is repeated as part of normal project work.
 
 **Note:** You can use the [Community Phase Skill](../ai/skills/community-skills.md) to implement this phase. Refer to the [Framework Skills instructions](../ai/guide.md#framework-skills) for setup and usage guidance.
 
