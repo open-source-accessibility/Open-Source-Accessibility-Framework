@@ -6,23 +6,26 @@ The goal is to make accessible practice repeatable across the project, even as c
 
 ## Phase overview
 
-This phase has **11 total actions** with **29 total tasks** to complete.
+This phase has **10 total actions** with **27 total tasks** to complete.
 
-| Action                                                                                                                                | Number of tasks | Typical initial effort |
-| :------------------------------------------------------------------------------------------------------------------------------------ | --------------: | :--------------------- |
-| [Action 1](#1-surface-accessibility-expectations-for-contributors): Surface accessibility expectations for contributors               |               3 | Moderate               |
-| [Action 2](#2-create-an-accessible-path-for-reporting-accessibility-bugs): Create an accessible path for reporting accessibility bugs |               2 | Moderate               |
-| [Action 3](#3-establish-a-simple-accessibility-triage-approach): Establish a simple accessibility triage approach                     |               3 | Moderate               |
-| [Action 4](#4-tag-beginner-friendly-accessibility-issues): Tag beginner-friendly accessibility issues                                 |               2 | Quick                  |
-| [Action 5](#5-tag-accessibility-issues-where-you-need-expert-help): Tag accessibility issues where you need expert help               |               2 | Quick                  |
-| [Action 6](#6-add-an-accessibility-section-to-the-pull-request-template): Add an accessibility section to the pull request template   |               3 | Quick                  |
-| [Action 7](#7-assign-accessibility-ownership): Assign accessibility ownership                                                         |               2 | Quick                  |
-| [Action 8](#8-make-docs-accessible-by-default): Make docs accessible by default                                                       |               3 | Extended               |
-| [Action 9](#9-design-accessible-interfaces): Design accessible interfaces                                                             |               3 | Extended               |
-| [Action 10](#10-leverage-ai-for-accessibility): Leverage AI for Accessibility                                                         |               2 | Moderate               |
-| [Action 11](#11-evaluate-key-dependencies-and-upstream-blockers): Evaluate key dependencies and upstream blockers                     |               4 | Extended               |
+| Action                                                                                                                                | Number of tasks | Typical initial effort | Cadence                 |
+| :------------------------------------------------------------------------------------------------------------------------------------ | --------------: | :--------------------- | :---------------------- |
+| [Action 1](#1-surface-accessibility-expectations-for-contributors): Surface accessibility expectations for contributors               |               3 | Moderate               | Initial setup + ongoing |
+| [Action 2](#2-create-an-accessible-path-for-reporting-accessibility-bugs): Create an accessible path for reporting accessibility bugs |               2 | Moderate               | Initial setup + ongoing |
+| [Action 3](#3-establish-a-simple-accessibility-triage-approach): Establish a simple accessibility triage approach                     |               3 | Moderate               | Initial setup + ongoing |
+| [Action 4](#4-add-an-accessibility-section-to-the-pull-request-template): Add an accessibility section to the pull request template   |               3 | Quick                  | Initial setup + ongoing |
+| [Action 5](#5-tag-beginner-friendly-accessibility-issues): Tag beginner-friendly accessibility issues                                 |               2 | Quick                  | Ongoing                 |
+| [Action 6](#6-tag-accessibility-issues-where-you-need-expert-help): Tag accessibility issues where you need expert help               |               2 | Quick                  | Ongoing                 |
+| [Action 7](#7-assign-accessibility-ownership): Assign accessibility ownership                                                         |               2 | Quick                  | Initial setup + ongoing |
+| [Action 8](#8-make-docs-accessible-by-default): Make docs accessible by default                                                       |               3 | Extended               | Ongoing                 |
+| [Action 9](#9-design-accessible-interfaces): Design accessible interfaces                                                             |               3 | Extended               | Ongoing                 |
+| [Action 10](#10-evaluate-key-dependencies-and-upstream-blockers): Evaluate key dependencies and upstream blockers                     |               4 | Extended               | Ongoing                 |
 
 Effort varies by project size and maturity. Complete these actions incrementally and adapt them to your project's needs. Typical initial effort is categorized as **Quick** (less than 1 hour), **Moderate** (1-3 hours), or **Extended** (more than 3 hours); ongoing practices should be repeated as part of normal project work.
+
+Cadence describes how an action continues after its initial completion: **One-time setup** is completed once and revisited when project needs change, **Initial setup + ongoing** establishes something that must then be maintained or used, and **Ongoing** is repeated as part of normal project work.
+
+**Phase skill:** You can use the [Workflow Phase Skill](../ai/skills/workflow-skills.md) to implement this phase. Refer to the [Framework Skills instructions](../ai/guide.md#framework-skills) for setup and usage guidance.
 
 ## Workflow actions
 
@@ -82,7 +85,7 @@ This action gives people a clear way to report accessibility barriers and helps 
 
 #### Recommended Steps
 
-1. In the `ACCESSIBILITY.md`, define your process for reporting accessibility issues
+1. In the `ACCESSIBILITY.md`, define your process for reporting accessibility issues.
    - Refer to the [reporting accessibility issues example](../supporting/workflow-phase/triage-accessibility.md) for guidance.
 2. Define severity categories, such as critical, serious, moderate, and minor, based on how strongly a barrier affects a person’s ability to complete a task.
    - Keep these categories consistent with the project’s issue template, labels, and resolution targets.
@@ -91,41 +94,7 @@ This action gives people a clear way to report accessibility barriers and helps 
 
 **Note:** Mature projects can refer to this comprehensive [`ACCESSIBILITY.md` example](https://github.com/open-source-accessibility/accessibility-toolkit/blob/main/ACCESSIBILITY.md) for additional guidance.
 
-### 4. Tag beginner-friendly accessibility issues
-
-#### Why it matters
-
-This action makes contribution easier to start.
-
-#### Definition of done
-
-1. Beginner-friendly accessibility issues are clearly labeled (using both `good first issue` and `accessibility` (or another clearly understood equivalent) labels).
-2. Each selected issue has a clear scope and contribution context.
-
-#### Recommended Steps
-
-1. Identify small, well-scoped accessibility issues suitable for new contributors.
-2. Apply both the `good first issue` and `accessibility` (or another clearly understood equivalent) labels.
-3. Add enough context and acceptance criteria for contributors to begin.
-
-### 5. Tag accessibility issues where you need expert help
-
-#### Why it matters
-
-This action makes contribution easier to start.
-
-#### Definition of done
-
-1. Accessibility issues where expert help is needed are clearly labeled `help wanted` and `accessibility` (or another clearly understood equivalent) labels.
-2. Each selected issue has a clear scope and contribution context.
-
-#### Recommended Steps
-
-1. Identify accessibility issues that require specialized knowledge or experience.
-2. Apply both the `help wanted` and `accessibility` (or another clearly understood equivalent) labels.
-3. Add enough context, acceptance criteria, and required expertise for contributors to begin.
-
-### 6. Add an accessibility section to the pull request template
+### 4. Add an accessibility section to the pull request template
 
 #### Why it matters
 
@@ -139,11 +108,45 @@ This action makes accessibility a consistent part of the review process.
 
 #### Recommended Steps
 
-1. Include an Accessibility checklist in your pull request template (create one if there isn't one already)
+1. Include an accessibility checklist in your pull request template, creating a template if one does not already exist.
    - Refer to the [pull request template example](https://github.com/open-source-accessibility/accessibility-toolkit/blob/main/.github/PULL_REQUEST_TEMPLATE.md) for guidance.
-2. Add checklist items for content changes and UI (user interface) changes.
-3. Prompted contributors to complete each applicable item.
+2. Add checklist items for content changes and user interface changes.
+3. Prompt contributors to complete each applicable item.
 4. Customize the checklist for the project’s needs.
+
+### 5. Tag beginner-friendly accessibility issues
+
+#### Why it matters
+
+This action makes contribution easier to start.
+
+#### Definition of done
+
+1. Beginner-friendly accessibility issues are clearly labeled using both `good first issue` and `accessibility`, or another clearly understood equivalent, labels.
+2. Each selected issue has a clear scope and contribution context.
+
+#### Recommended Steps
+
+1. Identify small, well-scoped accessibility issues suitable for new contributors.
+2. Apply both the `good first issue` and `accessibility`, or another clearly understood equivalent, labels.
+3. Add enough context and acceptance criteria for contributors to begin.
+
+### 6. Tag accessibility issues where you need expert help
+
+#### Why it matters
+
+This action makes contribution easier to start.
+
+#### Definition of done
+
+1. Accessibility issues where expert help is needed are clearly labeled with `help wanted` and `accessibility`, or another clearly understood equivalent, labels.
+2. Each selected issue has a clear scope and contribution context.
+
+#### Recommended Steps
+
+1. Identify accessibility issues that require specialized knowledge or experience.
+2. Apply both the `help wanted` and `accessibility`, or another clearly understood equivalent, labels.
+3. Add enough context, acceptance criteria, and required expertise for contributors to begin.
 
 ### 7. Assign accessibility ownership
 
@@ -198,25 +201,7 @@ This action helps prevent common accessibility issues from being introduced in t
 2. Ensure the [contributor expectations](https://github.com/open-source-accessibility/accessibility-toolkit/blob/main/ACCESSIBILITY.md#contributor-expectations) include checks for keyboard and screen reader support, such as visible focus states, clear labels, and other project-relevant requirements.
 3. Apply the checks when creating or updating interfaces.
 
-### 10. Leverage AI for Accessibility
-
-#### Why it matters
-
-This action helps teams identify and address accessibility issues more efficiently while ensuring AI-generated recommendations align with project requirements and real user needs.
-
-#### Definition of done
-
-1. Agents or prompts include the project’s accessibility requirements.
-2. AI-generated changes are reviewed by a maintainer or subject-matter expert.
-
-#### Recommended Steps
-
-1. Review the [AI Usage Guidance](../ai/guide.md) for detailed recommendations on configuring AI tools for accessibility work.
-2. If applicable, add accessibility custom instructions (such as `.github/copilot-instructions.md` or `AGENTS.md`).
-3. If applicable, create specialized AI agents or prompts for appropriate accessibility tasks. See the [Workflow Skills Catalog](../ai/skills.md) for ready-to-use skills covering each action in this phase.
-4. Ensure all AI-generated changes are reviewed by a maintainer or subject-matter expert before merging.
-
-### 11. Evaluate key dependencies and upstream blockers
+### 10. Evaluate key dependencies and upstream blockers
 
 #### Why it matters
 

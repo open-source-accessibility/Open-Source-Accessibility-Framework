@@ -55,6 +55,21 @@ describe('MarkdownPage', () => {
     expect(listItem.text()).toBe('First item')
   })
 
+  it('renders phase skill notes as callout asides', async () => {
+    const { wrapper } = await mountMarkdownPage({
+      markdown:
+        '**Phase skill:** Use the [Testing Phase Skill](../ai/skills/testing-skills.md).',
+      sourcePath: 'framework/phases/testing-phase.md',
+    })
+
+    await flushPromises()
+
+    const callout = wrapper.find('aside.phase-skill-callout')
+    expect(callout.exists()).toBe(true)
+    expect(callout.text()).toContain('Phase skill:')
+    expect(callout.find('a').attributes('href')).toBe('/skills/testing')
+  })
+
   it('re-renders when markdown prop changes', async () => {
     const { wrapper } = await mountMarkdownPage({
       markdown: 'Initial paragraph',
@@ -74,12 +89,16 @@ describe('MarkdownPage', () => {
     expect(updatedHeading.text()).toBe('Updated heading')
   })
 
-  it('rewrites phase file links to website routes', async () => {
+  it('rewrites phase and skill file links to website routes', async () => {
     const { wrapper } = await mountMarkdownPage({
       markdown: [
         '[Relative](framework/phases/foundational-phase.md)',
         '[Root relative](/framework/phases/testing-phase.md#manual-checks)',
         '[GitHub](https://github.com/open-source-accessibility/Open-Source-Accessibility-Framework/blob/main/framework/phases/community-phase.md)',
+        '[Foundational skill](framework/ai/skills/foundational-skills.md)',
+        '[Workflow skill](framework/ai/skills/workflow-skills.md)',
+        '[Testing skill](framework/ai/skills/testing-skills.md)',
+        '[Community skill](framework/ai/skills/community-skills.md)',
         '[Unrelated](https://example.com/framework/phases/community-phase.md)',
       ].join('\n\n'),
       sourcePath: 'README.md',
@@ -92,10 +111,30 @@ describe('MarkdownPage', () => {
       '/foundational',
       '/testing#manual-checks',
       '/community',
+      '/skills/foundational',
+      '/skills/workflow',
+      '/skills/testing',
+      '/skills/community',
       'https://example.com/framework/phases/community-phase.md',
     ])
-    expect(links.slice(0, 3).every((link) => link.attributes('target') === undefined)).toBe(true)
-    expect(links[3]?.attributes('target')).toBe('_blank')
+    expect(links.slice(0, 7).every((link) => link.attributes('target') === undefined)).toBe(true)
+    expect(links[7]?.attributes('target')).toBe('_blank')
+  })
+
+  it('rewrites phase overview skill and instruction links', async () => {
+    const { wrapper } = await mountMarkdownPage({
+      markdown: [
+        '[Testing Phase Skill](../ai/skills/testing-skills.md)',
+        '[Framework Skills instructions](../ai/guide.md#framework-skills)',
+      ].join('\n\n'),
+      sourcePath: 'framework/phases/testing-phase.md',
+    })
+
+    await flushPromises()
+
+    expect(
+      wrapper.findAll('.markdown-page__content a').map((link) => link.attributes('href')),
+    ).toEqual(['/skills/testing', '/ai#framework-skills'])
   })
 
   it('keeps non-website links pointing to repository files', async () => {
@@ -139,6 +178,19 @@ describe('MarkdownPage', () => {
       wrapper.findAll('.markdown-page__content h3').map((heading) => heading.attributes('id')),
     ).toEqual(['1-create-an-accessibilitymd', '1-create-an-accessibilitymd-1'])
     expect(wrapper.find('.markdown-page__content h3').attributes('tabindex')).toBe('-1')
+  })
+
+  it('adds a focusable id to section headings', async () => {
+    const { wrapper } = await mountMarkdownPage({
+      markdown: '## Framework Skills',
+      sourcePath: 'framework/ai/guide.md',
+    })
+
+    await flushPromises()
+
+    const heading = wrapper.find('.markdown-page__content h2')
+    expect(heading.attributes('id')).toBe('framework-skills')
+    expect(heading.attributes('tabindex')).toBe('-1')
   })
 
   it('scrolls to and focuses the heading when the route hash changes', async () => {

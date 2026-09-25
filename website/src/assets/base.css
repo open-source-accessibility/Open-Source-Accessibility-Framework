@@ -227,6 +227,11 @@ a:hover {
   list-style: none;
 }
 
+.phase-nav__guidance {
+  border-inline-start: var(--line-hairline) solid var(--color-line-strong);
+  padding-inline-start: var(--space-s);
+}
+
 .phase-nav__link {
   display: inline-block;
   padding-block: var(--space-2xs);
@@ -300,6 +305,22 @@ a:hover {
 
 .markdown-page__content p,
 .markdown-page__content li {
+  color: var(--color-ink);
+}
+
+.phase-skill-callout {
+  padding: var(--space-s) var(--space-m);
+  border: var(--line-hairline) solid var(--color-line);
+  border-inline-start: var(--line-rule) solid var(--color-signal);
+  border-radius: var(--radius);
+  background-color: var(--color-signal-soft);
+}
+
+.phase-skill-callout p {
+  margin: 0;
+}
+
+.phase-skill-callout strong {
   color: var(--color-ink);
 }
 
