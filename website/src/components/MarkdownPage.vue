@@ -1,193 +1,223 @@
 <script setup lang="ts">
-import { marked } from 'marked'
-import { nextTick, ref, watch, watchEffect } from 'vue'
-import { useRoute } from 'vue-router'
-import externalLinkIcon from '../assets/external-link.svg'
+import { marked } from "marked";
+import { nextTick, ref, watch, watchEffect } from "vue";
+import { useRoute } from "vue-router";
+import externalLinkIcon from "../assets/external-link.svg";
 
 const props = defineProps<{
-  markdown: string
-  sourcePath: string
-}>()
+  markdown: string;
+  sourcePath: string;
+}>();
 
-const renderedMarkdown = ref('')
-const markdownContent = ref<HTMLElement>()
-const route = useRoute()
+const renderedMarkdown = ref("");
+const markdownContent = ref<HTMLElement>();
+const route = useRoute();
 
-const phaseRoutes: Record<string, string> = {
-  'community-phase.md': 'community',
-  'foundational-phase.md': 'foundational',
-  'testing-phase.md': 'testing',
-  'workflow-phase.md': 'workflow',
-}
+const contentRoutes: Record<string, string> = {
+  "community-phase.md": "community",
+  "foundational-phase.md": "foundational",
+  "testing-phase.md": "testing",
+  "workflow-phase.md": "workflow",
+  "guide.md": "ai",
+  "community-skills.md": "skills/community",
+  "foundational-skills.md": "skills/foundational",
+  "testing-skills.md": "skills/testing",
+  "workflow-skills.md": "skills/workflow",
+};
 
-const githubPhaseLinkPattern =
-  /^(?:\/?framework\/phases\/|https:\/\/github\.com\/open-source-accessibility\/Open-Source-Accessibility-Framework\/blob\/.+?\/framework\/phases\/)([^/?#]+\.md)([?#].*)?$/
+const githubContentLinkPattern =
+  /^(?:\/?framework\/(?:phases|ai(?:\/skills)?)\/|https:\/\/github\.com\/open-source-accessibility\/Open-Source-Accessibility-Framework\/blob\/.+?\/framework\/(?:phases|ai(?:\/skills)?)\/)([^/?#]+\.md)([?#].*)?$/;
 
 const repositoryBlobUrl =
-  'https://github.com/open-source-accessibility/Open-Source-Accessibility-Framework/blob/main'
+  "https://github.com/open-source-accessibility/Open-Source-Accessibility-Framework/blob/main";
 
-function websitePhaseLink(filename: string, suffix = ''): string | undefined {
-  const route = phaseRoutes[filename]
+function websiteContentLink(filename: string, suffix = ""): string | undefined {
+  const route = contentRoutes[filename];
   if (!route) {
-    return undefined
+    return undefined;
   }
 
-  const baseUrl = import.meta.env.BASE_URL.replace(/\/?$/, '/')
-  return `${baseUrl}${route}${suffix}`
+  const baseUrl = import.meta.env.BASE_URL.replace(/\/?$/, "/");
+  return `${baseUrl}${route}${suffix}`;
 }
 
-function resolveRepositoryPath(sourcePath: string, hrefPath: string): string | undefined {
-  const segments = hrefPath.startsWith('/')
+function resolveRepositoryPath(
+  sourcePath: string,
+  hrefPath: string,
+): string | undefined {
+  const segments = hrefPath.startsWith("/")
     ? []
-    : sourcePath.split('/').slice(0, -1)
+    : sourcePath.split("/").slice(0, -1);
 
-  for (const segment of hrefPath.split('/')) {
-    if (!segment || segment === '.') {
-      continue
+  for (const segment of hrefPath.split("/")) {
+    if (!segment || segment === ".") {
+      continue;
     }
 
-    if (segment === '..') {
+    if (segment === "..") {
       if (!segments.pop()) {
-        return undefined
+        return undefined;
       }
-      continue
+      continue;
     }
 
-    segments.push(segment)
+    segments.push(segment);
   }
 
-  return segments.join('/')
+  return segments.join("/");
 }
 
 function rewriteMarkdownLink(href: string, sourcePath: string): string {
-  const githubPhaseMatch = href.match(githubPhaseLinkPattern)
-  const githubPhaseFilename = githubPhaseMatch?.[1]
-  if (githubPhaseFilename) {
-    return websitePhaseLink(githubPhaseFilename, githubPhaseMatch[2]) ?? href
+  const githubContentMatch = href.match(githubContentLinkPattern);
+  const githubContentFilename = githubContentMatch?.[1];
+  if (githubContentFilename) {
+    return (
+      websiteContentLink(githubContentFilename, githubContentMatch[2]) ?? href
+    );
   }
 
-  if (href.startsWith('#') || href.startsWith('//') || /^[a-z][a-z\d+.-]*:/i.test(href)) {
-    return href
+  if (
+    href.startsWith("#") ||
+    href.startsWith("//") ||
+    /^[a-z][a-z\d+.-]*:/i.test(href)
+  ) {
+    return href;
   }
 
-  const match = href.match(/^([^?#]+)([?#].*)?$/)
-  const hrefPath = match?.[1]
+  const match = href.match(/^([^?#]+)([?#].*)?$/);
+  const hrefPath = match?.[1];
   if (!hrefPath) {
-    return href
+    return href;
   }
 
-  const repositoryPath = resolveRepositoryPath(sourcePath, hrefPath)
+  const repositoryPath = resolveRepositoryPath(sourcePath, hrefPath);
   if (!repositoryPath) {
-    return href
+    return href;
   }
 
-  const phaseMatch = repositoryPath.match(/^framework\/phases\/([^/]+\.md)$/)
-  const phaseFilename = phaseMatch?.[1]
-  if (phaseFilename) {
-    return websitePhaseLink(phaseFilename, match[2]) ?? href
+  const contentMatch = repositoryPath.match(
+    /^framework\/(?:phases|ai(?:\/skills)?)\/([^/]+\.md)$/,
+  );
+  const contentFilename = contentMatch?.[1];
+  if (contentFilename) {
+    return websiteContentLink(contentFilename, match[2]) ?? href;
   }
 
-  return `${repositoryBlobUrl}/${repositoryPath}${match[2] ?? ''}`
+  return `${repositoryBlobUrl}/${repositoryPath}${match[2] ?? ""}`;
 }
 
 function isExternalLink(href: string): boolean {
   if (!/^https?:\/\//i.test(href)) {
-    return false
+    return false;
   }
 
-  const url = new URL(href)
+  const url = new URL(href);
   return (
     url.origin !== window.location.origin &&
-    url.origin !== 'https://open-source-accessibility.github.io'
-  )
+    url.origin !== "https://open-source-accessibility.github.io"
+  );
 }
 
 function createHeadingRenderer() {
-  const renderer = new marked.Renderer()
-  const headingCounts = new Map<string, number>()
-  const renderLink = renderer.link
+  const renderer = new marked.Renderer();
+  const headingCounts = new Map<string, number>();
+  const renderLink = renderer.link;
+  const renderParagraph = renderer.paragraph;
 
   renderer.heading = function ({ tokens, depth }) {
-    const content = this.parser.parseInline(tokens)
+    const content = this.parser.parseInline(tokens);
 
-    if (depth !== 3) {
-      return `<h${depth}>${content}</h${depth}>\n`
+    if (depth !== 2 && depth !== 3) {
+      return `<h${depth}>${content}</h${depth}>\n`;
     }
 
-    const text = this.parser.parseInline(tokens, new marked.TextRenderer())
+    const text = this.parser.parseInline(tokens, new marked.TextRenderer());
     const baseId = text
       .toLowerCase()
       .trim()
-      .replace(/[^\p{L}\p{N}\w\s-]/gu, '')
-      .replace(/\s+/g, '-')
-    const duplicateCount = headingCounts.get(baseId) ?? 0
-    headingCounts.set(baseId, duplicateCount + 1)
-    const id = duplicateCount === 0 ? baseId : `${baseId}-${duplicateCount}`
+      .replace(/[^\p{L}\p{N}\w\s-]/gu, "")
+      .replace(/\s+/g, "-");
+    const duplicateCount = headingCounts.get(baseId) ?? 0;
+    headingCounts.set(baseId, duplicateCount + 1);
+    const id = duplicateCount === 0 ? baseId : `${baseId}-${duplicateCount}`;
 
-    return `<h3 id="${id}" tabindex="-1">${content}</h3>\n`
-  }
+    return `<h${depth} id="${id}" tabindex="-1">${content}</h${depth}>\n`;
+  };
 
   renderer.link = function (token) {
-    const link = renderLink.call(this, token)
+    const link = renderLink.call(this, token);
     if (!isExternalLink(token.href)) {
-      return link
+      return link;
     }
 
     return link
-      .replace('<a ', '<a target="_blank" rel="noopener noreferrer" ')
+      .replace("<a ", '<a target="_blank" rel="noopener noreferrer" ')
       .replace(
-        '</a>',
+        "</a>",
         ` <img class="external-link-icon" src="${externalLinkIcon}" alt="opens external page"></a>`,
-      )
-  }
+      );
+  };
 
-  return renderer
+  renderer.paragraph = function (token) {
+    const paragraph = renderParagraph.call(this, token);
+    if (!token.raw.trimStart().startsWith("**Phase skill:**")) {
+      return paragraph;
+    }
+
+    return `<aside class="phase-skill-callout">${paragraph}</aside>\n`;
+  };
+
+  return renderer;
 }
 
 async function focusHashTarget(hash: string): Promise<void> {
   if (!hash) {
-    return
+    return;
   }
 
-  await nextTick()
+  await nextTick();
 
   if (route.hash !== hash) {
-    return
+    return;
   }
 
-  const target = document.getElementById(hash.slice(1))
+  const target = document.getElementById(hash.slice(1));
   if (!target || !markdownContent.value?.contains(target)) {
-    return
+    return;
   }
 
-  target.scrollIntoView({ block: 'start' })
-  target.focus({ preventScroll: true })
+  target.scrollIntoView({ block: "start" });
+  target.focus({ preventScroll: true });
 }
 
 watchEffect(async () => {
   renderedMarkdown.value = await marked.parse(props.markdown, {
     renderer: createHeadingRenderer(),
     walkTokens(token) {
-      if (token.type === 'link') {
-        token.href = rewriteMarkdownLink(token.href, props.sourcePath)
+      if (token.type === "link") {
+        token.href = rewriteMarkdownLink(token.href, props.sourcePath);
       }
     },
-  })
-})
+  });
+});
 
 watch(
   [() => route.hash, renderedMarkdown],
   ([hash]) => {
-    void focusHashTarget(hash)
+    void focusHashTarget(hash);
   },
-  { flush: 'post', immediate: true },
-)
+  { flush: "post", immediate: true },
+);
 </script>
 
 <template>
   <section class="markdown-page">
     <div class="wrap">
-      <article ref="markdownContent" class="markdown-page__content" v-html="renderedMarkdown" />
+      <article
+        ref="markdownContent"
+        class="markdown-page__content"
+        v-html="renderedMarkdown"
+      />
     </div>
   </section>
 </template>

@@ -1,7 +1,6 @@
 ## Priorities
 
-<!-- Describe the outcomes the project prioritizes and how it works toward
-them. Include the accessibility standard and conformance level you aim to meet (if applicable) and the areas you prioritize (such as keyboard, screen reader, content, or language support). -->
+<!-- Describe the outcomes the project prioritizes and how it works toward them. Include the accessibility standard and conformance level you aim to meet (if applicable) and the areas you prioritize (such as keyboard, screen reader, content, or language support). -->
 
 - **Conformance target:** We aim to meet [WCAG 2.2 Level AA](https://www.w3.org/TR/WCAG22) where feasible.
 - **Keyboard support** — every interactive element must be reachable and operable with a keyboard alone, with a visible focus indicator and a logical tab order.
@@ -11,12 +10,7 @@ them. Include the accessibility standard and conformance level you aim to meet (
 
 ## Contributor expectations
 
-<!--
-Describe the accessibility guardrails that apply to contributions,
-including relevant testing, documentation, and continuous integration
-checks. Name specific tools only when the project uses them, and explain
-what evidence contributors should include with user-facing changes.
--->
+<!-- Describe the accessibility guardrails that apply to contributions, including relevant testing, documentation, and continuous integration checks. Name specific tools only when the project uses them, and explain what evidence contributors should include with user-facing changes. -->
 
 If you are contributing content or code, please follow these guardrails so we don't regress accessibility:
 
