@@ -13,9 +13,9 @@ This phase has **10 total actions** with **27 total tasks** to complete.
 | [Action 1](#1-surface-accessibility-expectations-for-contributors): Surface accessibility expectations for contributors               |               3 | Moderate               |
 | [Action 2](#2-create-an-accessible-path-for-reporting-accessibility-bugs): Create an accessible path for reporting accessibility bugs |               2 | Moderate               |
 | [Action 3](#3-establish-a-simple-accessibility-triage-approach): Establish a simple accessibility triage approach                     |               3 | Moderate               |
-| [Action 4](#4-tag-beginner-friendly-accessibility-issues): Tag beginner-friendly accessibility issues                                 |               2 | Quick                  |
-| [Action 5](#5-tag-accessibility-issues-where-you-need-expert-help): Tag accessibility issues where you need expert help               |               2 | Quick                  |
-| [Action 6](#6-add-an-accessibility-section-to-the-pull-request-template): Add an accessibility section to the pull request template   |               3 | Quick                  |
+| [Action 4](#4-add-an-accessibility-section-to-the-pull-request-template): Add an accessibility section to the pull request template   |               3 | Quick                  |
+| [Action 5](#5-tag-beginner-friendly-accessibility-issues): Tag beginner-friendly accessibility issues                                 |               2 | Quick                  |
+| [Action 6](#6-tag-accessibility-issues-where-you-need-expert-help): Tag accessibility issues where you need expert help               |               2 | Quick                  |
 | [Action 7](#7-assign-accessibility-ownership): Assign accessibility ownership                                                         |               2 | Quick                  |
 | [Action 8](#8-make-docs-accessible-by-default): Make docs accessible by default                                                       |               3 | Extended               |
 | [Action 9](#9-design-accessible-interfaces): Design accessible interfaces                                                             |               3 | Extended               |
@@ -92,41 +92,7 @@ This action gives people a clear way to report accessibility barriers and helps 
 
 **Note:** Mature projects can refer to this comprehensive [`ACCESSIBILITY.md` example](https://github.com/open-source-accessibility/accessibility-toolkit/blob/main/ACCESSIBILITY.md) for additional guidance.
 
-### 4. Tag beginner-friendly accessibility issues
-
-#### Why it matters
-
-This action makes contribution easier to start.
-
-#### Definition of done
-
-1. Beginner-friendly accessibility issues are clearly labeled using both `good first issue` and `accessibility`, or another clearly understood equivalent, labels.
-2. Each selected issue has a clear scope and contribution context.
-
-#### Recommended Steps
-
-1. Identify small, well-scoped accessibility issues suitable for new contributors.
-2. Apply both the `good first issue` and `accessibility`, or another clearly understood equivalent, labels.
-3. Add enough context and acceptance criteria for contributors to begin.
-
-### 5. Tag accessibility issues where you need expert help
-
-#### Why it matters
-
-This action makes contribution easier to start.
-
-#### Definition of done
-
-1. Accessibility issues where expert help is needed are clearly labeled with `help wanted` and `accessibility`, or another clearly understood equivalent, labels.
-2. Each selected issue has a clear scope and contribution context.
-
-#### Recommended Steps
-
-1. Identify accessibility issues that require specialized knowledge or experience.
-2. Apply both the `help wanted` and `accessibility`, or another clearly understood equivalent, labels.
-3. Add enough context, acceptance criteria, and required expertise for contributors to begin.
-
-### 6. Add an accessibility section to the pull request template
+### 4. Add an accessibility section to the pull request template
 
 #### Why it matters
 
@@ -145,6 +111,40 @@ This action makes accessibility a consistent part of the review process.
 2. Add checklist items for content changes and user interface changes.
 3. Prompt contributors to complete each applicable item.
 4. Customize the checklist for the project’s needs.
+
+### 5. Tag beginner-friendly accessibility issues
+
+#### Why it matters
+
+This action makes contribution easier to start.
+
+#### Definition of done
+
+1. Beginner-friendly accessibility issues are clearly labeled using both `good first issue` and `accessibility`, or another clearly understood equivalent, labels.
+2. Each selected issue has a clear scope and contribution context.
+
+#### Recommended Steps
+
+1. Identify small, well-scoped accessibility issues suitable for new contributors.
+2. Apply both the `good first issue` and `accessibility`, or another clearly understood equivalent, labels.
+3. Add enough context and acceptance criteria for contributors to begin.
+
+### 6. Tag accessibility issues where you need expert help
+
+#### Why it matters
+
+This action makes contribution easier to start.
+
+#### Definition of done
+
+1. Accessibility issues where expert help is needed are clearly labeled with `help wanted` and `accessibility`, or another clearly understood equivalent, labels.
+2. Each selected issue has a clear scope and contribution context.
+
+#### Recommended Steps
+
+1. Identify accessibility issues that require specialized knowledge or experience.
+2. Apply both the `help wanted` and `accessibility`, or another clearly understood equivalent, labels.
+3. Add enough context, acceptance criteria, and required expertise for contributors to begin.
 
 ### 7. Assign accessibility ownership
 
