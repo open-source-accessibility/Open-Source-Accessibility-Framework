@@ -10,7 +10,7 @@ This phase has **6 total actions** with **17 total tasks** to complete.
 
 | Action                                                                                                                      | Number of tasks | Typical initial effort |
 | :-------------------------------------------------------------------------------------------------------------------------- | --------------: | :--------------------- |
-| [Action 1](#1-add-at-least-one-automated-accessibility-check): Add at least one automated accessibility check               |               3 | Extended               |
+| [Action 1](#1-add-at-least-one-automated-accessibility-check): Add at least one automated accessibility check               |               3 | Moderate               |
 | [Action 2](#2-perform-a-keyboard-only-smoke-test-for-core-flows): Perform a keyboard-only smoke test for core flows         |               3 | Moderate               |
 | [Action 3](#3-perform-a-screen-reader-spot-check-for-core-flows): Perform a screen reader spot check for core flows         |               3 | Moderate               |
 | [Action 4](#4-perform-manual-accessibility-checks): Perform manual accessibility checks                                     |               3 | Extended               |
@@ -96,7 +96,7 @@ This action addresses common visual access barriers.
 
 1. Identify interfaces and content where zoom, resizing, reflow, or contrast are relevant.
 2. Validate the UI at larger zoom levels and resized viewport dimensions.
-3. Check that content reflows without loss of information or functionality.
+3. Check that content reflows without loss of information or functionality (test at 200% and with narrow widths).
 4. Check applicable text, component, and focus contrast.
 5. Record and track accessibility issues found using the [accessibility issue-template guidance](https://opensource.guide/accessibility-best-practices-for-your-project/#add-issue-labels-and-template).
 
@@ -114,7 +114,7 @@ This action improves the first experience many users have.
 
 #### Recommended Steps
 
-1. Review and identify key project documentation.
+1. Review and identify key project documentation, such as Markdown (`.md`) files, the README, contributing and accessibility guides, installation and configuration instructions, API or developer documentation, user guides, release notes, and issue or pull request templates.
 2. Perform documentation checks using the [testing examples](https://github.com/open-source-accessibility/accessibility-toolkit/blob/main/ACCESSIBILITY.md#contributor-expectations).
 3. Record and track accessibility issues found using the [accessibility issue-template guidance](https://opensource.guide/accessibility-best-practices-for-your-project/#add-issue-labels-and-template).
 
