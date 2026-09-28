@@ -2,7 +2,7 @@
 
 ## Framework Skills
 
-Want to use AI to help you implement the Accessibility Framework?
+**Want to use AI to help you implement the Accessibility Framework?**
 
 Use a phase skill to implement every action in a phase or only the actions your project needs.
 

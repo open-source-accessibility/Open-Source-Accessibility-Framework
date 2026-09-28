@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { marked } from "marked";
-import { nextTick, ref, watch, watchEffect } from "vue";
+import { nextTick, onBeforeUnmount, ref, watch, watchEffect } from "vue";
 import { useRoute } from "vue-router";
 import externalLinkIcon from "../assets/external-link.svg";
 
@@ -12,6 +12,7 @@ const props = defineProps<{
 const renderedMarkdown = ref("");
 const markdownContent = ref<HTMLElement>();
 const route = useRoute();
+let copyFeedbackTimeout: number | undefined;
 
 const contentRoutes: Record<string, string> = {
   "community-phase.md": "community",
@@ -118,9 +119,10 @@ function isExternalLink(href: string): boolean {
   );
 }
 
-function createHeadingRenderer() {
+function createMarkdownRenderer(includeCopyButtons: boolean) {
   const renderer = new marked.Renderer();
   const headingCounts = new Map<string, number>();
+  const renderCode = renderer.code;
   const renderLink = renderer.link;
   const renderParagraph = renderer.paragraph;
 
@@ -167,7 +169,60 @@ function createHeadingRenderer() {
     return `<aside class="phase-skill-callout">${paragraph}</aside>\n`;
   };
 
+  renderer.code = function (token) {
+    const codeBlock = renderCode.call(this, token);
+    if (!includeCopyButtons) {
+      return codeBlock;
+    }
+
+    return `<div class="copyable-code-block"><button class="copyable-code-block__button" type="button">Copy skill</button>${codeBlock}<p class="visually-hidden copyable-code-block__status" aria-live="polite"></p></div>\n`;
+  };
+
   return renderer;
+}
+
+function resetCopyFeedback(button: HTMLButtonElement, status: HTMLElement) {
+  window.clearTimeout(copyFeedbackTimeout);
+  copyFeedbackTimeout = window.setTimeout(() => {
+    button.textContent = "Copy skill";
+    status.textContent = "";
+  }, 3000);
+}
+
+async function copySkillCode(event: MouseEvent): Promise<void> {
+  const target = event.target;
+  if (!(target instanceof Element)) {
+    return;
+  }
+
+  const button = target.closest<HTMLButtonElement>(
+    ".copyable-code-block__button",
+  );
+  const container = button?.closest<HTMLElement>(".copyable-code-block");
+  const code = container?.querySelector("code");
+  const status = container?.querySelector<HTMLElement>(
+    ".copyable-code-block__status",
+  );
+  if (!button || !code || !status) {
+    return;
+  }
+
+  try {
+    if (!navigator.clipboard?.writeText) {
+      throw new Error("The Clipboard API is unavailable.");
+    }
+
+    await navigator.clipboard.writeText(code.textContent ?? "");
+    button.textContent = "Copied";
+    status.textContent = "Skill instructions copied to the clipboard.";
+  } catch (error) {
+    console.error("Unable to copy skill instructions.", error);
+    button.textContent = "Copy failed";
+    status.textContent =
+      "Unable to copy the skill instructions. Select and copy the code manually.";
+  }
+
+  resetCopyFeedback(button, status);
 }
 
 async function focusHashTarget(hash: string): Promise<void> {
@@ -192,7 +247,9 @@ async function focusHashTarget(hash: string): Promise<void> {
 
 watchEffect(async () => {
   renderedMarkdown.value = await marked.parse(props.markdown, {
-    renderer: createHeadingRenderer(),
+    renderer: createMarkdownRenderer(
+      props.sourcePath.startsWith("framework/ai/skills/"),
+    ),
     walkTokens(token) {
       if (token.type === "link") {
         token.href = rewriteMarkdownLink(token.href, props.sourcePath);
@@ -208,6 +265,10 @@ watch(
   },
   { flush: "post", immediate: true },
 );
+
+onBeforeUnmount(() => {
+  window.clearTimeout(copyFeedbackTimeout);
+});
 </script>
 
 <template>
@@ -217,6 +278,7 @@ watch(
         ref="markdownContent"
         class="markdown-page__content"
         v-html="renderedMarkdown"
+        @click="copySkillCode"
       />
     </div>
   </section>

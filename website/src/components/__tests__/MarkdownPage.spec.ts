@@ -70,6 +70,46 @@ describe('MarkdownPage', () => {
     expect(callout.find('a').attributes('href')).toBe('/skills/testing')
   })
 
+  it('copies skill code blocks to the clipboard', async () => {
+    const writeText = vi.fn().mockResolvedValue(undefined)
+    Object.defineProperty(navigator, 'clipboard', {
+      configurable: true,
+      value: { writeText },
+    })
+    const skill = '---\nname: testing-phase\n---\n\nUse the current phase guidance.'
+    const { wrapper } = await mountMarkdownPage({
+      markdown: `\`\`\`markdown\n${skill}\n\`\`\``,
+      sourcePath: 'framework/ai/skills/testing-skills.md',
+    })
+
+    await flushPromises()
+
+    const button = wrapper.find('button.copyable-code-block__button')
+    expect(button.exists()).toBe(true)
+    await button.trigger('click')
+    await flushPromises()
+
+    expect(writeText).toHaveBeenCalledWith(`${skill}\n`)
+    expect(button.text()).toBe('Copied')
+    expect(wrapper.find('.copyable-code-block__status').text()).toBe(
+      'Skill instructions copied to the clipboard.',
+    )
+
+    wrapper.unmount()
+    Reflect.deleteProperty(navigator, 'clipboard')
+  })
+
+  it('does not add copy buttons to non-skill code blocks', async () => {
+    const { wrapper } = await mountMarkdownPage({
+      markdown: '```sh\nnpm test\n```',
+      sourcePath: 'README.md',
+    })
+
+    await flushPromises()
+
+    expect(wrapper.find('.copyable-code-block__button').exists()).toBe(false)
+  })
+
   it('re-renders when markdown prop changes', async () => {
     const { wrapper } = await mountMarkdownPage({
       markdown: 'Initial paragraph',
