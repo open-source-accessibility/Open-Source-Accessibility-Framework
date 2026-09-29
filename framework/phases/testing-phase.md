@@ -35,7 +35,7 @@ This action helps catch common regressions.
 
 1. At least one automated accessibility check is configured or documented.
 2. The check runs against relevant project code or flows.
-3. Accessibility issues are fixed or tracked using the [accessibility issue-template guidance](https://opensource.guide/accessibility-best-practices-for-your-project/#add-issue-labels-and-template).
+3. Accessibility issues are fixed or tracked.
 
 #### Recommended Steps
 
@@ -44,7 +44,8 @@ This action helps catch common regressions.
 3. Configure the test or document the decision in your project documentation.
 4. Run the check against relevant project code or user flows.
 5. Ensure accessibility issues from CI/CD checks are tracked.
-6. Fix accessibility issues or track them using the [accessibility issue-template guidance](https://opensource.guide/accessibility-best-practices-for-your-project/#add-issue-labels-and-template).
+6. Fix accessibility issues or track them.
+   - Refer to the [accessibility issue template example](https://github.com/open-source-accessibility/accessibility-toolkit/blob/main/.github/ISSUE_TEMPLATE/accessibility.yml) for guidance.
 
 ### 2. Perform a keyboard-only smoke test for core flows
 
@@ -56,14 +57,16 @@ This action covers a high-impact baseline.
 
 1. Key tasks have documented keyboard-only checks.
 2. The checks confirm keyboard access, focus visibility, and logical focus order.
-3. Accessibility issues are fixed or tracked using the [accessibility issue-template guidance](https://opensource.guide/accessibility-best-practices-for-your-project/#add-issue-labels-and-template).
+3. Accessibility issues are fixed or tracked.
 
 #### Recommended Steps
 
 1. Identify key tasks and user journeys.
-2. Document a short set of keyboard-only checks for those tasks using the [testing examples](https://github.com/open-source-accessibility/accessibility-toolkit/blob/main/ACCESSIBILITY.md#contributor-expectations).
+2. Document a short set of keyboard-only checks for those tasks.
+   - Refer to the [testing keyboard-only examples](https://github.com/open-source-accessibility/accessibility-toolkit/blob/main/ACCESSIBILITY.md#contributor-expectations).
 3. Run the checks without using a mouse or other pointing device.
-4. Record and track accessibility issues found using the [accessibility issue-template guidance](https://opensource.guide/accessibility-best-practices-for-your-project/#add-issue-labels-and-template).
+4. Fix accessibility issues or track them.
+   - Refer to the [accessibility issue template example](https://github.com/open-source-accessibility/accessibility-toolkit/blob/main/.github/ISSUE_TEMPLATE/accessibility.yml) for guidance.
 
 ### 3. Perform a screen reader spot check for core flows
 
@@ -75,14 +78,16 @@ This action validates real usability beyond automation.
 
 1. Key tasks have documented screen reader checks.
 2. The test environment is recorded.
-3. Accessibility issues are fixed or tracked using the [accessibility issue-template guidance](https://opensource.guide/accessibility-best-practices-for-your-project/#add-issue-labels-and-template).
+3. Accessibility issues are fixed or tracked.
 
 #### Recommended Steps
 
 1. Identify key tasks and user journeys.
 2. Select a supported screen reader and browser combination (such as Windows + [NVDA](https://www.nvaccess.org/download/) and MacOS + VoiceOver).
-3. Test the flows using the [testing examples](https://github.com/open-source-accessibility/accessibility-toolkit/blob/main/ACCESSIBILITY.md#contributor-expectations).
-4. Record and track accessibility issues found using the [accessibility issue-template guidance](https://opensource.guide/accessibility-best-practices-for-your-project/#add-issue-labels-and-template).
+3. Test the flows using a screen reader.
+   - Refer to the [testing spot-check screen reader examples](https://github.com/open-source-accessibility/accessibility-toolkit/blob/main/ACCESSIBILITY.md#contributor-expectations).
+4. Fix accessibility issues or track them.
+   - Refer to the [accessibility issue template example](https://github.com/open-source-accessibility/accessibility-toolkit/blob/main/.github/ISSUE_TEMPLATE/accessibility.yml) for guidance.
 
 ### 4. Perform manual accessibility checks
 
@@ -94,7 +99,7 @@ This action addresses common visual access barriers.
 
 1. Relevant interfaces have documented zoom, resize, reflow, and contrast checks.
 2. Information and functionality remain available at the tested settings.
-3. Accessibility issues are fixed or tracked using the [accessibility issue-template guidance](https://opensource.guide/accessibility-best-practices-for-your-project/#add-issue-labels-and-template).
+3. Accessibility issues are fixed or tracked.
 
 #### Recommended Steps
 
@@ -102,7 +107,8 @@ This action addresses common visual access barriers.
 2. Validate the UI at larger zoom levels and resized viewport dimensions.
 3. Check that content reflows without loss of information or functionality (test at 200% and with narrow widths).
 4. Check applicable text, component, and focus contrast.
-5. Record and track accessibility issues found using the [accessibility issue-template guidance](https://opensource.guide/accessibility-best-practices-for-your-project/#add-issue-labels-and-template).
+5. Fix accessibility issues or track them.
+   - Refer to the [accessibility issue template example](https://github.com/open-source-accessibility/accessibility-toolkit/blob/main/.github/ISSUE_TEMPLATE/accessibility.yml) for guidance.
 
 ### 5. Perform accessibility checks for documentation
 
@@ -114,13 +120,14 @@ This action improves the first experience many users have.
 
 1. Documentation checks cover structure, alternatives, links, captions, tables, and code blocks.
 2. Representative documentation has been reviewed.
-3. Accessibility issues are fixed or tracked using the [accessibility issue-template guidance](https://opensource.guide/accessibility-best-practices-for-your-project/#add-issue-labels-and-template).
+3. Accessibility issues are fixed or tracked.
 
 #### Recommended Steps
 
 1. Review and identify key project documentation, such as Markdown (`.md`) files, the README, contributing and accessibility guides, installation and configuration instructions, API or developer documentation, user guides, release notes, and issue or pull request templates.
 2. Perform documentation checks using the [testing examples](https://github.com/open-source-accessibility/accessibility-toolkit/blob/main/ACCESSIBILITY.md#contributor-expectations).
-3. Record and track accessibility issues found using the [accessibility issue-template guidance](https://opensource.guide/accessibility-best-practices-for-your-project/#add-issue-labels-and-template).
+3. Fix accessibility issues or track them.
+   - Refer to the [accessibility issue template example](https://github.com/open-source-accessibility/accessibility-toolkit/blob/main/.github/ISSUE_TEMPLATE/accessibility.yml) for guidance.
 
 ### 6. Document supported environments and known limitations
 
