@@ -29,8 +29,24 @@ const contentRoutes: Record<string, string> = {
 const githubContentLinkPattern =
   /^(?:\/?framework\/(?:phases|ai(?:\/skills)?)\/|https:\/\/github\.com\/open-source-accessibility\/Open-Source-Accessibility-Framework\/blob\/.+?\/framework\/(?:phases|ai(?:\/skills)?)\/)([^/?#]+\.md)([?#].*)?$/;
 
+const githubSupportingLinkPattern =
+  /^https:\/\/github\.com\/open-source-accessibility\/Open-Source-Accessibility-Framework\/blob\/.+?\/framework\/supporting\/.+\.md(?:[?#].*)?$/;
+
 const repositoryBlobUrl =
   "https://github.com/open-source-accessibility/Open-Source-Accessibility-Framework/blob/main";
+
+function openInGitHubCodeView(href: string): string {
+  const hashIndex = href.indexOf("#");
+  const pathAndQuery = hashIndex === -1 ? href : href.slice(0, hashIndex);
+  const hash = hashIndex === -1 ? "" : href.slice(hashIndex);
+
+  if (/[?&]plain=/.test(pathAndQuery)) {
+    return href;
+  }
+
+  const separator = pathAndQuery.includes("?") ? "&" : "?";
+  return `${pathAndQuery}${separator}plain=1${hash}`;
+}
 
 function websiteContentLink(filename: string, suffix = ""): string | undefined {
   const route = contentRoutes[filename];
@@ -77,6 +93,10 @@ function rewriteMarkdownLink(href: string, sourcePath: string): string {
     );
   }
 
+  if (githubSupportingLinkPattern.test(href)) {
+    return openInGitHubCodeView(href);
+  }
+
   if (
     href.startsWith("#") ||
     href.startsWith("//") ||
@@ -104,7 +124,10 @@ function rewriteMarkdownLink(href: string, sourcePath: string): string {
     return websiteContentLink(contentFilename, match[2]) ?? href;
   }
 
-  return `${repositoryBlobUrl}/${repositoryPath}${match[2] ?? ""}`;
+  const repositoryUrl = `${repositoryBlobUrl}/${repositoryPath}${match[2] ?? ""}`;
+  return repositoryPath.startsWith("framework/supporting/")
+    ? openInGitHubCodeView(repositoryUrl)
+    : repositoryUrl;
 }
 
 function isExternalLink(href: string): boolean {
