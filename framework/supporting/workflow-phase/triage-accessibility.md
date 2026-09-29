@@ -1,11 +1,6 @@
 ## Reporting accessibility issues
 
-<!--
-Provide a direct, accessible way to report a barrier or request help.
-Invite useful context such as the affected task, URL, observed behavior,
-browser, operating system, and assistive technology. Make screenshots or
-recordings optional and do not require disability disclosure.
--->
+<!-- Provide a direct, accessible way to report a barrier or request help. Invite useful context such as the affected task, URL, observed behavior, browser, operating system, and assistive technology. Make screenshots or recordings optional and do not require disability disclosure. -->
 
 If you run into an accessibility barrier, please let us know — we treat accessibility reports as expertise, not complaints.
 
@@ -19,11 +14,7 @@ If you run into an accessibility barrier, please let us know — we treat access
 
 ### Severity
 
-<!--
-Define the severity levels your project uses and give practical examples based
-on how strongly a barrier affects a user's ability to complete a task. Keep the
-labels consistent with your issue template and resolution targets.
--->
+<!-- Define the severity levels your project uses and give practical examples based on how strongly a barrier affects a user's ability to complete a task. Keep the labels consistent with your issue template and resolution targets. -->
 
 - **Critical:** Prevents you from completing a core task (for example, you cannot read an article at all).
 - **Serious:** Significant difficulty, but a workaround exists.
@@ -32,11 +23,7 @@ labels consistent with your issue template and resolution targets.
 
 ### How we respond
 
-<!--
-Explain what reporters can expect after submitting an accessibility issue, including
-acknowledgement, status updates, workarounds, expected timelines, and opportunities to
-verify a fix. Use commitments your project can consistently uphold.
--->
+<!-- Explain what reporters can expect after submitting an accessibility issue, including acknowledgement, status updates, workarounds, expected timelines, and opportunities to verify a fix. Use commitments your project can consistently uphold. -->
 
 - We will acknowledge accessibility reports promptly, respectfully, and constructively, treating them as valuable expertise.
 - We will communicate the issue's severity, owner, status, and target resolution date.

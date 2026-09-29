@@ -14,7 +14,7 @@ import logo from "../assets/logo.svg";
         />
         Open Source Accessibility Framework
       </RouterLink>
-      <nav class="phase-nav" aria-label="Framework phases">
+      <nav class="phase-nav" aria-label="Primary navigation">
         <ul class="phase-nav__list" role="list">
           <li>
             <RouterLink to="/foundational" class="phase-nav__link"
@@ -34,6 +34,11 @@ import logo from "../assets/logo.svg";
           <li>
             <RouterLink to="/community" class="phase-nav__link"
               >Community</RouterLink
+            >
+          </li>
+          <li class="phase-nav__guidance">
+            <RouterLink to="/ai" class="phase-nav__link"
+              >AI Guidance</RouterLink
             >
           </li>
         </ul>

@@ -8,12 +8,16 @@ This phase is intentionally practical. Projects do not need to solve every acces
 
 This phase has **2 total actions** with **4 total tasks** to complete.
 
-| Action                                                                                                              | Number of tasks | Typical initial effort |
-| :------------------------------------------------------------------------------------------------------------------ | --------------: | :--------------------- |
-| [Action 1](#1-create-an-accessibilitymd): Create an ACCESSIBILITY.md                                                |               2 | Quick                  |
-| [Action 2](#2-use-an-accessibility-label-to-track-relevant-work): Use an accessibility label to track relevant work |               2 | Quick                  |
+| Action                                                                                                              | Number of tasks | Typical initial effort | Cadence                 |
+| :------------------------------------------------------------------------------------------------------------------ | --------------: | :--------------------- | :---------------------- |
+| [Action 1](#1-create-an-accessibilitymd): Create an ACCESSIBILITY.md                                                |               2 | Quick                  | One-time setup          |
+| [Action 2](#2-use-an-accessibility-label-to-track-relevant-work): Use an accessibility label to track relevant work |               2 | Quick                  | Initial setup + ongoing |
 
 Effort varies by project size and maturity. Complete these actions incrementally and adapt them to your project's needs. Typical initial effort is categorized as **Quick** (less than 1 hour), **Moderate** (1-3 hours), or **Extended** (more than 3 hours); ongoing practices should be repeated as part of normal project work.
+
+Cadence describes how an action continues after its initial completion: **One-time setup** is completed once and revisited when project needs change, **Initial setup + ongoing** establishes something that must then be maintained or used, and **Ongoing** is repeated as part of normal project work.
+
+**Phase skill:** You can use the [Foundational Phase Skill](../ai/skills/foundational-skills.md) to implement this phase. Refer to the [Framework Skills instructions](../ai/guide.md#framework-skills) for setup and usage guidance.
 
 ## Foundational actions
 

@@ -1,9 +1,6 @@
 ## Ownership and maintenance
 
-<!--
-Identify the maintainer responsible for accessibility
-and describe the responsibilities to the project.
--->
+<!-- Identify the maintainer responsible for accessibility and describe the responsibilities to the project. -->
 
 Accessibility is owned by **[maintainer name or role]**.
 
