@@ -23,6 +23,8 @@ Cadence describes how an action continues after its initial completion: **One-ti
 
 **Phase skill:** You can use the [Testing Phase Skill](../ai/skills/testing-skills.md) to implement this phase. Refer to the [Framework Skills instructions](../ai/guide.md#framework-skills) for setup and usage guidance.
 
+[Join the community by registering your project!](https://github.com/open-source-accessibility/Open-Source-Accessibility-Framework/issues/new?template=project-registration.yml) Your registration issue makes your progress visible alongside other projects using the framework, creating opportunities to share experience, offer mentorship, ask for help, and learn from one another.
+
 ## Testing actions
 
 ### 1. Add at least one automated accessibility check

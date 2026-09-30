@@ -16,7 +16,7 @@ This is an improvement framework, not a certification, score, or ranking. The go
 
 ## Get started
 
-1. [Register your project](https://github.com/open-source-accessibility/Open-Source-Accessibility-Framework/issues/new?template=project-registration.yml). Your registration issue becomes the public place where your project tracks progress.
+1. [Join the community by registering your project](https://github.com/open-source-accessibility/Open-Source-Accessibility-Framework/issues/new?template=project-registration.yml). Your registration issue makes your accessibility journey visible alongside other projects using the framework, creating opportunities to share experience, offer mentorship, ask for help, and learn from one another.
 2. Complete the [Foundational phase](framework/phases/foundational-phase.md).
    - [Create an ACCESSIBILITY.md](framework/phases/foundational-phase.md#1-create-an-accessibilitymd)
    - [Use an accessibility label to track relevant work](framework/phases/foundational-phase.md#2-use-an-accessibility-label-to-track-relevant-work)
