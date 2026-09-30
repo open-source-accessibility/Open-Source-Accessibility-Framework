@@ -1,20 +1,3 @@
-# Foundational Phase Skill
-
-This skill can implement every action in the [Foundational Phase](../../phases/foundational-phase.md) or only the actions a user selects.
-
-Example requests:
-
-- "Use the Foundational Phase skill to implement all actions."
-- "Use the Foundational Phase skill to implement Action 1."
-- "Use the Foundational Phase skill to create an accessibility label."
-
-## Install the skill
-
-Copy the code block into a `SKILL.md` file in the skill directory supported by your AI agent. The copied skill includes compact definitions of done and works without network access.
-
-For more detailed offline guidance with lower selected-action context usage, copy the complete [`foundational-phase/` skill directory](https://github.com/open-source-accessibility/Open-Source-Accessibility-Framework/tree/main/framework/ai/skills/foundational-phase) instead. Its action references are loaded only when needed.
-
-```markdown
 ---
 name: foundational-phase
 description: "Implements all Foundational Phase actions or selected actions by number, title, or ID, with bundled offline requirements."
@@ -57,9 +40,3 @@ metadata:
 - **Definition of done:**
     1. An `accessibility` label, or an equivalent label with a clear name, exists.
     2. The label is applied to the project’s relevant open tracking issues.
-```
-
-## Optional action references
-
-- [Action 1: Create an ACCESSIBILITY.md](./foundational-phase/references/action-01-create-an-accessibilitymd.md)
-- [Action 2: Use an accessibility label to track relevant work](./foundational-phase/references/action-02-use-an-accessibility-label-to-track-relevant-work.md)

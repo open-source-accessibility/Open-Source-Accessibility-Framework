@@ -1,20 +1,3 @@
-# Community Phase Skill
-
-This skill can implement every action in the [Community Phase](../../phases/community-phase.md) or only the actions a user selects.
-
-Example requests:
-
-- "Use the Community Phase skill to implement all actions."
-- "Use the Community Phase skill to implement Actions 2 and 4."
-- "Use the Community Phase skill to draft an accessibility progress update."
-
-## Install the skill
-
-Copy the code block into a `SKILL.md` file in the skill directory supported by your AI agent. The copied skill includes compact definitions of done and works without network access.
-
-For more detailed offline guidance with lower selected-action context usage, copy the complete [`community-phase/` skill directory](https://github.com/open-source-accessibility/Open-Source-Accessibility-Framework/tree/main/framework/ai/skills/community-phase) instead. Its action references are loaded only when needed.
-
-```markdown
 ---
 name: community-phase
 description: "Implements all Community Phase actions or selected actions by number, title, or ID, with bundled offline requirements."
@@ -97,13 +80,3 @@ metadata:
     1. Useful accessibility resources are made publicly available.
     2. Resources include enough context for another project to use them.
     3. Ownership for maintaining the resources is identified.
-```
-
-## Optional action references
-
-- [Action 1: Invite community help on accessibility work](./community-phase/references/action-01-invite-community-help-on-accessibility-work.md)
-- [Action 2: Respond constructively to accessibility reports](./community-phase/references/action-02-respond-constructively-to-accessibility-reports.md)
-- [Action 3: Provide accessible and respectful ways to contribute and collaborate](./community-phase/references/action-03-provide-accessible-and-respectful-ways-to-contribute-and-collaborate.md)
-- [Action 4: Recognize accessibility contributions publicly](./community-phase/references/action-04-recognize-accessibility-contributions-publicly.md)
-- [Action 5: Publish accessibility progress updates](./community-phase/references/action-05-publish-accessibility-progress-updates.md)
-- [Action 6: Share accessibility resources](./community-phase/references/action-06-share-accessibility-resources.md)
