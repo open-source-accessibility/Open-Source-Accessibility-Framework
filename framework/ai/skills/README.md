@@ -10,14 +10,25 @@ Each package contains:
 
 The `*-skills.md` files in this directory are generated website landing pages. Their copyable code blocks contain the corresponding self-contained `SKILL.md`.
 
-## Update the skills
+## Update framework phases and skill packages
 
-Edit the canonical phase document, then run:
+To change a phase:
+
+1. Edit its canonical document in `framework/phases/`.
+2. Keep the phase overview, action definitions, task counts, and links consistent.
+3. Regenerate the skill packages and landing pages:
 
 ```sh
 node scripts/generate-phase-skills.mjs
+```
+
+4. Verify that the generated content is current:
+
+```sh
 node scripts/generate-phase-skills.mjs --check
 ```
+
+5. Commit the canonical phase changes and generated files together.
 
 Do not edit generated skill packages or landing pages directly. CI fails when generated content differs from the phase documents.
 
