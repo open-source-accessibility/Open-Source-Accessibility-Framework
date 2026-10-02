@@ -96,10 +96,6 @@ function sourcePageUrl(source, anchor = "") {
   return `https://github.com/open-source-accessibility/Open-Source-Accessibility-Framework/blob/main/${source}${anchor}`;
 }
 
-function skillDirectoryUrl(phaseId) {
-  return `https://github.com/open-source-accessibility/Open-Source-Accessibility-Framework/tree/main/framework/ai/skills/${phaseId}-phase`;
-}
-
 function rewriteRelativeLinks(markdown, source) {
   return markdown.replace(/\]\(([^)]+)\)/g, (match, href) => {
     if (
@@ -305,17 +301,33 @@ ${config.examples.map((example) => `- "${example}"`).join("\n")}
 
 ## Install the skill
 
-Copy the code block into a \`SKILL.md\` file in the skill directory supported by your AI agent. The copied skill includes compact definitions of done and works without network access.
+Choose one installation method.
 
-For more detailed offline guidance with lower selected-action context usage, copy the complete [\`${config.id}-phase/\` skill directory](${skillDirectoryUrl(config.id)}) instead. Its action references are loaded only when needed.
+### Option 1: Install the complete package with npm
+
+Use npm to install the skill and its detailed offline action references:
+
+\`\`\`sh
+npx @open-source-accessibility/framework-skills add ${config.id}-phase --target <skill-directory>
+\`\`\`
+
+Replace \`<skill-directory>\` with the skill directory supported by your AI agent.
+
+#### Detailed action references included with npm
+
+The npm package installs the following references:
+
+${referenceLinks.join("\n")}
+
+They supplement the compact requirements in \`SKILL.md\` with each action's rationale and recommended steps. This can be more useful for projects that want detailed offline guidance because the agent can load only the references for the selected actions instead of loading every action's full guidance.
+
+### Option 2: Copy the skill directly
+
+If you do not want to use npm, copy the following code block into a \`SKILL.md\` file in your agent's skill directory. The copied skill is self-contained, includes compact definitions of done, and works without network access.
 
 \`\`\`markdown
 ${skill.trim()}
 \`\`\`
-
-## Optional action references
-
-${referenceLinks.join("\n")}
 `;
 }
 

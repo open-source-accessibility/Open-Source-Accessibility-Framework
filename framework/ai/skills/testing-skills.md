@@ -10,9 +10,34 @@ Example requests:
 
 ## Install the skill
 
-Copy the code block into a `SKILL.md` file in the skill directory supported by your AI agent. The copied skill includes compact definitions of done and works without network access.
+Choose one installation method.
 
-For more detailed offline guidance with lower selected-action context usage, copy the complete [`testing-phase/` skill directory](https://github.com/open-source-accessibility/Open-Source-Accessibility-Framework/tree/main/framework/ai/skills/testing-phase) instead. Its action references are loaded only when needed.
+### Option 1: Install the complete package with npm
+
+Use npm to install the skill and its detailed offline action references:
+
+```sh
+npx @open-source-accessibility/framework-skills add testing-phase --target <skill-directory>
+```
+
+Replace `<skill-directory>` with the skill directory supported by your AI agent.
+
+#### Detailed action references included with npm
+
+The npm package installs the following references:
+
+- [Action 1: Add at least one automated accessibility check](./testing-phase/references/action-01-add-at-least-one-automated-accessibility-check.md)
+- [Action 2: Perform a keyboard-only smoke test for core flows](./testing-phase/references/action-02-perform-a-keyboard-only-smoke-test-for-core-flows.md)
+- [Action 3: Perform a screen reader spot check for core flows](./testing-phase/references/action-03-perform-a-screen-reader-spot-check-for-core-flows.md)
+- [Action 4: Perform manual accessibility checks](./testing-phase/references/action-04-perform-manual-accessibility-checks.md)
+- [Action 5: Perform accessibility checks for documentation](./testing-phase/references/action-05-perform-accessibility-checks-for-documentation.md)
+- [Action 6: Document supported environments and known limitations](./testing-phase/references/action-06-document-supported-environments-and-known-limitations.md)
+
+They supplement the compact requirements in `SKILL.md` with each action's rationale and recommended steps. This can be more useful for projects that want detailed offline guidance because the agent can load only the references for the selected actions instead of loading every action's full guidance.
+
+### Option 2: Copy the skill directly
+
+If you do not want to use npm, copy the following code block into a `SKILL.md` file in your agent's skill directory. The copied skill is self-contained, includes compact definitions of done, and works without network access.
 
 ```markdown
 ---
@@ -96,12 +121,3 @@ metadata:
     1. The `ACCESSIBILITY.md` identifies supported or tested platforms, devices, browsers, input methods, and assistive technologies.
     2. Known accessibility limitations are described in terms of their effect on users, with workarounds, equivalent access, and links to tracked issues where available.
 ```
-
-## Optional action references
-
-- [Action 1: Add at least one automated accessibility check](./testing-phase/references/action-01-add-at-least-one-automated-accessibility-check.md)
-- [Action 2: Perform a keyboard-only smoke test for core flows](./testing-phase/references/action-02-perform-a-keyboard-only-smoke-test-for-core-flows.md)
-- [Action 3: Perform a screen reader spot check for core flows](./testing-phase/references/action-03-perform-a-screen-reader-spot-check-for-core-flows.md)
-- [Action 4: Perform manual accessibility checks](./testing-phase/references/action-04-perform-manual-accessibility-checks.md)
-- [Action 5: Perform accessibility checks for documentation](./testing-phase/references/action-05-perform-accessibility-checks-for-documentation.md)
-- [Action 6: Document supported environments and known limitations](./testing-phase/references/action-06-document-supported-environments-and-known-limitations.md)
