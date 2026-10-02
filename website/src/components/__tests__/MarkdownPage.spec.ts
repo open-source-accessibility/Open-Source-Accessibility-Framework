@@ -177,7 +177,7 @@ describe('MarkdownPage', () => {
     ).toEqual(['/skills/testing', '/ai#framework-skills'])
   })
 
-  it('opens supporting documents in the GitHub code view', async () => {
+  it('opens supporting documents in the GitHub code view unless they target a heading', async () => {
     const exactBranchUrl =
       'https://github.com/open-source-accessibility/Open-Source-Accessibility-Framework/blob/simplify-phases/framework/supporting/foundational-phase/initial-accessibility.md'
     const plainUrl =
@@ -197,7 +197,7 @@ describe('MarkdownPage', () => {
     const links = wrapper.findAll('.markdown-page__content a')
     expect(links.map((link) => link.attributes('href'))).toEqual([
       plainUrl,
-      'https://github.com/open-source-accessibility/Open-Source-Accessibility-Framework/blob/main/framework/supporting/foundational-phase/initial-accessibility.md?plain=1#reporting',
+      'https://github.com/open-source-accessibility/Open-Source-Accessibility-Framework/blob/main/framework/supporting/foundational-phase/initial-accessibility.md#reporting',
       `${exactBranchUrl}?plain=1`,
       plainUrl,
     ])
