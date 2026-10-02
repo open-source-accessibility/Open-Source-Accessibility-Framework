@@ -47,6 +47,35 @@ describe("Header mobile menu", () => {
     wrapper.unmount();
   });
 
+  it("closes an open menu on Escape and returns focus to the menu button", async () => {
+    const wrapper = await mountHeader();
+    const button = wrapper.get("button");
+
+    await button.trigger("click");
+    const link = wrapper.get('a[href="/workflow"]');
+    (link.element as HTMLElement).focus();
+    await link.trigger("keydown", { key: "Escape" });
+
+    expect(button.attributes("aria-expanded")).toBe("false");
+    expect(document.activeElement).toBe(button.element);
+
+    wrapper.unmount();
+  });
+
+  it("leaves focus alone when Escape is pressed with the menu closed", async () => {
+    const wrapper = await mountHeader();
+    const button = wrapper.get("button");
+    const link = wrapper.get('a[href="/workflow"]');
+
+    (link.element as HTMLElement).focus();
+    await link.trigger("keydown", { key: "Escape" });
+
+    expect(button.attributes("aria-expanded")).toBe("false");
+    expect(document.activeElement).toBe(link.element);
+
+    wrapper.unmount();
+  });
+
   it("closes the menu after a navigation option is selected", async () => {
     const wrapper = await mountHeader();
     const button = wrapper.get("button");

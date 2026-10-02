@@ -35,17 +35,16 @@ const githubSupportingLinkPattern =
 const repositoryBlobUrl =
   "https://github.com/open-source-accessibility/Open-Source-Accessibility-Framework/blob/main";
 
+// GitHub's code view (`?plain=1`) only answers line anchors such as `#L12`;
+// a Markdown heading anchor resolves only in the rendered view, so a link
+// that targets a heading must keep the rendered view.
 function openInGitHubCodeView(href: string): string {
-  const hashIndex = href.indexOf("#");
-  const pathAndQuery = hashIndex === -1 ? href : href.slice(0, hashIndex);
-  const hash = hashIndex === -1 ? "" : href.slice(hashIndex);
-
-  if (/[?&]plain=/.test(pathAndQuery)) {
+  if (href.includes("#") || /[?&]plain=/.test(href)) {
     return href;
   }
 
-  const separator = pathAndQuery.includes("?") ? "&" : "?";
-  return `${pathAndQuery}${separator}plain=1${hash}`;
+  const separator = href.includes("?") ? "&" : "?";
+  return `${href}${separator}plain=1`;
 }
 
 function websiteContentLink(filename: string, suffix = ""): string | undefined {

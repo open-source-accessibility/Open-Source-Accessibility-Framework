@@ -44,9 +44,7 @@ jobs:
               'Project name': 'project-name',
               'Repository URL': 'project-repository',
               'Project URL': 'project-url',
-              'Maintainer POC': 'maintainer-poc',
-              'Accessibility goals': 'goals',
-              'Public accountability confirmed': 'public-accountability-confirmation'
+              'Maintainer POC': 'maintainer-poc'
             };
 
             function parseMarkdownField(bodyText, label) {
@@ -71,9 +69,7 @@ jobs:
               'project-name': parseMarkdownField(body, 'Project name'),
               'project-repository': parseMarkdownField(body, 'Project repository'),
               'project-url': parseMarkdownField(body, 'Project URL'),
-              'maintainer-poc': parseMarkdownField(body, 'Maintainer point of contact'),
-              'goals': parseMarkdownField(body, 'Accessibility goals'),
-              'public-accountability-confirmation': parseCheckbox(body, 'I confirm that the project maintainers agree to a public tracking issue and publicly visible progress as part of this accountability model.')
+              'maintainer-poc': parseMarkdownField(body, 'Maintainer point of contact')
             };
 
             function parseGitHubHandles(value) {
