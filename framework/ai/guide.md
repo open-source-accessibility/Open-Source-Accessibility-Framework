@@ -15,21 +15,13 @@ Choose the skill for the phase you are working on:
 - [Testing Phase Skill](./skills/testing-skills.md): establish automated, keyboard, screen reader, manual, and documentation checks and document tested environments and limitations.
 - [Community Phase Skill](./skills/community-skills.md): improve accessible participation, responses, recognition, progress updates, and resource sharing.
 
-To add a skill to your project:
-
-1. Open the appropriate phase skill.
-2. Copy its `markdown` code block into a `SKILL.md` file in the skill directory supported by your AI agent.
-3. Allow the agent to read your repository and retrieve the phase document listed in `metadata.framework-source`.
-4. Ask the agent to use the phase skill and specify the scope you want.
-5. Review the proposed changes and verification results before committing or publishing them.
-
 ### Implement every action in a phase
 
 Ask the agent to implement all actions when your project is ready to work through the complete phase. For example:
 
 > Use the Testing Phase skill to implement all actions.
 
-The skill retrieves the current phase guidance, processes the actions in phase order, recognizes requirements the project already satisfies, and reports any requirements that still need manual testing, external configuration, or maintainer input.
+The skill uses its bundled phase guidance, processes the actions in phase order, recognizes requirements the project already satisfies, and reports any requirements that still need manual testing, external configuration, or maintainer input.
 
 ### Implement selected actions
 

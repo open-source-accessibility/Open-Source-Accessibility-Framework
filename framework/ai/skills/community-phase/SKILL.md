@@ -1,45 +1,3 @@
-# Community Phase Skill
-
-This skill can implement every action in the [Community Phase](../../phases/community-phase.md) or only the actions a user selects.
-
-Example requests:
-
-- "Use the Community Phase skill to implement all actions."
-- "Use the Community Phase skill to implement Actions 2 and 4."
-- "Use the Community Phase skill to draft an accessibility progress update."
-
-## Install the skill
-
-Choose one installation method.
-
-### Option 1: Install the complete package with npm
-
-Use npm to install the skill and its detailed offline action references:
-
-```sh
-npx @open-source-accessibility/framework-skills add community-phase --target <skill-directory>
-```
-
-Replace `<skill-directory>` with the skill directory supported by your AI agent.
-
-#### Detailed action references included with npm
-
-The npm package installs the following references:
-
-- [Action 1: Invite community help on accessibility work](./community-phase/references/action-01-invite-community-help-on-accessibility-work.md)
-- [Action 2: Respond constructively to accessibility reports](./community-phase/references/action-02-respond-constructively-to-accessibility-reports.md)
-- [Action 3: Provide accessible and respectful ways to contribute and collaborate](./community-phase/references/action-03-provide-accessible-and-respectful-ways-to-contribute-and-collaborate.md)
-- [Action 4: Recognize accessibility contributions publicly](./community-phase/references/action-04-recognize-accessibility-contributions-publicly.md)
-- [Action 5: Publish accessibility progress updates](./community-phase/references/action-05-publish-accessibility-progress-updates.md)
-- [Action 6: Share accessibility resources](./community-phase/references/action-06-share-accessibility-resources.md)
-
-They supplement the compact requirements in `SKILL.md` with each action's rationale and recommended steps. This can be more useful for projects that want detailed offline guidance because the agent can load only the references for the selected actions instead of loading every action's full guidance.
-
-### Option 2: Copy the skill directly
-
-If you do not want to use npm, copy the following code block into a `SKILL.md` file in your agent's skill directory. The copied skill is self-contained, includes compact definitions of done, and works without network access.
-
-```markdown
 ---
 name: community-phase
 description: "Implements all Community Phase actions or selected actions by number, title, or ID, with bundled offline requirements."
@@ -122,4 +80,3 @@ metadata:
     1. Useful accessibility resources are made publicly available.
     2. Resources include enough context for another project to use them.
     3. Ownership for maintaining the resources is identified.
-```
