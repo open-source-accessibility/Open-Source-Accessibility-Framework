@@ -47,7 +47,9 @@ jobs:
             }
 
             const projectName = getFieldValue('Project name') || 'Project';
-            const maintainerPoc = getFieldValue('Maintainer point of contact') || '@maintainer';
+            const maintainerPoc = getFieldValue('Maintainer / contributor point of contact')
+              || getFieldValue('Maintainer point of contact')
+              || '@maintainer';
             const issueUrl = issue.html_url;
             const participationHeading = '### Accessibility framework participation';
             const participationMessage = [

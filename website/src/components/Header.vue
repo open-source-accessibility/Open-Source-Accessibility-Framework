@@ -11,6 +11,7 @@ function closeMenu() {
 }
 
 function closeMenuAndRestoreFocus() {
+  if (!menuOpen.value) return;
   closeMenu();
   menuButton.value?.focus();
 }
@@ -22,7 +23,6 @@ function closeMenuAndRestoreFocus() {
       <RouterLink
         to="/"
         class="masthead__mark"
-        aria-label="Open Source Accessibility Framework"
         @click="closeMenu"
       >
         <img class="masthead__mark__logo" :src="logo" alt="" />

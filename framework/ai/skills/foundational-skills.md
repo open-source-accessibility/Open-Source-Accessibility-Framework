@@ -12,28 +12,9 @@ Example requests:
 
 Choose one installation method.
 
-### Option 1: Install the complete package with npm
+### Option 1: Copy the skill directly
 
-Use npm to install the skill and its detailed offline action references:
-
-```sh
-npx @open-source-accessibility/framework-skills add foundational-phase --target <skill-directory>
-```
-
-Replace `<skill-directory>` with the skill directory supported by your AI agent.
-
-#### Detailed action references included with npm
-
-The npm package installs the following references:
-
-- [Action 1: Create an ACCESSIBILITY.md](./foundational-phase/references/action-01-create-an-accessibilitymd.md)
-- [Action 2: Use an accessibility label to track relevant work](./foundational-phase/references/action-02-use-an-accessibility-label-to-track-relevant-work.md)
-
-They supplement the compact requirements in `SKILL.md` with each action's rationale and recommended steps. This can be more useful for projects that want detailed offline guidance because the agent can load only the references for the selected actions instead of loading every action's full guidance.
-
-### Option 2: Copy the skill directly
-
-If you do not want to use npm, copy the following code block into a `SKILL.md` file in your agent's skill directory. The copied skill is self-contained, includes compact definitions of done, and works without network access.
+Copy the following code block into a `SKILL.md` file in your agent's skill directory. The copied skill is self-contained, includes compact definitions of done, and works without network access.
 
 ```markdown
 ---
@@ -79,3 +60,12 @@ metadata:
     1. An `accessibility` label, or an equivalent label with a clear name, exists.
     2. The label is applied to the project’s relevant open tracking issues.
 ```
+
+### Option 2: Copy the complete package
+
+Copy the [`foundational-phase`](./foundational-phase/) directory, including its `references/` folder, into the skill directory supported by your AI agent. The package adds the following detailed action references:
+
+- [Action 1: Create an ACCESSIBILITY.md](./foundational-phase/references/action-01-create-an-accessibilitymd.md)
+- [Action 2: Use an accessibility label to track relevant work](./foundational-phase/references/action-02-use-an-accessibility-label-to-track-relevant-work.md)
+
+They supplement the compact requirements in `SKILL.md` with each action's rationale and recommended steps. The agent loads only the references for the selected actions instead of every action's full guidance.
