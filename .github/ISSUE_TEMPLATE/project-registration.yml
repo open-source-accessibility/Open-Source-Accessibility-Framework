@@ -10,7 +10,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thank you for your interest in the Open Source Accessibility Framework.
+        Thank you for your interest in the [Open Source Accessibility Framework](https://open-source-accessibility.github.io/Open-Source-Accessibility-Framework/).
 
         This framework uses a public accountability model, not private certification. Your project's tracking issue and accessibility progress will be publicly visible.
 
