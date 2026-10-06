@@ -27,6 +27,8 @@ Cadence describes how an action continues after its initial completion: **One-ti
 
 **Phase skill:** You can use the [Workflow Phase Skill](../ai/skills/workflow-skills.md) to implement this phase. Refer to the [Framework Skills instructions](../ai/guide.md#framework-skills) for setup and usage guidance.
 
+[Join the community by registering your project!](https://github.com/open-source-accessibility/Open-Source-Accessibility-Framework/issues/new?template=project-registration.yml) Your registration issue makes your progress visible alongside other projects using the framework, creating opportunities to share experience, offer mentorship, ask for help, and learn from one another.
+
 ## Workflow actions
 
 ### 1. Surface accessibility expectations for contributors

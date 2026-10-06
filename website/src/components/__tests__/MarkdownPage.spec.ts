@@ -177,13 +177,17 @@ describe('MarkdownPage', () => {
     ).toEqual(['/skills/testing', '/ai#framework-skills'])
   })
 
-  it('keeps non-website links pointing to repository files', async () => {
+  it('opens supporting documents in the GitHub code view unless they target a heading', async () => {
     const exactBranchUrl =
       'https://github.com/open-source-accessibility/Open-Source-Accessibility-Framework/blob/simplify-phases/framework/supporting/foundational-phase/initial-accessibility.md'
+    const plainUrl =
+      'https://github.com/open-source-accessibility/Open-Source-Accessibility-Framework/blob/main/framework/supporting/foundational-phase/initial-accessibility.md?plain=1'
     const { wrapper } = await mountMarkdownPage({
       markdown: [
         '[Relative supporting file](../supporting/foundational-phase/initial-accessibility.md)',
+        '[Supporting file with anchor](../supporting/foundational-phase/initial-accessibility.md#reporting)',
         `[Existing GitHub file](${exactBranchUrl})`,
+        `[Already plain](${plainUrl})`,
       ].join('\n\n'),
       sourcePath: 'framework/phases/foundational-phase.md',
     })
@@ -192,9 +196,24 @@ describe('MarkdownPage', () => {
 
     const links = wrapper.findAll('.markdown-page__content a')
     expect(links.map((link) => link.attributes('href'))).toEqual([
-      'https://github.com/open-source-accessibility/Open-Source-Accessibility-Framework/blob/main/framework/supporting/foundational-phase/initial-accessibility.md',
-      exactBranchUrl,
+      plainUrl,
+      'https://github.com/open-source-accessibility/Open-Source-Accessibility-Framework/blob/main/framework/supporting/foundational-phase/initial-accessibility.md#reporting',
+      `${exactBranchUrl}?plain=1`,
+      plainUrl,
     ])
+  })
+
+  it('keeps other non-website links pointing to repository files', async () => {
+    const { wrapper } = await mountMarkdownPage({
+      markdown: '[Maintainer file](../maintainers/framework-maintenance.md)',
+      sourcePath: 'framework/phases/foundational-phase.md',
+    })
+
+    await flushPromises()
+
+    expect(wrapper.find('.markdown-page__content a').attributes('href')).toBe(
+      'https://github.com/open-source-accessibility/Open-Source-Accessibility-Framework/blob/main/framework/maintainers/framework-maintenance.md',
+    )
   })
 
   it('adds matching, unique ids to action headings', async () => {

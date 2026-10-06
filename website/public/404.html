@@ -8,8 +8,8 @@
       // paths 404. Redirect to the app root with the original path preserved
       // in the query string, and main.ts restores it via history.replaceState.
       var basePath = '/Open-Source-Accessibility-Framework/';
-      var path = location.pathname.slice(basePath.length);
-      location.replace(basePath + '?redirect=' + encodeURIComponent(path) + location.search + location.hash);
+      var target = location.pathname.slice(basePath.length) + location.search + location.hash;
+      location.replace(basePath + '?redirect=' + encodeURIComponent(target));
     </script>
   </head>
   <body></body>

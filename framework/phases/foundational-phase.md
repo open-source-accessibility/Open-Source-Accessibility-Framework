@@ -19,6 +19,8 @@ Cadence describes how an action continues after its initial completion: **One-ti
 
 **Phase skill:** You can use the [Foundational Phase Skill](../ai/skills/foundational-skills.md) to implement this phase. Refer to the [Framework Skills instructions](../ai/guide.md#framework-skills) for setup and usage guidance.
 
+[Join the community by registering your project!](https://github.com/open-source-accessibility/Open-Source-Accessibility-Framework/issues/new?template=project-registration.yml) Your registration issue makes your progress visible alongside other projects using the framework, creating opportunities to share experience, offer mentorship, ask for help, and learn from one another.
+
 ## Foundational actions
 
 ### 1. Create an ACCESSIBILITY.md

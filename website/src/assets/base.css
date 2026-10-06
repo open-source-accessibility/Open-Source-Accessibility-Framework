@@ -214,6 +214,10 @@ a:hover {
   margin-inline-end: var(--space-2xs);
 }
 
+.masthead__menu-button {
+  display: none;
+}
+
 .masthead__mark:hover {
   color: var(--color-signal);
 }
@@ -261,7 +265,76 @@ a:hover {
   color: var(--color-signal);
 }
 
-@media (min-width: 48rem) {
+@media (max-width: 29.999rem) {
+  .masthead__inner {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: var(--space-2xs) var(--space-s);
+  }
+
+  .masthead__mark__logo {
+    margin-inline-end: 0;
+  }
+
+  .masthead__mark__name {
+    padding-left: 1em;
+  }
+
+  .masthead__menu-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2.75rem;
+    min-height: 2.75rem;
+    padding: var(--space-2xs);
+    border: var(--line-hairline) solid var(--color-line-strong);
+    border-radius: var(--radius);
+    background: transparent;
+    color: var(--color-ink);
+    cursor: pointer;
+  }
+
+  .masthead__menu-button:hover {
+    border-color: var(--color-signal);
+    color: var(--color-signal);
+  }
+
+  .masthead__menu-icon {
+    fill: none;
+    stroke: currentcolor;
+    stroke-linecap: round;
+    stroke-width: 2;
+  }
+
+  .phase-nav {
+    display: none;
+    grid-column: 1 / -1;
+  }
+
+  .phase-nav--open {
+    display: block;
+  }
+
+  .phase-nav__list {
+    flex-direction: column;
+    gap: 0;
+    padding-block-start: var(--space-2xs);
+    border-top: var(--line-hairline) solid var(--color-line);
+  }
+
+  .phase-nav__guidance {
+    border-inline-start: 0;
+    padding-inline-start: 0;
+  }
+
+  .phase-nav__link {
+    display: block;
+    padding-block: var(--space-xs);
+  }
+}
+
+@media (min-width: 52rem) {
   .masthead__inner {
     flex-direction: row;
     align-items: center;

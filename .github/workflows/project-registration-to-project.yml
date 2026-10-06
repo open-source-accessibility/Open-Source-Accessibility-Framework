@@ -44,10 +44,12 @@ jobs:
               'Project name': 'project-name',
               'Repository URL': 'project-repository',
               'Project URL': 'project-url',
-              'Maintainer POC': 'maintainer-poc',
-              'Accessibility goals': 'goals',
-              'Public accountability confirmed': 'public-accountability-confirmation'
+              'Maintainer / contributor POC': 'maintainer-poc',
+              'Maintainer POC': 'maintainer-poc'
             };
+
+            // Earlier registrations use the original heading, so accept both.
+            const pocLabels = ['Maintainer / contributor point of contact', 'Maintainer point of contact'];
 
             function parseMarkdownField(bodyText, label) {
               const escapedLabel = label.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -67,13 +69,19 @@ jobs:
               return match[1].toLowerCase() === 'x' ? 'Yes' : 'No';
             }
 
+            function parsePocField(bodyText) {
+              for (const label of pocLabels) {
+                const value = parseMarkdownField(bodyText, label);
+                if (value) return value;
+              }
+              return '';
+            }
+
             const values = {
               'project-name': parseMarkdownField(body, 'Project name'),
               'project-repository': parseMarkdownField(body, 'Project repository'),
               'project-url': parseMarkdownField(body, 'Project URL'),
-              'maintainer-poc': parseMarkdownField(body, 'Maintainer point of contact'),
-              'goals': parseMarkdownField(body, 'Accessibility goals'),
-              'public-accountability-confirmation': parseCheckbox(body, 'I confirm that the project maintainers agree to a public tracking issue and publicly visible progress as part of this accountability model.')
+              'maintainer-poc': parsePocField(body)
             };
 
             function parseGitHubHandles(value) {
@@ -101,14 +109,12 @@ jobs:
 
             const maintainerLogins = parseGitHubHandles(values['maintainer-poc']);
             if (maintainerLogins === null) {
-              core.setFailed('The Maintainer POC must contain one or more valid GitHub usernames.');
+              core.setFailed('The maintainer / contributor point of contact must contain one or more valid GitHub usernames.');
               return;
             }
 
             const previousBody = context.payload.changes?.body?.from || '';
-            const previousMaintainerLogins = parseGitHubHandles(
-              parseMarkdownField(previousBody, 'Maintainer point of contact')
-            ) || [];
+            const previousMaintainerLogins = parseGitHubHandles(parsePocField(previousBody)) || [];
             const currentAssignees = new Set(
               (issue.assignees || []).map(assignee => assignee.login.toLowerCase())
             );
@@ -258,7 +264,7 @@ jobs:
               });
             }
 
-            const maintainerFieldId = fieldIds['Maintainer POC'];
+            const maintainerFieldId = fieldIds['Maintainer / contributor POC'] || fieldIds['Maintainer POC'];
             if (maintainerLogins.length === 0 && maintainerFieldId) {
               await github.graphql(`
                 mutation($projectId: ID!, $itemId: ID!, $fieldId: ID!) {

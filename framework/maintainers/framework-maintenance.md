@@ -25,7 +25,25 @@ The framework does not require custom infrastructure, private onboarding, certif
 
 ## Updating the framework
 
-When changing phase actions or registration automation:
+When changing a framework phase:
+
+1. Edit the canonical phase document in [`framework/phases/`](../phases/).
+2. Update its overview, action definitions, task counts, and links together.
+3. Regenerate the skill packages and landing pages:
+
+   ```sh
+   node scripts/generate-phase-skills.mjs
+   ```
+
+4. Verify that the generated skill content is current:
+
+   ```sh
+   node scripts/generate-phase-skills.mjs --check
+   ```
+
+5. Commit the canonical phase changes and generated files together. Do not edit generated skill packages or landing pages directly.
+
+When changing registration automation:
 
 1. Update related documentation, overview counts, links, templates, and workflow messages together.
 2. Validate YAML syntax and GitHub Actions configuration.

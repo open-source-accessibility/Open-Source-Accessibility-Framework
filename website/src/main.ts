@@ -2,16 +2,19 @@ import './assets/main.css'
 
 import { createApp } from 'vue'
 import App from './App.vue'
-import router from './router'
 
 // Restore the path GitHub Pages' 404.html redirect preserved as a query
-// param, since GitHub Pages has no server-side support for SPA routing.
+// param before Vue Router reads the initial location. The router module is
+// imported only after the URL is rewritten because createWebHistory captures
+// the current location at creation time; importing it statically up top would
+// make deep links resolve to the index route with "?redirect=" still attached.
 const redirect = new URLSearchParams(location.search).get('redirect')
 if (redirect !== null) {
-  const target = router.resolve(`/${redirect}${location.hash}`)
-  history.replaceState(null, '', router.options.history.base + target.fullPath)
+  const baseUrl = import.meta.env.BASE_URL.replace(/\/?$/, '/')
+  history.replaceState(null, '', baseUrl + redirect.replace(/^\/+/, ''))
 }
 
+const { default: router } = await import('./router')
 const app = createApp(App)
 
 app.use(router)

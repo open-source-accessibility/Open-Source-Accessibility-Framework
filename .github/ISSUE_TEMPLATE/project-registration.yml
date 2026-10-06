@@ -10,7 +10,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thank you for your interest in the Open Source Accessibility Framework.
+        Thank you for your interest in the [Open Source Accessibility Framework](https://open-source-accessibility.github.io/Open-Source-Accessibility-Framework/).
 
         This framework uses a public accountability model, not private certification. Your project's tracking issue and accessibility progress will be publicly visible.
 
@@ -44,26 +44,8 @@ body:
   - type: input
     id: maintainer-poc
     attributes:
-      label: "Maintainer point of contact"
-      description: "Provide the GitHub handle of each maintainer who will be a point of contact."
+      label: "Maintainer / contributor point of contact"
+      description: "Provide the GitHub handle of each maintainer or contributor who will be a point of contact."
       placeholder: "@username or @username1 @username2"
     validations:
       required: true
-
-  - type: textarea
-    id: goals
-    attributes:
-      label: "Accessibility goals"
-      description: "What does the project hope to accomplish by participating in the Open Source Accessibility Framework?"
-      placeholder: "Describe the accessibility outcomes, improvements, or practices your project plans to pursue."
-    validations:
-      required: true
-
-  - type: checkboxes
-    id: public-accountability-confirmation
-    attributes:
-      label: "Public accountability confirmation"
-      description: "Participation requires public tracking so that the project's accessibility work and progress are visible to the community."
-      options:
-        - label: "I confirm that the project maintainers agree to a public tracking issue and publicly visible progress as part of this accountability model."
-          required: true

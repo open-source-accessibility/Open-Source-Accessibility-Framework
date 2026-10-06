@@ -29,8 +29,23 @@ const contentRoutes: Record<string, string> = {
 const githubContentLinkPattern =
   /^(?:\/?framework\/(?:phases|ai(?:\/skills)?)\/|https:\/\/github\.com\/open-source-accessibility\/Open-Source-Accessibility-Framework\/blob\/.+?\/framework\/(?:phases|ai(?:\/skills)?)\/)([^/?#]+\.md)([?#].*)?$/;
 
+const githubSupportingLinkPattern =
+  /^https:\/\/github\.com\/open-source-accessibility\/Open-Source-Accessibility-Framework\/blob\/.+?\/framework\/supporting\/.+\.md(?:[?#].*)?$/;
+
 const repositoryBlobUrl =
   "https://github.com/open-source-accessibility/Open-Source-Accessibility-Framework/blob/main";
+
+// GitHub's code view (`?plain=1`) only answers line anchors such as `#L12`;
+// a Markdown heading anchor resolves only in the rendered view, so a link
+// that targets a heading must keep the rendered view.
+function openInGitHubCodeView(href: string): string {
+  if (href.includes("#") || /[?&]plain=/.test(href)) {
+    return href;
+  }
+
+  const separator = href.includes("?") ? "&" : "?";
+  return `${href}${separator}plain=1`;
+}
 
 function websiteContentLink(filename: string, suffix = ""): string | undefined {
   const route = contentRoutes[filename];
@@ -77,6 +92,10 @@ function rewriteMarkdownLink(href: string, sourcePath: string): string {
     );
   }
 
+  if (githubSupportingLinkPattern.test(href)) {
+    return openInGitHubCodeView(href);
+  }
+
   if (
     href.startsWith("#") ||
     href.startsWith("//") ||
@@ -104,7 +123,10 @@ function rewriteMarkdownLink(href: string, sourcePath: string): string {
     return websiteContentLink(contentFilename, match[2]) ?? href;
   }
 
-  return `${repositoryBlobUrl}/${repositoryPath}${match[2] ?? ""}`;
+  const repositoryUrl = `${repositoryBlobUrl}/${repositoryPath}${match[2] ?? ""}`;
+  return repositoryPath.startsWith("framework/supporting/")
+    ? openInGitHubCodeView(repositoryUrl)
+    : repositoryUrl;
 }
 
 function isExternalLink(href: string): boolean {
