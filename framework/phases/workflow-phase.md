@@ -173,7 +173,7 @@ This action makes project information usable for everyone.
 
 #### Definition of done
 
-1. Documentation uses meaningful structure and semantics.
+1. Documentation uses meaningful structure and semantics (e.g. headings, lists).
 2. Images, diagrams, and videos have appropriate alternatives or supporting text.
 3. Tables and code blocks are presented accessibly.
 
