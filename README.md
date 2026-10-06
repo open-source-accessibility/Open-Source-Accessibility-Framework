@@ -6,14 +6,6 @@ The Open Source Accessibility Framework helps open source projects turn accessib
 
 This is an improvement framework, not a certification, score, or ranking. The goal is sustained progress and accountability.
 
-## Why adopt the framework?
-
-- Start with clear, achievable accessibility actions.
-- Build accessibility into existing project practices.
-- Give contributors well-defined ways to help.
-- Make progress and remaining barriers visible to users.
-- Adopt improvements incrementally at a pace that works for your project.
-
 ## Get started
 
 1. [Join the community by registering your project](https://github.com/open-source-accessibility/Open-Source-Accessibility-Framework/issues/new?template=project-registration.yml). Your registration issue makes your accessibility journey visible alongside other projects using the framework, creating opportunities to share experience, offer mentorship, ask for help, and learn from one another.
@@ -23,6 +15,14 @@ This is an improvement framework, not a certification, score, or ranking. The go
 3. Complete the remaining phases in the order that best suits your project, updating your tracking issue as you finish each action.
 
 Projects can work incrementally and adapt the actions to their size, maturity, and community needs.
+
+## Why adopt the framework?
+
+- Start with clear, achievable accessibility actions.
+- Build accessibility into existing project practices.
+- Give contributors well-defined ways to help.
+- Make progress and remaining barriers visible to users.
+- Adopt improvements incrementally at a pace that works for your project.
 
 ## Framework phases
 
