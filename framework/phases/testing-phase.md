@@ -1,8 +1,8 @@
 # Testing phase
 
-The testing phase establishes repeatable automated and manual practices for evaluating accessibility across a project’s code, interfaces, documentation, and core user flows. It combines automated tools, keyboard-only checks, screen reader spot checks, visual checks, and documentation reviews because no single testing method can identify every accessibility barrier.
+The testing phase establishes repeatable automated and manual practices for evaluating accessibility across a project's code, interfaces, documentation, and core user flows. It combines automated tools, keyboard-only checks, screen reader spot checks, visual checks, and documentation reviews because no single testing method can identify every accessibility barrier.
 
-The goal is not to test every possible interaction at once. Projects begin with representative, high-impact journeys and expand their coverage over time. Test results should be recorded, incorporated into CI/CD where practical, and connected to the project’s issue-tracking process so that barriers are addressed, prioritized, and revisited as the project changes.
+The goal is not to test every possible interaction at once. Projects begin with representative, high-impact journeys and expand their coverage over time. Test results should be recorded, incorporated into CI/CD where practical, and connected to the project's issue-tracking process so that barriers are addressed, prioritized, and revisited as the project changes.
 
 ## Phase overview
 
@@ -42,7 +42,7 @@ This action helps catch common regressions.
 #### Recommended Steps
 
 1. Review the guidance on [testing continuously](https://opensource.guide/accessibility-best-practices-for-your-project/#test-accessibility-continuously).
-2. Select an appropriate tool such as [Accessibility Insights](https://accessibilityinsights.io/downloads/). Other options include [eslint-plugin-jsx-a11y](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y), [WAVE](https://wave.webaim.org/), [axe](https://github.com/dequelabs/axe-core), and [GitHub Accessibility Scanner](https://github.com/github/accessibility-scanner).
+2. Select an appropriate tool such as [Accessibility Insights](https://accessibilityinsights.io/downloads/). Other options include [eslint-plugin-jsx-a11y](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y), [WAVE](https://wave.webaim.org/), [Axe DevTools Chrome extension](https://chromewebstore.google.com/detail/axe-devtools-web-accessib/lhdoppojpmngadmnindnejefpokejbdd), and the [GitHub Accessibility Scanner](https://github.com/github/accessibility-scanner).
 3. Configure the test or document the decision in your project documentation.
 4. Run the check against relevant project code or user flows.
 5. Ensure accessibility issues from CI/CD checks are tracked.
@@ -58,7 +58,12 @@ This action covers a high-impact baseline.
 #### Definition of done
 
 1. Key tasks have documented keyboard-only checks.
-2. The checks confirm keyboard access, focus visibility, and logical focus order.
+2. The checks confirm that all links and controls:
+   - Can be focused by keyboard
+   - Can be invoked by keyboard
+   - Provide a visible focus indicator
+   - Provide a logical focus order
+   - Have no keyboard traps
 3. Accessibility issues are fixed or tracked.
 
 #### Recommended Steps
@@ -85,7 +90,7 @@ This action validates real usability beyond automation.
 #### Recommended Steps
 
 1. Identify key tasks and user journeys.
-2. Select a supported screen reader and browser combination (such as Windows + [NVDA](https://www.nvaccess.org/download/) and MacOS + VoiceOver).
+2. Select a supported screen reader and browser combination such as Windows + [NVDA](https://www.nvaccess.org/download/), Windows + JAWS, and MacOS + VoiceOver. On mobile, test Android with Talkback and iOS with VoiceOver.
 3. Test the flows using a screen reader.
    - Refer to the [testing spot-check screen reader examples](https://github.com/open-source-accessibility/accessibility-toolkit/blob/main/ACCESSIBILITY.md#contributor-expectations).
 4. Fix accessibility issues or track them.
