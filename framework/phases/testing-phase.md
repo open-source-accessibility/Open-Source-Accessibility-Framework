@@ -104,17 +104,20 @@ This action addresses common visual access barriers.
 
 #### Definition of done
 
-1. Relevant interfaces have documented zoom, resize, reflow, and contrast checks.
+1. Relevant interfaces have documented checks for keyboard, descriptive language, plain language, zoom and reflow, and color contrast and usage.
 2. Information and functionality remain available at the tested settings.
 3. Accessibility issues are fixed or tracked.
 
 #### Recommended Steps
 
-1. Identify interfaces and content where zoom, resizing, reflow, or contrast are relevant.
-2. Validate the UI at larger zoom levels and resized viewport dimensions.
-3. Check that content reflows without loss of information or functionality (test at 200% and with narrow widths).
-4. Check applicable text, component, and focus contrast.
-5. Fix accessibility issues or track them.
+1. Identify key tasks and user journeys.
+1. Check for proper keyboard focus order, focus management, and adequate visual keyboard focus indicators.
+1. Check for quality of alternative text.
+1. Ensure that text such as page title, headings, input labels, and error messages are descriptive.
+1. Ensure that plain language is used instead of jargon and acronyms are spelled out on first reference.
+1. Ensure that content zooms (200%) and reflows (400%) without loss of information or functionality.
+1. Check for sufficient color contrast and that color is not used as the only way of conveying meaning or information.
+1. Fix accessibility issues or track them.
    - Refer to the [accessibility issue template example](https://github.com/open-source-accessibility/accessibility-toolkit/blob/main/.github/ISSUE_TEMPLATE/accessibility.yml) for guidance.
 
 ### 5. Perform accessibility checks for documentation
