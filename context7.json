@@ -1,4 +1,10 @@
 {
+  "$schema": "https://context7.com/schema/context7.json",
   "url": "https://context7.com/open-source-accessibility/open-source-accessibility-framework",
-  "public_key": "pk_GrrdL2wKDtsvzSZQ5W4s7"
+  "public_key": "pk_GrrdL2wKDtsvzSZQ5W4s7",
+  "rules": [
+    "Use framework/phases/ as the canonical source for action definitions of done and recommended steps; framework/ai/skills/ contains generated copies for installing phase skills.",
+    "When helping implement actions, confirm whether the user wants all actions or selected actions before changing files. Check existing work and report manual or external follow-up separately.",
+    "This is an improvement framework, not a certification, score, or guarantee of accessibility. Do not claim testing or compliance without evidence."
+  ]
 }
