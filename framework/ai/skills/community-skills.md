@@ -22,7 +22,7 @@ name: community-phase
 description: "Implements all Community Phase actions or selected actions by number, title, or ID, with bundled offline requirements."
 metadata:
   framework-phase-id: community
-  framework-bundle-digest: "5bea61d03bf6"
+  framework-bundle-digest: "5c543d1d91eb"
   framework-source-ref: main
   framework-source: "https://raw.githubusercontent.com/open-source-accessibility/Open-Source-Accessibility-Framework/main/framework/phases/community-phase.md"
 ---

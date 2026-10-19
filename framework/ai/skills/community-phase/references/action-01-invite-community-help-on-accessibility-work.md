@@ -18,7 +18,7 @@ Involving people with disabilities early brings lived experience that tools and 
 ## Recommended Steps
 
 1. Identify accessibility tasks that can be completed by community contributors.
-2. Create clearly scoped issues with context, and acceptance criteria and appropriate labels such as `accessibility` with `good first issue` for beginner-friendly work and `accessibility` with `help wanted` where projects are actively seeking support.
+2. Create clearly scoped issues with context, acceptance criteria, and appropriate labels such as `accessibility` with `good first issue` for beginner-friendly work and `accessibility` with `help wanted` where projects are actively seeking support.
 3. Invite participation through office hours, group channels, or community discussions.
 4. Provide contributors with a way to ask questions and receive feedback.
 5. Validate fixes with affected users when possible.
