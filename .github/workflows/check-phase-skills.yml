@@ -49,8 +49,8 @@ jobs:
           TARGET_BRANCH="${{ github.head_ref || github.ref_name }}"
           NEW_BRANCH="update-phase-skills-${TARGET_BRANCH}-${{ github.run_id }}"
 
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.name "osaf-phase-skills-bot[bot]"
+          git config user.email "osaf-phase-skills-bot[bot]@users.noreply.github.com"
 
           git checkout -b "$NEW_BRANCH"
           node scripts/generate-phase-skills.mjs
