@@ -19,9 +19,9 @@ When the user does not specify a scope, the skill directs the agent to ask wheth
 
 ## Current requirements
 
-Each skill retrieves its canonical phase document from the Open Source Accessibility Framework repository. It reads the complete sections for the selected actions and treats their definitions of done as authoritative.
+Each skill bundles compact definitions of done generated from its canonical phase document in `framework/phases/`. The bundled requirements are authoritative for an installed skill and work offline. If the complete package is installed, its action references provide rationale and recommended steps for the selected actions.
 
-The default source follows the `main` branch. Projects that require reproducible behavior can replace `main` with a framework release tag or commit SHA.
+The `metadata.framework-source` URL points to `main` by default as an optional source for checking newer guidance. An agent must not silently replace the bundled requirements when the online document differs. Projects that want to check a fixed version can replace `main` with a framework release tag or commit SHA.
 
 ## Implementation safeguards
 
@@ -35,4 +35,4 @@ The skills require an agent to:
 - protect contributor privacy and obtain authorization before external actions; and
 - report unmet requirements for maintainer review.
 
-If a phase document or requested action cannot be retrieved, the agent must stop rather than rely on remembered or cached requirements.
+If online guidance cannot be retrieved, the skill continues from its bundled requirements. If a requested action is absent from the bundle, the agent reports the mismatch and asks the user to select a valid action rather than inventing requirements.

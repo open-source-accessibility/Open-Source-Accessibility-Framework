@@ -1,5 +1,11 @@
 # AI Usage Guidance
 
+## Using Context7 for framework guidance
+
+The [Open Source Accessibility Framework on Context7](https://context7.com/open-source-accessibility/open-source-accessibility-framework) provides searchable excerpts from this repository. Ask for a specific phase and action (for example, "What is the definition of done for Workflow Action 8?") and check the cited source when making implementation decisions. The documents in [`framework/phases/`](../phases/) are the canonical action requirements; the skill pages and bundled references are generated from them.
+
+Context7 provides documentation context, not an installed phase skill. For guided implementation, install a phase skill below and specify whether to implement all actions or only selected ones. Review AI-generated work, and do not treat framework participation as a certification or proof of accessibility.
+
 ## Framework Skills
 
 **Want to use AI to help you implement the Accessibility Framework?**

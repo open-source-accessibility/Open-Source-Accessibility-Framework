@@ -1,0 +1,76 @@
+name: Check phase skills
+
+on:
+  pull_request:
+    paths:
+      - 'framework/phases/**'
+      - 'framework/ai/skills/**'
+      - 'scripts/generate-phase-skills.mjs'
+      - '.github/workflows/check-phase-skills.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'framework/phases/**'
+      - 'framework/ai/skills/**'
+      - 'scripts/generate-phase-skills.mjs'
+      - '.github/workflows/check-phase-skills.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  check-skills:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Check phase skills and create PR if out of date
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if node scripts/generate-phase-skills.mjs --check; then
+            echo "Portable phase skill packages are up to date."
+            exit 0
+          fi
+
+          echo "Phase skills are out of date. Generating updates and opening a pull request..."
+
+          TARGET_BRANCH="${{ github.head_ref || github.ref_name }}"
+          NEW_BRANCH="update-phase-skills-${TARGET_BRANCH}-${{ github.run_id }}"
+
+          git config user.name "osaf-phase-skills-bot[bot]"
+          git config user.email "osaf-phase-skills-bot[bot]@users.noreply.github.com"
+
+          git checkout -b "$NEW_BRANCH"
+          node scripts/generate-phase-skills.mjs
+
+          git add framework/ai/skills
+          if git diff --staged --quiet; then
+            echo "No changes detected after running generator script."
+            exit 1
+          fi
+
+          git commit -m "chore: regenerate phase skills"
+          git push origin "$NEW_BRANCH"
+
+          gh pr create \
+            --base "$TARGET_BRANCH" \
+            --head "$NEW_BRANCH" \
+            --title "chore: update phase skills for ${TARGET_BRANCH}" \
+            --body "Phase skills were out of date with canonical phase definitions. This automated pull request updates generated skill packages and landing pages."
+
+          echo "::error::Phase skills were out of date. Created pull request from ${NEW_BRANCH} against ${TARGET_BRANCH}."
+          exit 1
+
+
