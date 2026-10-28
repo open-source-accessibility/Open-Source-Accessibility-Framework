@@ -11,7 +11,6 @@ This repository contains the Open Source Accessibility Framework and its compani
 ## Repository structure
 
 - `README.md` is the adopter-facing introduction and entry point.
-- `framework/actions/` contains machine-readable action sources used to generate phase and skill content.
 - `framework/phases/` contains the canonical phase guidance.
 - `framework/supporting/` contains examples, templates, and detailed supporting guidance.
 - `framework/maintainers/` contains operational guidance for framework maintainers.
@@ -22,7 +21,7 @@ This repository contains the Open Source Accessibility Framework and its compani
 ## Documentation changes
 
 - Edit canonical content instead of copying framework content into Vue components.
-- For the Workflow Phase, edit `framework/actions/workflow/*.json`, then run `node scripts/generate-framework-content.mjs`. Do not edit `framework/phases/workflow-phase.md` or `framework/supporting/skills/workflow-skills.md` directly.
+- `framework/phases/*.md` are the canonical phase documents. After changing one, run `node scripts/generate-phase-skills.mjs` to regenerate the phase skill packages and landing pages under `framework/ai/skills/`. Do not edit the generated files directly.
 - For phases that have not migrated to generated content, edit their canonical Markdown directly.
 - Preserve the established structure of phase actions unless the requested change intentionally modifies it:
   - phase overview and totals
@@ -67,7 +66,7 @@ Run commands from the repository root unless noted otherwise.
 - Unit tests: `cd website && npm run test:unit -- --run`
 - Type-check and production build: `cd website && npm run build`
 - Lint: `cd website && npm run lint`
-- Generated content: `node scripts/generate-framework-content.mjs --check`
+- Generated phase skills: `node scripts/generate-phase-skills.mjs --check`
 
 Use the smallest relevant validation first. For documentation-only changes, verify headings, action and task totals, relative links, and rendered navigation; run the website tests or build when changes affect content routing or rendering assumptions. Review lint autofixes before keeping them because the lint command writes changes.
 
