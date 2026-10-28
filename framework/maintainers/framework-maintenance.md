@@ -56,10 +56,6 @@ When changing progress-tracking automation:
 - [Framework progress tracking issue form](../../.github/ISSUE_TEMPLATE/project-registration.yml)
 - [Progress setup and message workflow](../../.github/workflows/registration-badge.yaml)
 - [Project synchronization workflow](../../.github/workflows/project-registration-to-project.yml)
-- [Foundational verification action](../../action.yml)
-- [Foundational verification workflow](../../.github/workflows/verify-foundational.yml)
-- [Foundational verification comment workflow](../../.github/workflows/foundation-phase-check-comment.yml)
-- [Foundational verifier](../../scripts/verify_foundational.py)
 - [Framework participation message](../supporting/framework-participation-message.md)
 - [Framework project board](https://github.com/orgs/open-source-accessibility/projects/1)
 
