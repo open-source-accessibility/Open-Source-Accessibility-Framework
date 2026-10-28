@@ -1,0 +1,43 @@
+name: Check phase skills
+
+# Fails when the generated phase skill packages in framework/ai/skills/ are out
+# of date with the canonical phase documents in framework/phases/. To fix, run
+# `node scripts/generate-phase-skills.mjs` and commit the result.
+
+on:
+  pull_request:
+    paths:
+      - 'framework/phases/**'
+      - 'framework/ai/skills/**'
+      - 'scripts/generate-phase-skills.mjs'
+      - '.github/workflows/check-phase-skills.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'framework/phases/**'
+      - 'framework/ai/skills/**'
+      - 'scripts/generate-phase-skills.mjs'
+      - '.github/workflows/check-phase-skills.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check-skills:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Check phase skills are up to date
+        run: |
+          if ! node scripts/generate-phase-skills.mjs --check; then
+            echo "::error::Phase skills are out of date. Run 'node scripts/generate-phase-skills.mjs' and commit the result."
+            exit 1
+          fi
