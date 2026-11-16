@@ -59,7 +59,7 @@ function closeMenuAndRestoreFocus() {
         id="primary-navigation"
         class="phase-nav"
         :class="{ 'phase-nav--open': menuOpen }"
-        aria-label="Primary navigation"
+        aria-label="Primary"
       >
         <ul class="phase-nav__list" role="list">
           <li>
